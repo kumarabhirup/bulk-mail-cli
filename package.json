@@ -4,7 +4,8 @@
   "description": "Send bulk non-spammy emails right from your terminal!",
   "main": "src/bulkmailer.js",
   "scripts": {
-    "start": "node ./src/bulkmailer.js",
+    "start": "npm run build && node ./src/dist/src/bulkmailer.js",
+    "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "test": "echo No tests written."
   },
   "repository": {
@@ -14,9 +15,13 @@
   "dependencies": {
     "terminal-kit": "^1.26.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "rimraf": "^2.6.2"
+  },
   "bin": {
-    "bulkmail": "./bin/global.js"
+    "bulkmail": "./src/dist/src/bin/global.js"
   },
   "preferGlobal": true,
   "keywords": [

@@ -9,21 +9,22 @@
  * 
  **/
 
+import { terminal } from 'terminal-kit'
+import { writeFile } from 'fs'
+var settings = require(process.cwd() + '/.config/settings.json')
+
 var args = process.argv.splice(process.execArgv.length + 2) // Retrieve all Arguments
-var terminal = require('terminal-kit').terminal
-var fs = require('fs')
 
-var config = fs.readFileSync(process.cwd() + '/.config/settings.json')
-var data = JSON.parse(config)
+terminal.green.bold('\n\nHi... ' + args[0] + '! This is Bulkmail 😁\n\n\n')
 
-var name = args[0] // Retrieve the first argument
+console.log('Old Config File: \n' + settings)
 
-var newData = JSON.stringify(data, null, 2)
-fs.writeFile(process.cwd() + '/.config/settings.json', newData, function (err){
+settings.username = args[0]
+
+var data = JSON.stringify(settings, null, 2)
+writeFile(process.cwd() + '/.config/settings.json', data, function (err){
     console.log(err)
 })
-terminal.green.bold('\n\nHi... ' + name + '! This is Bulkmail 😁\n\n\n')
 
-console.log(newData)
-console.log(args);
+console.log('New Config File: \n' + settings)
 
