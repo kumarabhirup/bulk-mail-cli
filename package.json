@@ -1,0 +1,37 @@
+{
+  "name": "bulk-mail-cli",
+  "version": "0.0.1",
+  "description": "Send bulk non-spammy emails right from your terminal!",
+  "main": "src/bulkmailer.js",
+  "scripts": {
+    "start": "node src/bulkmailer.js",
+    "test": "echo No tests written."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
+  },
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    
+  },
+  "keywords": [
+    "mail",
+    "bulk",
+    "javascript",
+    "nodemailer",
+    "emailjs",
+    "cli",
+    "email",
+    "node",
+    "mailer"
+  ],
+  "author": "Kumar Abhirup",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/KumarAbhirup/bulk-mail-cli/issues"
+  },
+  "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme"
+}
