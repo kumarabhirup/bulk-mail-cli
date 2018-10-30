@@ -4,7 +4,7 @@
   "description": "Send bulk non-spammy emails right from your terminal!",
   "main": "src/bulkmailer.js",
   "scripts": {
-    "start": "node src/bulkmailer.js",
+    "start": "node ./src/bulkmailer.js",
     "test": "echo No tests written."
   },
   "repository": {
@@ -12,11 +12,13 @@
     "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
   },
   "dependencies": {
-    
+    "terminal-kit": "^1.26.4"
   },
-  "devDependencies": {
-    
+  "devDependencies": {},
+  "bin": {
+    "bulkmail": "./bin/global.js"
   },
+  "preferGlobal": true,
   "keywords": [
     "mail",
     "bulk",
