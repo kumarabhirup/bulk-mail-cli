@@ -4,11 +4,12 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Extras
+dist*
 package-lock.json*
 *.lock
-
-# Dist
-dist*
+junkies*
 
 # Runtime data
 pids

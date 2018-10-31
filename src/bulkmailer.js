@@ -9,22 +9,8 @@
  * 
  **/
 
-import { terminal } from 'terminal-kit'
-import { writeFile } from 'fs'
-var settings = require(process.cwd() + '/.config/settings.json')
+import Minimist from './utils/minimist.util'
 
-var args = process.argv.splice(process.execArgv.length + 2) // Retrieve all Arguments
-
-terminal.green.bold('\n\nHi... ' + args[0] + '! This is Bulkmail 😁\n\n\n')
-
-console.log('Old Config File: \n' + settings)
-
-settings.username = args[0]
-
-var data = JSON.stringify(settings, null, 2)
-writeFile(process.cwd() + '/.config/settings.json', data, function (err){
-    console.log(err)
-})
-
-console.log('New Config File: \n' + settings)
-
+// Arguments made by user are read here.
+let minimistStarter = new Minimist()
+minimistStarter.getArgs()

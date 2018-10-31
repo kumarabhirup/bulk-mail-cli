@@ -1,11 +1,11 @@
 {
   "name": "bulk-mail-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Send bulk non-spammy emails right from your terminal!",
-  "main": "src/bulkmailer.js",
+  "main": "src/dist/src/bulkmailer.js",
   "scripts": {
-    "start": "npm run build && node ./src/dist/src/bulkmailer.js",
-    "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "start": "npm run build && node ./src/dist/src/bulkmailer.js --hud hhh",
+    "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
     "test": "echo No tests written."
   },
   "repository": {
@@ -13,6 +13,7 @@
     "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
   },
   "dependencies": {
+    "minimist": "^1.2.0",
     "terminal-kit": "^1.26.4"
   },
   "devDependencies": {
