@@ -10,7 +10,17 @@
  **/
 
 import Minimist from './utils/minimist.util'
+import Text from './utils/Text/text.util'
 
-// Arguments made by user are read here.
-let minimistStarter = new Minimist()
-minimistStarter.getArgs()
+
+Text.setSetting("lang", "en")
+
+Minimist.getArgs()
+
+Text.setSetting("username", "Kumar Abhirup")
+Text.setSetting("password", "1234567890")
+
+console.log(Text.getSetting("password")) // Right
+console.log(Text.getSetting("passoword")) // Wrong
+
+console.log(Text.getText("hi_text", "jointTexts", 1) + Text.getSetting("username") + Text.getText("hi_text", "jointTexts", 2))

@@ -1,0 +1,23 @@
+{
+    "texts": {
+        "arguments_returned": {
+            "en": "Arguments returned:",
+            "cn": "参数返回:",
+            "in": "तर्क वापस आ गए:"
+        }
+    },
+    "jointTexts": {
+        "hi_text": {
+            "1": {
+                "en": "Hi, ",
+                "cn": "你好, ",
+                "in": "नमस्ते, "
+            },
+            "2": {
+                "en": "! How are you?",
+                "cn": "! 你好吗?",
+                "in": "! क्या हाल है?"
+            }
+        }
+    }
+}
