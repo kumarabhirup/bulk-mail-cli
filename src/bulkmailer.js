@@ -9,18 +9,26 @@
  * 
  **/
 
-import Minimist from './utils/minimist.util'
-import Text from './utils/Text/text.util'
+import BulkMailCli_minimist from './utils/minimist.util'
+import BulkMailCli_i18n from './utils/i18n/i18n.util'
+import BulkMailCli_settings from './utils/settings.util'
+
+var { getArgs } = BulkMailCli_minimist
+var { getText } = BulkMailCli_i18n
+var { setSetting, getSetting } = BulkMailCli_settings
 
 
-Text.setSetting("lang", "en")
+setSetting("lang", "en")
 
-Minimist.getArgs()
+getArgs()
 
-Text.setSetting("username", "Kumar Abhirup")
-Text.setSetting("password", "1234567890")
+setSetting("username", "John Doe")
+setSetting("username") // This triggers an error: @see https://github.com/KumarAbhirup/bulk-mail-cli/issues/3
 
-console.log(Text.getSetting("password")) // Right
-console.log(Text.getSetting("passoword")) // Wrong
+setSetting("password", "1234567890")
+setSetting("password", "HiBye") // This triggers an error: @see https://github.com/KumarAbhirup/bulk-mail-cli/issues/3
 
-console.log(Text.getText("hi_text", "jointTexts", 1) + Text.getSetting("username") + Text.getText("hi_text", "jointTexts", 2))
+console.log(getSetting("password")) // Right
+console.log(getSetting("passoword")) // Wrong
+
+console.log(getText("hi_text", "jointTexts", 1) + getSetting("username") + getText("hi_text", "jointTexts", 2))
