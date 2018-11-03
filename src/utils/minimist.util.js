@@ -14,6 +14,7 @@ class BulkMailCli_minimist {
 
     constructor(){}
 
+    
     /**
      * @method @name getArgs (@static)
      * @param none

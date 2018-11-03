@@ -14,6 +14,7 @@ class BulkMailCli_i18n {
 
     constructor(){}
 
+    
     /**
      * @method @name getText (@static)
      * 
