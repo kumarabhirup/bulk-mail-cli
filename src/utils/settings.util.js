@@ -25,7 +25,7 @@ class BulkMailCli_settings {
      * @method @name constructor (@constructor)
      * 
      * @param none
-     * @returns <settings>
+     * @returns object <settings>
      * 
      * @description To instantiate an updated settings variable everytime.
      */
@@ -39,7 +39,7 @@ class BulkMailCli_settings {
      * @method @name getSetting (@static)
      * 
      * @param setting - The setting you need from settings.json file (string)
-     * @returns <setting> or <false>
+     * @returns string <setting> or false
      * 
      * @description Returns the needed setting or configuration.
      */
@@ -60,7 +60,7 @@ class BulkMailCli_settings {
      * @param setting - What is the setting/configuration that you wanna save? (string)
      * @param value - What is the value that you wanna assign to the new/updated setting/configuration? (string)
      * 
-     * @returns <Promise> or <false>
+     * @returns Promise or false
      * 
      * @async Please use this method only in async functions.
      *        DO NOT FORGET TO PUT AN `await` before calling this function.
@@ -74,7 +74,7 @@ class BulkMailCli_settings {
         var settings = new BulkMailCli_settings
         try{
 
-            settings[setting] = "null"
+            settings[setting] = null
             settings[setting] = value
 
             let data = JSON.stringify(settings) // JSON.stringify(settings, null, 2) for tabbed spaces and styling

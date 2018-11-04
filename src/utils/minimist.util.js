@@ -7,17 +7,30 @@
  */
 
 var minimist = require('minimist')
+
 import BulkMailCli_i18n from './i18n/i18n.util'
+import { help } from './tools/help.util'
 var { getText } = BulkMailCli_i18n
 
 class BulkMailCli_minimist {
 
     constructor(){}
 
-    
+    /**
+     * @method @name documentation (@static)
+     * @param none
+     * @returns void
+     * @description Runs when `bulkmail` is typed in terminal
+     */
+    static bulkmail(){
+        help()
+    }
+
+
     /**
      * @method @name getArgs (@static)
      * @param none
+     * @returns object <args>
      * @description Returns all arguments passed with bulkmail cli...
      */
     static getArgs(){

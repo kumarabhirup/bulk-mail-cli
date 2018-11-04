@@ -19,7 +19,7 @@ import BulkMailCli_settings from './settings.util'
 require("@babel/register")
 require("@babel/polyfill")
 
-var { getArgs } = BulkMailCli_minimist
+var { getArgs, bulkmail } = BulkMailCli_minimist
 var { getText } = BulkMailCli_i18n
 var { setSetting, getSetting } = BulkMailCli_settings
 
@@ -28,14 +28,17 @@ class BulkMailCli {
     /**
      * @method @name constructor (@constructor)
      * @param none
+     * @returns void
      * @description Initializes BulkMailCli
      */
     constructor(){
 
+        bulkmail()
         this.setSettings()
         
     }
 
+    
     async setSettings(){
         await setSetting("lang", "en")
     }

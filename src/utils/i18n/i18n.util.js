@@ -22,6 +22,8 @@ class BulkMailCli_i18n {
      * @param textType <"texts": default> or <"jointTexts"> (string)
      * @param stringNumber <1: default> (integer) 
      * 
+     * @returns string <value> or false
+     * 
      * @description Returns the text of the configurated language...
      */
     static getText(string, textType = "texts", stringNumber = 1){

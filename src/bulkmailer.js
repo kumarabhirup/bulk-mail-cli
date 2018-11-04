@@ -11,4 +11,4 @@
 
 import BulkMailCli from './utils/main.class'
 
-var bmc = new BulkMailCli()
+new BulkMailCli()

@@ -6,7 +6,7 @@ import { writeFile } from 'fs'
  * @param file - Path of the file to be edited.
  * @param data - Data to be entered in that file.
  * 
- * @returns <Promise (true or false)>
+ * @returns Promise <true or false>
  * 
  * @async Please use this method only in async functions.
  *        DO NOT FORGET TO PUT AN `await` before calling this function.
