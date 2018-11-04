@@ -8,19 +8,18 @@
 
 var minimist = require('minimist')
 
-import BulkMailCli_i18n from './i18n/i18n.util'
-import { help } from './tools/help.util'
-var { getText } = BulkMailCli_i18n
+import BulkMailCli_commands from './commands/commands.class'
+var { help } = BulkMailCli_commands
 
 class BulkMailCli_minimist {
 
     constructor(){}
 
     /**
-     * @method @name documentation (@static)
+     * @method @name bulkmail (@static)
      * @param none
      * @returns void
-     * @description Runs when `bulkmail` is typed in terminal
+     * @description Runs for every command regarding bulkamil
      */
     static bulkmail(){
         help()
@@ -35,8 +34,22 @@ class BulkMailCli_minimist {
      */
     static getArgs(){
         const args = minimist(process.argv.slice(2))
-        console.log(getText("arguments_returned", "texts") + " \n" + JSON.stringify(args, null, 2))
+        // console.log(getText("arguments_returned", "texts") + " \n" + JSON.stringify(args, null, 2))
         return args
+    }
+
+
+    /**
+     * @method @name emptyArg (@static)
+     * @param none
+     * @returns boolean
+     * @description Tells if any argument is used or not.
+     */
+    static isArgsEmpty(){
+        var args = this.getArgs()
+        if(JSON.stringify(args) == JSON.stringify({"_":[]})){
+            return true
+        } return false
     }
 
 }

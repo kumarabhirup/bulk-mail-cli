@@ -6,9 +6,9 @@ import { terminal } from 'terminal-kit'
  * @param none
  * @returns void
  * 
- * @description The below snippet is rendered when `bulkmail` is typed in terminal.
+ * @description Used to render help text.
  */
-export const help = () => {
+const help = () => {
     
 // These lines of code are better. NOT to indent.  
 terminal.green.bold(`\nbulkmail-cli here. 😄\n`)
@@ -38,3 +38,5 @@ terminal.green.bold(`\nbulkmail-cli here. 😄\n`)
 .yellow.bold(`Happy BULKMAILING!\n\n`)
 
 }
+
+export default help

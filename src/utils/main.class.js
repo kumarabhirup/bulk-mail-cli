@@ -9,6 +9,7 @@
 import BulkMailCli_minimist from './minimist.util'
 import BulkMailCli_i18n from './i18n/i18n.util'
 import BulkMailCli_settings from './settings.util'
+import { terminal } from 'terminal-kit'
 
 /**
  * @summary Needed these two for using new .js language features
@@ -32,13 +33,10 @@ class BulkMailCli {
      * @description Initializes BulkMailCli
      */
     constructor(){
-
-        bulkmail()
         this.setSettings()
-        
+        bulkmail()
     }
 
-    
     async setSettings(){
         await setSetting("lang", "en")
     }
