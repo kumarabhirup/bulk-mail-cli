@@ -12,5 +12,4 @@
 
 import BulkMailCli from './utils/main.class'
 
-
-new BulkMailCli()
+new BulkMailCli().create()

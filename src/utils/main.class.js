@@ -9,6 +9,7 @@
 
 import BulkMailCli_minimist from './minimist.util'
 import BulkMailCli_settings from './settings/settings.util'
+import { hostname } from 'os'
 import { terminal } from 'terminal-kit'
 
 
@@ -23,19 +24,22 @@ require("@babel/polyfill")
 
 
 var { bulkmail } = BulkMailCli_minimist
-var { setSetting } = BulkMailCli_settings
+var { setSetting, getSettings } = BulkMailCli_settings
 
 
 class BulkMailCli {
 
+    constructor(){}
+
+
     /**
-     * @method @name constructor (@constructor)
+     * @method @name create (Not @static)
      * @param none
      * @returns void
-     * @description Initializes BulkMailCli
+     * @description Initializes at every BulkMailCli command
      */
-    constructor(){
-        this.setSettings()
+    async create(){
+        await this.setSettings()
         bulkmail()
     }
 
@@ -48,7 +52,23 @@ class BulkMailCli {
      * @description Sets all the required settings to run bulkmail cli.
      */
     async setSettings(){
-        await setSetting("lang", "en")
+        if(BulkMailCli.isFirstTime()){
+            await setSetting("lang", "en")
+            await setSetting("username", hostname())
+        }
+    }
+
+
+    /**
+     * @method @name isFirstTime (@static)
+     * @param none
+     * @returns boolean
+     * @description Tells whether the command ran in regard of bulkmail is for the first time or not.
+     */
+    static isFirstTime(){
+        if(JSON.stringify(getSettings()) == JSON.stringify({})){
+            return true
+        } return false
     }
 
 }

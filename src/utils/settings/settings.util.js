@@ -64,6 +64,18 @@ class BulkMailCli_settings {
 
 
     /**
+     * @method @name getSettings (@static)
+     * @param none
+     * @returns object
+     * @description Returns the `settings` object
+     */
+    static getSettings(){
+        var settings = new BulkMailCli_settings
+        return settings
+    }
+
+
+    /**
      * @method @name setSetting (@static)
      *
      * @param setting - What is the setting/configuration that you wanna save? (string)
