@@ -6,9 +6,11 @@
  * Date of creation: Wed, 1st Nov 2018. 19:52:18 IST
  */
 
-import BulkMailCli_settings from '../settings.util'
+ 
+import BulkMailCli_settings from '../settings/settings.util'
 var { getSetting } = BulkMailCli_settings
 var strings = require('./strings.json')
+
 
 class BulkMailCli_i18n {
 

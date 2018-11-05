@@ -6,10 +6,11 @@
  * Date of creation: Fri, 2nd Nov 2018. 21:39:31 IST
  */
 
+
 import BulkMailCli_minimist from './minimist.util'
-import BulkMailCli_i18n from './i18n/i18n.util'
-import BulkMailCli_settings from './settings.util'
+import BulkMailCli_settings from './settings/settings.util'
 import { terminal } from 'terminal-kit'
+
 
 /**
  * @summary Needed these two for using new .js language features
@@ -20,9 +21,10 @@ import { terminal } from 'terminal-kit'
 require("@babel/register")
 require("@babel/polyfill")
 
-var { getArgs, bulkmail } = BulkMailCli_minimist
-var { getText } = BulkMailCli_i18n
-var { setSetting, getSetting } = BulkMailCli_settings
+
+var { bulkmail } = BulkMailCli_minimist
+var { setSetting } = BulkMailCli_settings
+
 
 class BulkMailCli {
 
@@ -37,6 +39,14 @@ class BulkMailCli {
         bulkmail()
     }
 
+
+    /**
+     * @method @name setSettings (Not @static)
+     * @param none
+     * @async This has to be an async function due to compulsory use of `await` before `setSetting()`.
+     * @returns void
+     * @description Sets all the required settings to run bulkmail cli.
+     */
     async setSettings(){
         await setSetting("lang", "en")
     }

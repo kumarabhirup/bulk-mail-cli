@@ -6,7 +6,9 @@
  * Date of creation: Fri, 2nd Nov 2018. 2:34:18 IST
  */
 
-import { writeFileForPromise } from './writeFile.util'
+
+import { writeFileForPromise } from '../writeFile.util'
+
 
 /**
  * @summary Needed these two for using new .js language features
@@ -17,7 +19,14 @@ import { writeFileForPromise } from './writeFile.util'
 require("@babel/register")
 require("@babel/polyfill")
 
-const SETTINGS_PATH = process.cwd() + '/.config/settings.json'
+
+/**
+ * @uses BulkMailCli_settings
+ * @summary BulkMailCli_settings was required for solving issue #4. [Solved]
+ * @see https://github.com/KumarAbhirup/bulk-mail-cli/issues/4
+ */
+const SETTINGS_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/src/utils/settings/settings.json'
+
 
 class BulkMailCli_settings {
 
@@ -84,7 +93,7 @@ class BulkMailCli_settings {
                     resolve(settings)
                 })
                 return await doneSetting
-            } else{
+            } else {
                 return false
             }            
 

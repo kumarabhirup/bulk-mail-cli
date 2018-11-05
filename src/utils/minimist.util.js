@@ -6,14 +6,18 @@
  * Date of creation: Wed, 31st Oct 2018. 2:34:18 IST
  */
 
+
 var minimist = require('minimist')
 
+
 import BulkMailCli_commands from './commands/commands.class'
-var { help } = BulkMailCli_commands
+var { help, wrongCommand } = BulkMailCli_commands
+
 
 class BulkMailCli_minimist {
 
     constructor(){}
+
 
     /**
      * @method @name bulkmail (@static)

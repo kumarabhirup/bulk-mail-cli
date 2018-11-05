@@ -9,6 +9,8 @@
  * 
  **/
 
+
 import BulkMailCli from './utils/main.class'
+
 
 new BulkMailCli()
