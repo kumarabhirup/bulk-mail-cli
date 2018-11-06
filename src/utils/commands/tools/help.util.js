@@ -14,7 +14,7 @@ var { getSetting } = BulkMailCli_settings
 const help = () => {
     
 // These lines of code are better. NOT to indent.  
-terminal.yellow.bold(`\nHey, ${ getSetting("username") }! `).green.bold(`bulkmail-cli here. 😄\n`)
+terminal.yellow.bold(`\nHey, ${ getSetting("username") }! `).green.bold(`bulk-mail-cli here. 😄\n`)
 .white.italic(`Send bulk non-spammy emails right from your terminal! 🤘 \n`)
 .white.bold(`UnderEstimating? 😡  `).white(`Read the documentation to learn what it can do!\n^_https://github.com/KumarAbhirup/bulk-mail-cli^ 🍺🍺\n\n`)
 

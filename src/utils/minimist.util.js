@@ -11,7 +11,7 @@ var minimist = require('minimist')
 
 
 import BulkMailCli_commands from './commands/commands.class'
-var { help, wrongCommand } = BulkMailCli_commands
+var { help, config } = BulkMailCli_commands
 
 
 class BulkMailCli_minimist {
@@ -27,6 +27,7 @@ class BulkMailCli_minimist {
      */
     static bulkmail(){
         help()
+        config()
     }
 
 

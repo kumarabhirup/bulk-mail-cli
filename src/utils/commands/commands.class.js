@@ -9,15 +9,17 @@
 
 import BulkMailCli_minimist from '../minimist.util'
 import { terminal } from 'terminal-kit'
-import help from './tools/help.util'
+var isArrayInThere = require('array-includes')
 
+import help from './tools/help.util'
+import selectLang from './tools/selectLang.util'
 
 class BulkMailCli_commands {
 
     constructor(){}
 
     /**
-     * @method @name help
+     * @method @name help (@static)
      *
      * @param none
      * @returns void
@@ -29,9 +31,39 @@ class BulkMailCli_commands {
     static help(){
         if(BulkMailCli_minimist.isArgsEmpty()){
             help()
-        } else {
-            terminal.yellow.bold(`An argument is Provided.\n`)
         }
+    }
+
+
+    /**
+     * @method @name config (@static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @description Used to change user configs in the CLI.
+     */
+    static config(){
+
+        if(!BulkMailCli_minimist.isArgsEmpty() && isArrayInThere(BulkMailCli_minimist.getArgs()["_"], "config")){
+
+            
+            if(BulkMailCli_minimist.getArgs()["lang"]){
+                selectLang()
+            } else {
+                terminal.red.bold(`\nThat's a wrong ^w "bulkmail config" ^r command! ^ 😩\n`)
+            }
+
+        }
+
+    }
+
+
+    /**
+     * 
+     */
+    static wrongCommand(){
+        terminal.yellow.bold(`An argument is Provided.\n`)
     }
 
 }

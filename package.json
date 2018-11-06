@@ -13,6 +13,7 @@
     "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
   },
   "dependencies": {
+    "array-includes": "^3.0.3",
     "minimist": "^1.2.0",
     "terminal-kit": "^1.26.4"
   },
