@@ -13,6 +13,7 @@ var isArrayInThere = require('array-includes')
 
 import help from './tools/help.util'
 import selectLang from './tools/selectLang.util'
+import changeUsername from './tools/changeUsername.util'
 
 class BulkMailCli_commands {
 
@@ -50,6 +51,8 @@ class BulkMailCli_commands {
             
             if(BulkMailCli_minimist.getArgs()["lang"]){
                 selectLang()
+            } else if(BulkMailCli_minimist.getArgs()["username"]){
+                changeUsername()
             } else {
                 terminal.red.bold(`\nThat's a wrong ^w "bulkmail config" ^r command! ^ 😩\n`)
             }

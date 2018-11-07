@@ -26,6 +26,7 @@ class BulkMailCli_minimist {
      * @description Runs for every command regarding bulkamil
      */
     static bulkmail(){
+        
         help()
         config()
     }
