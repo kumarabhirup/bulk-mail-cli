@@ -2,7 +2,7 @@ import { terminal } from 'terminal-kit'
 import BulkMailCli_settings from '../../settings/settings.util'
 import BulkMailCli_i18n from '../../i18n/i18n.util'
 
-var { setSetting, getSetting } = BulkMailCli_settings
+var { setSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
 
 /**

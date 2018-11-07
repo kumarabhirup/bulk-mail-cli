@@ -8,19 +8,31 @@
 
 
 import BulkMailCli_minimist from '../minimist.util'
+import BulkMailCli_booleanCommands from './booleanCommands.class'
 import { terminal } from 'terminal-kit'
-var isArrayInThere = require('array-includes')
 
 import help from './tools/help.util'
 import selectLang from './tools/selectLang.util'
 import changeUsername from './tools/changeUsername.util'
 
+var { isHelp, isConfig } = BulkMailCli_booleanCommands
+
+
 class BulkMailCli_commands {
 
-    constructor(){}
+    constructor(){
+        if(isHelp()){
+            this.help()
+        } else if(isConfig()){
+            this.config()
+        } else {
+            this.wrongCommand()
+        }
+    }
 
+    
     /**
-     * @method @name help (@static)
+     * @method @name help (Not @static)
      *
      * @param none
      * @returns void
@@ -29,44 +41,46 @@ class BulkMailCli_commands {
      * 
      * @summary DO NOT CHANGE ANYTHING HERE. Because, it just works.
      */
-    static help(){
-        if(BulkMailCli_minimist.isArgsEmpty()){
+    help(){
+        if(isHelp()){
             help()
         }
     }
 
 
     /**
-     * @method @name config (@static)
+     * @method @name config (Not @static)
      *
      * @param none
      * @returns void
      * 
      * @description Used to change user configs in the CLI.
      */
-    static config(){
+    config(){
+        if(isConfig()){
 
-        if(!BulkMailCli_minimist.isArgsEmpty() && isArrayInThere(BulkMailCli_minimist.getArgs()["_"], "config")){
-
-            
             if(BulkMailCli_minimist.getArgs()["lang"]){
                 selectLang()
             } else if(BulkMailCli_minimist.getArgs()["username"]){
                 changeUsername()
             } else {
-                terminal.red.bold(`\nThat's a wrong ^w "bulkmail config" ^r command! ^ 😩\n`)
+                terminal.red.bold(`\nThat's a wrong ^w "bulkmail config" ^r command! ^ 😩\n\n`) 
             }
 
         }
-
     }
 
 
     /**
+     * @method @name wrongCommand (Not @static)
+     *
+     * @param none
+     * @returns void
      * 
+     * @description Renders when an unknown argument or command is used.
      */
-    static wrongCommand(){
-        terminal.yellow.bold(`An argument is Provided.\n`)
+    wrongCommand(){
+        terminal.red.bold(`\nWTF was that? Did you mean something different? 😕\n\n`)
     }
 
 }
