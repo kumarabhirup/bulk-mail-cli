@@ -15,15 +15,15 @@ var { getText } = BulkMailCli_i18n
  */
 var changeUsername = async () => {
 
-    terminal.yellow.bold(`\n${getText("your_current_username", "jointTexts", 1)} ${getSetting("username")}${getText("your_current_username", "jointTexts", 2)}\n\n`)
+    terminal.yellow.bold(`${getText("your_current_username", "jointTexts", 1)} ${getSetting("username")}${getText("your_current_username", "jointTexts", 2)}`)
 
-    terminal.cyan.bold(`${getText("please_enter_username", "texts")}`)
+    terminal.cyan.bold(`${getText("please_enter_username")}`)
 
     var input = await terminal.inputField().promise
 
     await setSetting("username", input)
 
-    terminal.green.bold(`\n\n${getText("your_new_username", "jointTexts", 1)} ${getSetting("username")}${getText("your_new_username", "jointTexts", 2)}\n\n`)
+    terminal.green.bold(`${getText("your_new_username", "jointTexts", 1)} ${getSetting("username")}${getText("your_new_username", "jointTexts", 2)}`)
     
     process.exit()
 

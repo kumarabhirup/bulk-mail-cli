@@ -1,51 +1,125 @@
 {
     "texts": {
         "please_select_lang": {
-            "en": "Please select the language that you speak in... 📢",
-            "cn": "请选择您说的语言... 📢",
-            "in": "कृपया उस भाषा का चयन करें जिसमें आप बोलते हैं ... 📢"
+            "en": "\nPlease select the language that you speak in... 📢\n",
+            "cn": "\n请选择您说的语言... 📢\n",
+            "in": "\nकृपया उस भाषा का चयन करें जिसमें आप बोलते हैं ... 📢\n"
         },
+
+        "English": {
+            "en": "English",
+            "cn": "英语",
+            "in": "अंग्रेज़ी"
+        },
+        "Chinese": {
+            "en": "Chinese",
+            "cn": "中文",
+            "in": "चीनी"
+        },
+        "Hindi": {
+            "en": "Hindi",
+            "cn": "印地语",
+            "in": "हिंदी"
+        },
+
+
         "please_enter_username": {
             "en": "👉  Please enter your new username: ",
             "cn": "👉  请输入您的新用户名：",
             "in": "👉  कृपया अपना नया नाम दर्ज करें: "
+        },
+
+
+        "one_liner_description": {
+            "en": "Send bulk non-spammy emails right from your terminal! 🤘\n",
+            "cn": "直接从您的终端发送批量非垃圾邮件! 🤘\n",
+            "in": "अपने टर्मिनल से थोक गैर-स्पैम ईमेल भेजें! 🤘\n"
+        },
+        "underestimating": {
+            "en": "UnderEstimating? 😡  ",
+            "cn": "低估？ 😡  ",
+            "in": "UnderEstimating? 😡  "
+        },
+        "read_doc":{
+            "en": "Read the documentation to learn what it can do!\n^_https://github.com/KumarAbhirup/bulk-mail-cli^ 🍺🍺\n\n",
+            "cn": "Read the documentation to learn what it can do!\n^_https://github.com/KumarAbhirup/bulk-mail-cli^ 🍺🍺\n\n",
+            "in": "Read the documentation to learn what it can do!\n^_https://github.com/KumarAbhirup/bulk-mail-cli^ 🍺🍺\n\n"
+        },
+        "hey_comma": {
+            "en": "\nHey,",
+            "cn": "\n嘿,",
+            "in": "\nनमस्ते,"
+        },
+        "bmc_here": {
+            "en": "bulk-mail-cli here. 😄\n",
+            "cn": "bulk-mail-cli 在这儿. 😄\n",
+            "in": "bulk-mail-cli है यहाँ! 😄\n"
+        },
+        "usage": {
+            "en": "Usage: ",
+            "cn": "用法: ",
+            "in": "उपयोग: "
+        },
+        "commands_and_options": {
+            "en": "Commands & Options: ",
+            "cn": "命令和选项：",
+            "in": "कम्मान्डस और ऑप्शंस: "
+        },
+        "happy_bulkmailing": {
+            "en": "Happy BULKMAILING!\n\n",
+            "cn": "Happy BULKMAILING!\n\n",
+            "in": "Happy BULKMAILING!\n\n"
+        },
+
+
+        "wrong_bulkmail_config_command": {
+            "en": "\nThat's a wrong ^w \"bulkmail config\" ^r command! ^ 😩\n\n",
+            "cn": "\nThat's a wrong ^w \"bulkmail config\" ^r command! ^ 😩\n\n",
+            "in": "\nThat's a wrong ^w \"bulkmail config\" ^r command! ^ 😩\n\n"
+        },
+        "wtf_was_that": {
+            "en": "\nWTF was that? Did you mean something different? 😕\n\n",
+            "cn": "\nWTF was that? Did you mean something different? 😕\n\n",
+            "in": "\nWTF was that? Did you mean something different? 😕\n\n"
         }
     },
     "jointTexts": {
         "you_are_now_a_lang_person": {
             "1": {
-                "en": "Thanks. You are now an",
-                "cn": "谢谢。你现在",
-                "in": "धन्यवाद, अब आप एक"
+                "en": "\nThanks. You are now an",
+                "cn": "\n谢谢。你现在",
+                "in": "\nधन्यवाद, अब आप एक"
             },
             "2": {
-                "en": "person!.. 🤠",
-                "cn": "人是!.. 🤠",
-                "in": "व्यक्ति हैं!.. 🤠"
+                "en": "person!.. 🤠\n\n",
+                "cn": "人是!.. 🤠\n\n",
+                "in": "व्यक्ति हैं!.. 🤠\n\n"
             }
         },
+
+
         "your_current_username": {
             "1": {
-                "en": "Your current username is",
-                "cn": "您当前的用户名",
-                "in": "आपका वर्तमान उपयोगकर्ता नाम"
+                "en": "\nYour current username is",
+                "cn": "\n您当前的用户名",
+                "in": "\nआपका वर्तमान उपयोगकर्ता नाम"
             },
             "2": {
-                "en": ".",
-                "cn": " 是。",
-                "in": " है|"
+                "en": ".\n\n",
+                "cn": " 是。\n\n",
+                "in": " है|\n\n"
             }
         },
         "your_new_username": {
             "1": {
-                "en": "Your new username is",
-                "cn": "您的新用户名",
-                "in": "आपका नया उपयोगकर्ता नाम"
+                "en": "\n\nYour new username is",
+                "cn": "\n\n您的新用户名",
+                "in": "\n\nआपका नया उपयोगकर्ता नाम"
             },
             "2": {
-                "en": "... 😀",
-                "cn": " 是。 😀",
-                "in": " है| 😀"
+                "en": "... 😀\n\n",
+                "cn": " 是。 😀\n\n",
+                "in": " है| 😀\n\n"
             }
         }
     }

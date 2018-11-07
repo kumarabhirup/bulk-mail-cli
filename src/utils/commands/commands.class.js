@@ -8,6 +8,7 @@
 
 
 import BulkMailCli_minimist from '../minimist.util'
+import BulkMailCli_i18n from '../i18n/i18n.util'
 import BulkMailCli_booleanCommands from './booleanCommands.class'
 import { terminal } from 'terminal-kit'
 
@@ -16,6 +17,7 @@ import selectLang from './tools/selectLang.util'
 import changeUsername from './tools/changeUsername.util'
 
 var { isHelp, isConfig } = BulkMailCli_booleanCommands
+var { getText } = BulkMailCli_i18n
 
 
 class BulkMailCli_commands {
@@ -64,7 +66,7 @@ class BulkMailCli_commands {
             } else if(BulkMailCli_minimist.getArgs()["username"]){
                 changeUsername()
             } else {
-                terminal.red.bold(`\nThat's a wrong ^w "bulkmail config" ^r command! ^ 😩\n\n`) 
+                terminal.red.bold(`${getText("wrong_bulkmail_config_command")}`) 
             }
 
         }
@@ -80,7 +82,7 @@ class BulkMailCli_commands {
      * @description Renders when an unknown argument or command is used.
      */
     wrongCommand(){
-        terminal.red.bold(`\nWTF was that? Did you mean something different? 😕\n\n`)
+        terminal.red.bold(`${getText("wtf_was_that")}`)
     }
 
 }
