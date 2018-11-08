@@ -11,8 +11,12 @@
 [![Version](https://img.shields.io/badge/version-v0.0.4-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![Prefers](https://img.shields.io/badge/prefers-Global%20Installation-blue.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup/) 
-[![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/bulk-mail-cli.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/bulk-mail-cli) 
+<!--[![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/bulk-mail-cli.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/bulk-mail-cli)--> 
 
 </div>
 
----
+<br />
+<br />
+
+# `📦 bulk-mail-cli`
+### Send bulk non-spammy emails right from your terminal!
