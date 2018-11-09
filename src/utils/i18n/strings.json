@@ -30,6 +30,18 @@
         },
 
 
+        "generating_demo": {
+            "en": "\nGenerating Demo files, stay tuned...\n",
+            "cn": "\nGenerating Demo files, stay tuned...\n",
+            "in": "\nGenerating Demo files, stay tuned...\n"
+        },
+        "look_at_desktop": {
+            "en": "\nFiles generated successfully. Please take a look at your desktop... 😉\n",
+            "cn": "\nFiles generated successfully. Please take a look at your desktop... 😉\n",
+            "in": "\nFiles generated successfully. Please take a look at your desktop... 😉\n"
+        },
+
+
         "one_liner_description": {
             "en": "Send bulk non-spammy emails right from your terminal! 🤘\n",
             "cn": "直接从您的终端发送批量非垃圾邮件! 🤘\n",
@@ -81,6 +93,11 @@
             "en": "\nWTF was that? Did you mean something different? 😕\n\n",
             "cn": "\nWTF was that? Did you mean something different? 😕\n\n",
             "in": "\nWTF was that? Did you mean something different? 😕\n\n"
+        },
+        "failed": {
+            "en": "\nSomething went incredibly wrong! Come back later and run the same command.  😿  😢  😭\n\n",
+            "cn": "\nSomething went incredibly wrong! Come back later and run the same command.  😿  😢  😭\n\n",
+            "in": "\nSomething went incredibly wrong! Come back later and run the same command.  😿  😢  😭\n\n"
         }
     },
     "jointTexts": {
