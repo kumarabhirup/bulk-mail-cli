@@ -55,3 +55,11 @@
 - **Step 6:** Run `npm run build` to check if everything works good so far. ✏️
 - **Step 7:** And if you are done, just shoot a Pull Request at `development` branch of `bulk-mail-cli`... 
 - **Step 8:** Get your Pull Request merged... 😉 🎉
+
+<br /><br />
+
+# 📝 License
+
+**GPL © [Kumar Abhirup](https://www.twitter.com/kumar_abhirup)**
+<br />
+_Follow me 👋 **on Twitter**_ →   [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup/) 
