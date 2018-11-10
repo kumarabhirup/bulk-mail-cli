@@ -41,20 +41,51 @@
 
 <div align="center">
 
-<img align="center" width="100%" src="https://via.placeholder.com/650x310" alt="bulk-mail-cli upcoming features">
+<img align="center" width="100%" src="https://firststatesuper.com.au/content/dam/ftc/image/member/people-coins-piggy-bank_art_mod.jpg" alt="bulk-mail-cli upcoming features">
 
 </div>
 
 <br />
 
-- **Step 1:** Fork this project. ⑂🍴
+## 🍴
+Fork this project.
+<br />
+<br />
+## 🔁
+Clone the forked project on your local machine.
+<br />
+<br />
+## 🗽
+Create a new branch named `PR/{whatever}` and work there.
+<br />
+<br />
+## ️️️️️️✏️
+Run `npm i` in the project directory.
+<br />
+<br />
+## 🎩
+Do the magic you wanted to.
+<br />
+<br />
+## ✏️
+Run `npm run build` to check if everything works good so far.
+<br />
+<br />
+## 🏹
+And if you are done, just shoot a Pull Request at `development` branch of `bulk-mail-cli`... 
+<br />
+<br />
+## 😉 🎉
+Get your Pull Request merged...
+
+<!-- - **Step 1:** Fork this project. ⑂🍴
 - **Step 2:** Clone the forked project on your local machine. 🔁
 - **Step 3:** Create a new branch named `PR/{whatever}` and work there. 🗽
 - **Step 4:** Run `npm i` in the project directory. ✏️
 - **Step 5:** Do the magic you wanted to. 🎩
 - **Step 6:** Run `npm run build` to check if everything works good so far. ✏️
 - **Step 7:** And if you are done, just shoot a Pull Request at `development` branch of `bulk-mail-cli`... 
-- **Step 8:** Get your Pull Request merged... 😉 🎉
+- **Step 8:** Get your Pull Request merged... 😉 🎉 -->
 
 <br /><br />
 
