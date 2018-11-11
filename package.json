@@ -1,0 +1,52 @@
+{
+  "name": "bulk-mail-cli",
+  "version": "0.0.4",
+  "description": "Send bulk non-spammy emails right from your terminal!",
+  "main": "src/dist/src/bulkmailer.js",
+  "scripts": {
+    "start": "npm run build && node ./src/dist/src/bulkmailer.js",
+    "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
+    "test": "echo No tests written."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
+  },
+  "dependencies": {
+    "array-includes": "^3.0.3",
+    "minimist": "^1.2.0",
+    "terminal-kit": "^1.26.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "rimraf": "^2.6.2"
+  },
+  "bundledDependencies": [
+    "BulkMailCli_settings"
+  ],
+  "bin": {
+    "bulkmail": "./src/dist/src/bin/global.js"
+  },
+  "preferGlobal": true,
+  "keywords": [
+    "mail",
+    "bulk",
+    "javascript",
+    "nodemailer",
+    "emailjs",
+    "cli",
+    "email",
+    "node",
+    "mailer"
+  ],
+  "author": "Kumar Abhirup",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/KumarAbhirup/bulk-mail-cli/issues"
+  },
+  "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme"
+}

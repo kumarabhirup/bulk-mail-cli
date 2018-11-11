@@ -1,0 +1,6 @@
+# Extras
+junkies*
+
+# node_modules
+node_modules/*
+!node_modules/BulkMailCli_*/
