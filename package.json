@@ -4,7 +4,7 @@
   "description": "Send bulk non-spammy emails right from your terminal!",
   "main": "src/dist/src/bulkmailer.js",
   "scripts": {
-    "start": "npm run build && node ./src/dist/src/bulkmailer.js --hud hhh",
+    "start": "npm run build && node ./src/dist/src/bulkmailer.js",
     "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
     "test": "echo No tests written."
   },
