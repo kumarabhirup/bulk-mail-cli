@@ -15,14 +15,12 @@
 
 </div>
 
-<br />
-<br />
+<br /><br />
 
 # 📦 `bulk-mail-cli`
 ### A mini-MailChimp in your terminal!
 
-<br />
-<br />
+<br /><br />
 
 # 🦋 Introduction
 The [YouTube video](https://youtu.be) given below should succesfully enlighten you about what exactly is being developed here.
@@ -35,7 +33,7 @@ The [YouTube video](https://youtu.be) given below should succesfully enlighten y
 
 <div align="center">
 
-<img align="center" width="100%" src="https://via.placeholder.com/650x310" alt="bulk-mail-cli upcoming features">
+<img align="center" width="100%" src="https://lh3.googleusercontent.com/QOwJMld-dL97r4oD8si7ol2KXcYB-KMOwwHGTcfEtl35RENLq7J6lHW3hIBfjG1D6X9ykr21Y7xWhbnL7EpPC6Gbcx127OrRIv9tSDPA9tJbNENtSbZhwPZAJ1faUnFcVaOG54bAhL0BjV5kH6PqTxHzpSWvYbejVf2nhD3LX7fw6dOvVUjLAgRvMEu1dN-PbPHfdz9sHTvSBUdCP-IwUlDLwJ4kdaqhJOaueL26qRqeoqFbjrKxstzcnnVd0p1mnmd5llJqoISEbi-KtQZMSCNpN42DNDlBj8Xh1e5dWAKHuDjV69_adX5-sUHV0eMRoOFWBBU-jiZ5BdoXWIWlPmCblwDWpnE3sOgoBU4zZIfzeziI2pmDGGLaPTrnTCcBc7UvHJBjFnF6b7rVqibO-jFiLjO9UKFW2LDKD0RwqUK_-YbOvabI9Doe6WbYFk1RoHMkVmeYkjKdk9HujaMAvpM3oeF-KnMO4BcaUrJnVBimnsMlVtkx_9GRty4p0pFb1C54ex2eYVEVGWk3jguK0YlJnowzn0nVyXyAmEGmSpQMRGUlODPSJoYzD9IMPhDR2hxByVoOvCY7JHjhiU7ZjONVqVThw1vxrfDb6vEmn95xuufhkKusSvFQZuOYlK5PYjoGFfmlt9Gu4vE55G4bRRAQc0bs59gh-S1qLY72imcJLm-m6JP9WervRSKJSuvjMpLvnDX3CulTIPBKklJhSCDJC8D4mltVN_W33A=w800-h720-no" alt="bulk-mail-cli upcoming features">
 
 </div>
 
@@ -48,6 +46,16 @@ The [YouTube video](https://youtu.be) given below should succesfully enlighten y
 ***- Kumar Abhirup***
 
 </div>
+
+<br /><br />
+
+# 💃 Some examples of what's upcoming...
+
+## Install `bulk-mail-cli`
+Assuming that you have `node` and `npm` installed... Run the following in your terminal.
+```
+$ npm i -g bulk-mail-cli
+```
 
 <br /><br />
 
