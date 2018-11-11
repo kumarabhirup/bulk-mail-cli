@@ -29,7 +29,7 @@ The [YouTube video](https://youtu.be) given below should succesfully enlighten y
 
 <br /><br />
 
-# 👌 What the hell it does?...
+# 👌 What the hell does it do?...
 
 <div align="center">
 
@@ -104,15 +104,36 @@ Mails sent successfully in 9.43 seconds.
 
 Thank you for using bulk-mail-cli 😀
 ```
-It will ask for credentials only for the first time.
+It will ask for credentials only for the first time. **_CREDENTIALS ARE COMPLETELY LOCAL TO YOUR MACHINE AND THIS CLI IS NO WHERE CONNECTED TO THE CLOUD TO MONITOR INFORMATION BEING TRANSFERRED._** **THIS PROJECT IS MORE THAN SECURE FOR YOU TO WORK WITH.**
 
 <br />
 
-## Change you Service Credentials
+## Change your Service Credentials
 Just type in the given command and see `bulk-mail-cli` automatically asking for the credentials again!
 ```
 $ bulkmail config service
 ```
+
+<br />
+
+## Writing data in CSV
+If you use **WordPress**, you may just import the CSV file of users by using [this plugin](https://wordpress.org/plugins/export-users-to-csv/).
+- When you use that plugin, just change the `user-email` column name of the CSV file to just `email` so that to ensure no errors.
+
+If you feeding data from any other source or by manual means, **please for the GOD's SAKE ensure that you list emails only under the `email` column.**
+
+If the CSV file has emails fed in some other coulumn name (such as `user-email`,    `allEmails`, etc)... `bulk-mail-cli` would simply throw an error to **not work at all.**
+
+<br />
+
+## Making custom designed Mail Templates
+- Any dynamic value which is listed in the CSV file should only be denoted by `{{  <column name> }}`.
+- **_For example,_**, if you have an `fname` column in the respective CSV file, **just write `{{ fname }}` in the HTML Mail Template** to print the first name of the respective recipient.
+- You may style your Mail Template using HTML and CSS. Please be sure to use inline styles or a `<styles>...</styles>` HTML block (Whatever you are convenient with 😉)
+
+<br />
+
+**AS PER NOW, THESE FEATURES ARE UNDER DEVELOPMENT. WANNA CONTRIBUTE?**
 
 <br /><br />
 
