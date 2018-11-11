@@ -52,9 +52,66 @@ The [YouTube video](https://youtu.be) given below should succesfully enlighten y
 # 💃 Some examples of what's upcoming...
 
 ## Install `bulk-mail-cli`
+
 Assuming that you have `node` and `npm` installed... Run the following in your terminal.
 ```
 $ npm i -g bulk-mail-cli
+```
+
+<br />
+
+## Get help
+Just run `bulkmail` in your terminal to see what commands and flags you can use to do awesome things.
+
+<br />
+
+## Generate demo Mail Template and CSV file
+To generate demo files on your Desktop!
+```
+$ bulkmail demo
+```
+
+<br />
+
+## Shoot the mails after you feed data
+Done tweaking with Templates and CSV file? It is time to send the mails!
+```
+$ bulkmail mail
+```
+Wait, `bulkmail mail` is not all. The CLI will then ask you for **Service Credentials** that you need to fill in to complete the process. It will also ask for the path of the Template and CSV file.
+
+Just like what you see below:
+```
+$ bulkmail mail
+
+Please fill in the needed data...
+service: gmail/outlook/aol/webmail/hotmail/pop3
+email: yourEmail@domain.com
+password: *************
+tls: <will be configured according to what service you choose>
+
+Wow! You are connected 😀
+
+Path to CSV: <you can use bash's auto navigating feature>
+Path to Mail Template: <you can use bash's auto navigating feature>
+
+There you go!.. Now, it is all my task!
+
+Bulk Mail in progress:
+[=========================>] 100%
+
+Mails sent successfully in 9.43 seconds.
+
+Thank you for using bulk-mail-cli 😀
+```
+It will ask for credentials only for the first time.
+
+<br />
+
+## Change you Service Credentials
+Just type in the given command and see `bulk-mail-cli` automatically asking for the credentials again!
+```
+$ bulkmail config service
 ```
 
 <br /><br />
