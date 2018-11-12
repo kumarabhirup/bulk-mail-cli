@@ -106,7 +106,7 @@ Thank you for using bulk-mail-cli 😀
 ```
 It will ask for credentials only for the first time. 
 
-_CREDENTIALS ARE COMPLETELY LOCAL TO YOUR MACHINE AND THIS CLI IS NO WHERE CONNECTED TO THE CLOUD TO MONITOR INFORMATION BEING TRANSFERRED._
+_Credentials are stored locally in your machine. The CLI is no where connected to cloud or servers to track the information entered._
 
 **THIS PROJECT IS MORE THAN SECURE FOR YOU TO WORK WITH.**
 
