@@ -18,8 +18,6 @@ const DESTINATION_PATH = process.cwd()
 var demo = async () => {
 
     terminal.yellow.bold(`${getText("generating_demo")}`)
-
-    ncp.limit = 16
  
     ncp(SOURCE_PATH, DESTINATION_PATH, (error) => {
         if (error) {
