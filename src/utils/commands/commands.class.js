@@ -15,8 +15,9 @@ import { terminal } from 'terminal-kit'
 import help from './tools/help.util'
 import selectLang from './tools/selectLang.util'
 import changeUsername from './tools/changeUsername.util'
+import demo from './tools/demo.util'
 
-var { isHelp, isConfig } = BulkMailCli_booleanCommands
+var { isHelp, isConfig, isDemo } = BulkMailCli_booleanCommands
 var { getText } = BulkMailCli_i18n
 
 
@@ -27,6 +28,8 @@ class BulkMailCli_commands {
             this.help()
         } else if(isConfig()){
             this.config()
+        } else if(isDemo()){
+            this.demo()
         } else {
             this.wrongCommand()
         }
@@ -69,6 +72,21 @@ class BulkMailCli_commands {
                 terminal.red.bold(`${getText("wrong_bulkmail_config_command")}`) 
             }
 
+        }
+    }
+
+
+    /**
+     * @method @name demo (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @description Used to copy demo files to local machine
+     */
+    demo(){
+        if(isDemo()){
+            demo()
         }
     }
 

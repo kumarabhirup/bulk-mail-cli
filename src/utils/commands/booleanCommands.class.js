@@ -45,6 +45,21 @@ class BulkMailCli_booleanCommands {
         } return false
     }
 
+
+    /**
+     * @method @name isDemo (@static)
+     *
+     * @param none
+     * @returns boolean
+     * 
+     * @description Has user ran `bulkmail demo` command? Yes, or no?
+     */
+    static isDemo(){
+        if(!BulkMailCli_minimist.isArgsEmpty() && isArrayInThere(BulkMailCli_minimist.getArgs()["_"], "demo")){
+            return true
+        } return false
+    }
+
 }
 
 export default BulkMailCli_booleanCommands
