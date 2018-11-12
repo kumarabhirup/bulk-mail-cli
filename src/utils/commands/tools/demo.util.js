@@ -22,7 +22,6 @@ var demo = async () => {
     ncp(SOURCE_PATH, DESTINATION_PATH, (error) => {
         if (error) {
             terminal.red.bold(`${getText("failed")}`)
-            console.log(error)
         } else {
             terminal.green.bold(`${getText("look_at_desktop")}`)
         }

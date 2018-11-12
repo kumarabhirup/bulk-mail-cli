@@ -3,6 +3,7 @@
   "version": "0.0.4",
   "description": "Send bulk non-spammy emails right from your terminal!",
   "main": "src/dist/src/bulkmailer.js",
+  "author": "Kumar Abhirup",
   "scripts": {
     "start": "npm run build && node ./src/dist/src/bulkmailer.js",
     "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
@@ -44,7 +45,6 @@
     "node",
     "mailer"
   ],
-  "author": "Kumar Abhirup",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/KumarAbhirup/bulk-mail-cli/issues"

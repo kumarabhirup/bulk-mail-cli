@@ -36,9 +36,9 @@
             "in": "\nGenerating Demo files, stay tuned...\n"
         },
         "look_at_desktop": {
-            "en": "\nFiles generated successfully. Please take a look at your desktop... 😉\n",
-            "cn": "\nFiles generated successfully. Please take a look at your desktop... 😉\n",
-            "in": "\nFiles generated successfully. Please take a look at your desktop... 😉\n"
+            "en": "\nFiles generated successfully. Run the ^y ls ^ command to cross check... 😉\n\n",
+            "cn": "\nFiles generated successfully. Please take a look at your desktop... 😉\n\n",
+            "in": "\nFiles generated successfully. Please take a look at your desktop... 😉\n\n"
         },
 
 
