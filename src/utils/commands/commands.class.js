@@ -47,9 +47,7 @@ class BulkMailCli_commands {
      * @summary DO NOT CHANGE ANYTHING HERE. Because, it just works.
      */
     help(){
-        if(isHelp()){
-            help()
-        }
+        help()
     }
 
 
@@ -62,16 +60,12 @@ class BulkMailCli_commands {
      * @description Used to change user configs in the CLI.
      */
     config(){
-        if(isConfig()){
-
-            if(BulkMailCli_minimist.getArgs()["lang"]){
-                selectLang()
-            } else if(BulkMailCli_minimist.getArgs()["username"]){
-                changeUsername()
-            } else {
-                terminal.red.bold(`${getText("wrong_bulkmail_config_command")}`) 
-            }
-
+        if(BulkMailCli_minimist.getArgs()["lang"]){
+            selectLang()
+        } else if(BulkMailCli_minimist.getArgs()["username"]){
+            changeUsername()
+        } else {
+            terminal.red.bold(`${getText("wrong_bulkmail_config_command")}`) 
         }
     }
 
@@ -85,9 +79,7 @@ class BulkMailCli_commands {
      * @description Used to copy demo files to local machine
      */
     demo(){
-        if(isDemo()){
-            demo()
-        }
+        demo()
     }
 
 
