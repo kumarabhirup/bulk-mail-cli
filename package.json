@@ -15,6 +15,7 @@
   "dependencies": {
     "array-includes": "^3.0.3",
     "minimist": "^1.2.0",
+    "ncp": "^2.0.0",
     "terminal-kit": "^1.26.4"
   },
   "devDependencies": {

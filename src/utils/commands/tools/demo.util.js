@@ -1,13 +1,11 @@
 import { terminal } from 'terminal-kit'
-import BulkMailCli_settings from '../../settings/settings.util'
+import { ncp } from 'ncp'
 import BulkMailCli_i18n from '../../i18n/i18n.util'
-import { copyFileForPromise } from '../../copyFile.util'
 
-var { setSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
 
-const CSV_SOURCE_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/assets/demo/bulkmail_demo_csv.csv'
-const CSV_DESTINATION_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/bulkmail_demo_csv.csv'
+const SOURCE_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/src/assets/Bulkmail_demo'
+const DESTINATION_PATH = process.cwd()
 
 /**
  * @function @name demo
@@ -21,11 +19,16 @@ var demo = async () => {
 
     terminal.yellow.bold(`${getText("generating_demo")}`)
 
-    if(await copyFileForPromise(CSV_SOURCE_PATH, CSV_DESTINATION_PATH)){
-        terminal.green.bold(`${getText("look_at_desktop")}`)
-    } else {
-        terminal.red.bold(`${getText("failed")}`)
-    }
+    ncp.limit = 16
+ 
+    ncp(SOURCE_PATH, DESTINATION_PATH, (error) => {
+        if (error) {
+            terminal.red.bold(`${getText("failed")}`)
+            console.log(error)
+        } else {
+            terminal.green.bold(`${getText("look_at_desktop")}`)
+        }
+    })
 
 }
 
