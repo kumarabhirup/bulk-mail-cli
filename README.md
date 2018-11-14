@@ -115,7 +115,7 @@ _Credentials are stored locally in your machine. The CLI is no where connected t
 ## Change your Service Credentials
 Just type in the given command and see `bulk-mail-cli` automatically asking for the credentials again!
 ```
-$ bulkmail config service
+$ bulkmail config --auth
 ```
 
 <br />
