@@ -3,8 +3,8 @@ import { writeFile } from 'fs'
 /**
  * @function @name writeFileForPromise
  *
- * @param file - Path of the file to be edited.
- * @param data - Data to be entered in that file.
+ * @param file - Path of the file to be edited. (string)
+ * @param data - Data to be entered in that file. (string)
  * 
  * @returns Promise <true or false>
  * 

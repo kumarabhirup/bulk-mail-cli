@@ -89,7 +89,7 @@ class BulkMailCli_settings {
      * @summary This method had a major bug. [SOLVED]
      * @see https://github.com/KumarAbhirup/bulk-mail-cli/issues/3 [SOLVED]
      * 
-     * @description Returns the needed setting or configuration.
+     * @description Saves a new setting.
      */
     static async setSetting(setting, value){
         var settings = new BulkMailCli_settings
@@ -103,6 +103,35 @@ class BulkMailCli_settings {
             if(await writeFileForPromise(SETTINGS_PATH, data)){
                 let doneSetting = new Promise((resolve, reject) => {
                     resolve(settings)
+                })
+                return await doneSetting
+            } else {
+                return false
+            }            
+
+        } catch(error) { console.log(error); return false }
+    }
+
+    /**
+     * @method @name setSettings (@static)
+     *
+     * @param allSettings - Complete `settings` object which is to be saved. (object)
+     * 
+     * @returns Promise or false
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Saves a complete settings object.
+     */
+    static async setSettings(allSettings){
+        try{
+
+            let data = JSON.stringify(allSettings)
+
+            if(await writeFileForPromise(SETTINGS_PATH, data)){
+                let doneSetting = new Promise((resolve, reject) => {
+                    resolve(allSettings)
                 })
                 return await doneSetting
             } else {

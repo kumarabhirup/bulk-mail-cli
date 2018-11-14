@@ -1,6 +1,6 @@
 /**
  * @class @name BulkMailCli_i18n
- * @type util
+ * @type class util
  * @description Renders the same text, but in different languages.
  * 
  * Date of creation: Wed, 1st Nov 2018. 19:52:18 IST

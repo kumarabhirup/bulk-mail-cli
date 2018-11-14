@@ -1,6 +1,6 @@
 /**
  * @class @name BulkMailCli_commands
- * @type class
+ * @type class util
  * @description Does different things for different bulkmail commands
  * 
  * Date of creation: Sun, 4th Nov 2018. 10:43:17 IST
@@ -16,6 +16,7 @@ import help from './tools/help.util'
 import selectLang from './tools/selectLang.util'
 import changeUsername from './tools/changeUsername.util'
 import demo from './tools/demo.util'
+import BulkMailCli_authSession from './tools/authSession.util'
 
 var { isHelp, isConfig, isDemo } = BulkMailCli_booleanCommands
 var { getText } = BulkMailCli_i18n
@@ -64,6 +65,8 @@ class BulkMailCli_commands {
             selectLang()
         } else if(BulkMailCli_minimist.getArgs()["username"]){
             changeUsername()
+        } else if(BulkMailCli_minimist.getArgs()["auth"]){
+            new BulkMailCli_authSession().authSession()
         } else {
             terminal.red.bold(`${getText("wrong_bulkmail_config_command")}`) 
         }

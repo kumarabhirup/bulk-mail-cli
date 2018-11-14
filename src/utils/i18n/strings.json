@@ -36,9 +36,26 @@
             "in": "\nGenerating Demo files, stay tuned...\n"
         },
         "look_at_desktop": {
-            "en": "\nFiles generated successfully. Run the ^y ls ^ command to cross check... 😉\n\n",
-            "cn": "\nFiles generated successfully. Please take a look at your desktop... 😉\n\n",
-            "in": "\nFiles generated successfully. Please take a look at your desktop... 😉\n\n"
+            "en": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n",
+            "cn": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n",
+            "in": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n"
+        },
+
+        
+        "fill_service_credentials": {
+            "en": "\nPlease fill the authenfication credentials... 🙏",
+            "cn": "\nPlease fill the authenfication credentials... 🙏",
+            "in": "\nPlease fill the authenfication credentials... 🙏"
+        },
+        "please_enter_email": {
+            "en": "\nEmail: ",
+            "cn": "\nEmail: ",
+            "in": "\nEmail: "
+        },
+        "please_enter_password": {
+            "en": "\nPassword: ",
+            "cn": "\nPassword: ",
+            "in": "\nPassword: "
         },
 
 

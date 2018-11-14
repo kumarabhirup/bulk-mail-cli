@@ -9,8 +9,7 @@
 
 import BulkMailCli_minimist from './minimist.util'
 import BulkMailCli_settings from './settings/settings.util'
-import { hostname } from 'os'
-import { terminal } from 'terminal-kit'
+import { hostname, platform, userInfo } from 'os'
 
 
 /**
@@ -53,8 +52,11 @@ class BulkMailCli {
      */
     async setSettings(){
         if(BulkMailCli.isFirstTime()){
+            await setSetting("userInfo", userInfo())
+            await setSetting("username", userInfo().username)
+            await setSetting("hostname", hostname())
+            await setSetting("platform", platform())
             await setSetting("lang", "en")
-            await setSetting("username", hostname())
         }
     }
 
