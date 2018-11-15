@@ -65,8 +65,10 @@ class BulkMailCli_settings {
 
     /**
      * @method @name getSettings (@static)
+     * 
      * @param none
      * @returns object
+     * 
      * @description Returns the `settings` object
      */
     static getSettings(){

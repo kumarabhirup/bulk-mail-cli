@@ -43,9 +43,9 @@
 
         
         "fill_service_credentials": {
-            "en": "\nPlease fill the authenfication credentials... 🙏",
-            "cn": "\nPlease fill the authenfication credentials... 🙏",
-            "in": "\nPlease fill the authenfication credentials... 🙏"
+            "en": "\nPlease fill the authenfication credentials... 🙏\n",
+            "cn": "\nPlease fill the authenfication credentials... 🙏\n",
+            "in": "\nPlease fill the authenfication credentials... 🙏\n"
         },
         "please_enter_email": {
             "en": "\nEmail: ",
@@ -61,6 +61,21 @@
             "en": "\nPlease choose your service...",
             "cn": "\nPlease choose your service...",
             "in": "\nPlease choose your service..."
+        },
+        "connecting": {
+            "en": "\n\nConnecting, please wait... 🤚\n",
+            "cn": "\n\nConnecting, please wait... 🤚\n",
+            "in": "\n\nConnecting, please wait... 🤚\n"
+        },
+        "connected": {
+            "en": "\nConnection made successfully. 😀",
+            "cn": "\nConnection made successfully. 😀",
+            "in": "\nConnection made successfully. 😀"
+        },
+        "wrong_credentials": {
+            "en": "\nInvalid credentials. 🤦‍",
+            "cn": "\nInvalid credentials. 🤦‍",
+            "in": "\nInvalid credentials. 🤦‍"
         },
 
 
