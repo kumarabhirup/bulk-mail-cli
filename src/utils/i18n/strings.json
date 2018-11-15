@@ -57,6 +57,11 @@
             "cn": "\nPassword: ",
             "in": "\nPassword: "
         },
+        "please_choose_service": {
+            "en": "\nPlease choose your service...",
+            "cn": "\nPlease choose your service...",
+            "in": "\nPlease choose your service..."
+        },
 
 
         "one_liner_description": {

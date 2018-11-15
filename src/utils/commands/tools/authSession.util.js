@@ -34,14 +34,50 @@ class BulkMailCli_authSession {
 
         terminal.yellow.bold(`${getText("fill_service_credentials")}`)
 
-        await this.enterEmail()
+        await this.chooseService()
 
+        await this.enterEmail()
+        
         await this.enterPassword()
 
         await setSettings(settingsArray[0])
 
         console.log("\n")
         process.exit()
+
+    }
+
+
+    /**
+     * @method @name chooseService (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Does the work of rendering a service selection field.
+     */
+    async chooseService(){
+
+        terminal.cyan.bold(`${getText("please_choose_service")}`)
+
+        var servicesToSelect = [
+            `gmail`,
+            `yahoo`,
+            `webmail`
+        ]
+
+        var serviceSelected = new Promise((resolve, reject) => {
+            terminal.singleColumnMenu( servicesToSelect , async ( error , response ) => {
+                var serviceName = response.selectedText
+                settingsArray[0].service = serviceName
+                resolve()
+            })
+        })
+
+        return serviceSelected
 
     }
 
@@ -73,7 +109,7 @@ class BulkMailCli_authSession {
      * @async Please use this method only in async functions.
      *        DO NOT FORGET TO PUT AN `await` before calling this function.
      * 
-     * @description Does the work of rendering an password input field.
+     * @description Does the work of rendering a password input field.
      */
     async enterPassword(){
         terminal.cyan.bold(`${getText("please_enter_password")}`)
