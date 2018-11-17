@@ -32,6 +32,21 @@ class BulkMailCli_booleanCommands {
 
 
     /**
+     * @method @name isVersion (@static)
+     *
+     * @param none
+     * @returns boolean
+     * 
+     * @description Has user ran `bulkmail -v` command? Yes, or no?
+     */
+    static isVersion(){
+        if(!BulkMailCli_minimist.isArgsEmpty() && (BulkMailCli_minimist.getArgs()["v"] || BulkMailCli_minimist.getArgs()["version"])){
+            return true
+        } return false
+    }
+
+
+    /**
      * @method @name isConfig (@static)
      *
      * @param none

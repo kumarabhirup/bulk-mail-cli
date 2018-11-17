@@ -73,6 +73,19 @@ class BulkMailCli {
         } return false
     }
 
+
+    /**
+     * @method @name getVersion (@static)
+     * @param none
+     * @returns string
+     * @description Returns the version number of bulk-mail-cli.
+     */
+    static getVersion(){
+        const SOURCE_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/package.json'
+        var packageJson = require(SOURCE_PATH)
+        return packageJson.version
+    }
+
 }
 
 export default BulkMailCli

@@ -16,9 +16,10 @@ import help from './tools/help.util'
 import selectLang from './tools/selectLang.util'
 import changeUsername from './tools/changeUsername.util'
 import demo from './tools/demo.util'
+import version from './tools/version.util'
 import BulkMailCli_authSession from './tools/authSession.util'
 
-var { isHelp, isConfig, isDemo } = BulkMailCli_booleanCommands
+var { isHelp, isVersion,isConfig, isDemo } = BulkMailCli_booleanCommands
 var { getText } = BulkMailCli_i18n
 
 
@@ -27,6 +28,8 @@ class BulkMailCli_commands {
     constructor(){
         if(isHelp()){
             this.help()
+        } else if(isVersion()){
+            this.version()
         } else if(isConfig()){
             this.config()
         } else if(isDemo()){
@@ -44,11 +47,22 @@ class BulkMailCli_commands {
      * @returns void
      * 
      * @description Provides help info when no arguments are provided.
-     * 
-     * @summary DO NOT CHANGE ANYTHING HERE. Because, it just works.
      */
     help(){
         help()
+    }
+
+
+    /**
+     * @method @name version (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @description Provides version name.
+     */
+    version(){
+        version()
     }
 
 
