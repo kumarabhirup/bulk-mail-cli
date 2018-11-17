@@ -36,9 +36,71 @@
             "in": "\nGenerating Demo files, stay tuned...\n"
         },
         "look_at_desktop": {
-            "en": "\nFiles generated successfully. Run the ^y ls ^ command to cross check... 😉\n\n",
-            "cn": "\nFiles generated successfully. Please take a look at your desktop... 😉\n\n",
-            "in": "\nFiles generated successfully. Please take a look at your desktop... 😉\n\n"
+            "en": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n",
+            "cn": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n",
+            "in": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n"
+        },
+
+        
+        "fill_service_credentials": {
+            "en": "\nPlease fill the authenfication credentials... 🙏\n",
+            "cn": "\nPlease fill the authenfication credentials... 🙏\n",
+            "in": "\nPlease fill the authenfication credentials... 🙏\n"
+        },
+        "please_enter_email": {
+            "en": "\nEmail: ",
+            "cn": "\nEmail: ",
+            "in": "\nEmail: "
+        },
+        "please_enter_password": {
+            "en": "\nPassword: ",
+            "cn": "\nPassword: ",
+            "in": "\nPassword: "
+        },
+        "please_choose_service": {
+            "en": "\nPlease choose your service...",
+            "cn": "\nPlease choose your service...",
+            "in": "\nPlease choose your service..."
+        },
+        "please_enter_port": {
+            "en": "\nPort: ^y465^ / ^y587^ ",
+            "cn": "\nPort: ^y465^ / ^y587^ ",
+            "in": "\nPort: ^y465^ / ^y587^ "
+        },
+        "please_enter_host": {
+            "en": "Host server: ",
+            "cn": "Host server: ",
+            "in": "Host server: "
+        },
+        "secure_connection_question": {
+            "en": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] ",
+            "cn": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] ",
+            "in": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] "
+        },
+        "yes_for_sc": {
+            "en": " Yes, use TLS",
+            "cn": " Yes, use TLS",
+            "in": " Yes, use TLS"
+        },
+        "no_for_sc": {
+            "en": " No, do not use TLS",
+            "cn": " No, do not use TLS",
+            "in": " No, do not use TLS"
+        },
+        "connecting": {
+            "en": "\n\nConnecting, please wait... 🤚\n",
+            "cn": "\n\nConnecting, please wait... 🤚\n",
+            "in": "\n\nConnecting, please wait... 🤚\n"
+        },
+        "connected": {
+            "en": "\nConnection made successfully. 😀",
+            "cn": "\nConnection made successfully. 😀",
+            "in": "\nConnection made successfully. 😀"
+        },
+        "wrong_credentials": {
+            "en": "\nInvalid credentials. 🤦‍",
+            "cn": "\nInvalid credentials. 🤦‍",
+            "in": "\nInvalid credentials. 🤦‍"
         },
 
 

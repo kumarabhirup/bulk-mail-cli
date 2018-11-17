@@ -1,6 +1,6 @@
 /**
  * @class @name BulkMailCli_booleanCommands
- * @type class
+ * @type class util
  * @description Tells whether or not a bulkmail command is ran.
  * 
  * Date of creation: Wed, 7th Nov 2018. 12:39:28 IST
