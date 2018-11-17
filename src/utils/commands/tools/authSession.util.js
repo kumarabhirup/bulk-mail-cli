@@ -36,20 +36,20 @@ class BulkMailCli_authSession {
         terminal.yellow.bold(`${getText("fill_service_credentials")}`)
 
         await this.chooseService()
+            .then(async service => { await this.serviceAnalyser(service) })
 
         await this.enterEmail()
         
         await this.enterPassword()
 
-        // await this.enterTls()
-
         terminal.yellow.bold(`${getText("connecting")}`)
 
         await this.isSuccessful(settingsArray[0])
             .then(async () => {
-                await setSettings(settingsArray[0]).then(terminal.green.bold(`${getText("connected")}`))
+                await setSettings(settingsArray[0])
+                terminal.green.bold(`${getText("connected")}`)
             })
-            .catch(async () => terminal.red.bold(`${getText("wrong_credentials")}`))
+            .catch(() => {terminal.red.bold(`${getText("wrong_credentials")}`)})
 
         console.log("\n")
         process.exit()
@@ -75,18 +75,115 @@ class BulkMailCli_authSession {
         var servicesToSelect = [
             `gmail`,
             `yahoo`,
-            `webmail`
+            `other/custom`
         ]
 
         var serviceSelected = new Promise((resolve, reject) => {
             terminal.singleColumnMenu( servicesToSelect , async ( error , response ) => {
                 var serviceName = response.selectedText
                 settingsArray[0].service = serviceName
-                resolve()
+                resolve(serviceName)
             })
         })
 
         return serviceSelected
+
+    }
+
+
+    /**
+     * @method @name serviceAnalyser (Not @static)
+     *
+     * @param {*} service - Service selected (string)
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Does the work of rendering a SecureConnection yesOrNo input field.
+     */
+    async serviceAnalyser(service){
+        if(service == "gmail"){
+            settingsArray[0].host = "smtp.gmail.com"
+            settingsArray[0].port = 465
+            settingsArray[0].secureConnection = true
+        } else if(service == "yahoo"){
+            settingsArray[0].host = "smtp.mail.yahoo.com"
+            settingsArray[0].port = 465
+            settingsArray[0].secureConnection = true
+        } else if(service == "other/custom"){
+            console.log("")
+            await this.enterHost()
+            await this.enterPort()
+            await this.secureConnection()
+        }
+    }
+
+
+    /**
+     * @method @name enterHost (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Does the work of rendering a host input field.
+     */
+    async enterHost(){
+        terminal.cyan.bold(`${getText("please_enter_host")}`)
+        var input = await terminal.inputField().promise
+        settingsArray[0].host = input
+    }
+
+
+    /**
+     * @method @name enterPort (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Does the work of rendering a Port input field.
+     */
+    async enterPort(){
+        terminal.cyan.bold(`${getText("please_enter_port")}`)
+        var input = await terminal.inputField().promise
+        settingsArray[0].port = input
+    }
+
+
+    /**
+     * @method @name secureConnection (Not @static)
+     *
+     * @param none
+     * @returns Promise
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Does the work of rendering a SecureConnection yesOrNo input field.
+     */
+    async secureConnection(){
+
+        terminal.cyan.bold(`${getText("secure_connection_question")}`)
+
+        return await new Promise((resolve, reject) => {
+            terminal.yesOrNo({yes: ['y'], no: ['n']} , ( error , result ) => {
+                if (result){
+                    terminal.green.bold(`${getText("yes_for_sc")}` )
+                    settingsArray[0].secureConnection = true
+                    resolve()
+                } else {
+                    terminal.red.bold(`${getText("no_for_sc")}`)
+                    settingsArray[0].secureConnection = false
+                    resolve()
+                }
+            })
+        })
 
     }
 
@@ -122,26 +219,8 @@ class BulkMailCli_authSession {
      */
     async enterPassword(){
         terminal.cyan.bold(`${getText("please_enter_password")}`)
-        var input = await terminal.inputField().promise
+        var input = await terminal.inputField({echoChar: '•'}).promise
         settingsArray[0].password = input
-    }
-
-
-    /**
-     * @method @name enterTls (Not @static)
-     *
-     * @param none
-     * @returns void
-     * 
-     * @async Please use this method only in async functions.
-     *        DO NOT FORGET TO PUT AN `await` before calling this function.
-     * 
-     * @description Does the work of rendering a password input field.
-     */
-    async enterTls(){
-        terminal.cyan.bold(`${getText("please_enter_TLS")}`)
-        var input = await terminal.inputField().promise
-        settingsArray[0].tls = input
     }
 
 
@@ -159,9 +238,9 @@ class BulkMailCli_authSession {
     async isSuccessful(settings){
 
         var smtpOptions = {
-            host: "smtp.gmail.com",
-            port: 465,
-            secureConnection: true,
+            host: settings.host,
+            port: settings.port,
+            secureConnection: settings.secureConnection,
             auth: {
                 user: settings.email,
                 pass: settings.password

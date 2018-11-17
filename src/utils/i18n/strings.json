@@ -62,6 +62,31 @@
             "cn": "\nPlease choose your service...",
             "in": "\nPlease choose your service..."
         },
+        "please_enter_port": {
+            "en": "\nPort: ^y465^ / ^y587^ ",
+            "cn": "\nPort: ^y465^ / ^y587^ ",
+            "in": "\nPort: ^y465^ / ^y587^ "
+        },
+        "please_enter_host": {
+            "en": "Host server: ",
+            "cn": "Host server: ",
+            "in": "Host server: "
+        },
+        "secure_connection_question": {
+            "en": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] ",
+            "cn": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] ",
+            "in": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] "
+        },
+        "yes_for_sc": {
+            "en": " Yes, use TLS",
+            "cn": " Yes, use TLS",
+            "in": " Yes, use TLS"
+        },
+        "no_for_sc": {
+            "en": " No, do not use TLS",
+            "cn": " No, do not use TLS",
+            "in": " No, do not use TLS"
+        },
         "connecting": {
             "en": "\n\nConnecting, please wait... 🤚\n",
             "cn": "\n\nConnecting, please wait... 🤚\n",
