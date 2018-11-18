@@ -19,13 +19,16 @@ import demo from './tools/demo.util'
 import version from './tools/version.util'
 import BulkMailCli_authSession from './tools/authSession.util'
 
-var { isHelp, isVersion,isConfig, isDemo } = BulkMailCli_booleanCommands
+var { isHelp, isVersion,isConfig, isDemo, hasPressedCtrlC } = BulkMailCli_booleanCommands
 var { getText } = BulkMailCli_i18n
 
 
 class BulkMailCli_commands {
 
     constructor(){
+
+        this.CtrlC()
+
         if(isHelp()){
             this.help()
         } else if(isVersion()){
@@ -37,6 +40,7 @@ class BulkMailCli_commands {
         } else {
             this.wrongCommand()
         }
+
     }
 
     
@@ -97,6 +101,19 @@ class BulkMailCli_commands {
      */
     demo(){
         demo()
+    }
+
+    
+    /**
+     * @method @name CtrlC (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @description This method streams the ON KEY event.
+     */
+    CtrlC(){
+        hasPressedCtrlC()
     }
 
 

@@ -8,6 +8,8 @@
 
 
 import BulkMailCli_minimist from '../minimist.util'
+import { terminal } from 'terminal-kit'
+
 var isArrayInThere = require('array-includes')
 
 
@@ -73,6 +75,27 @@ class BulkMailCli_booleanCommands {
         if(!BulkMailCli_minimist.isArgsEmpty() && isArrayInThere(BulkMailCli_minimist.getArgs()["_"], "demo")){
             return true
         } return false
+    }
+
+
+    /**
+     * @method @name hasPressedCtrlC (@static)
+     *
+     * @param none
+     * @returns boolean
+     * 
+     * @description Has user pressed `Ctrl_C` command? Yes, or no?
+     */
+    static hasPressedCtrlC(){
+        terminal.on( 'key' , function( key , matches , data ) { 
+            switch ( key ){
+                case 'CTRL_C': 
+                    process.stdout.write("\u001b[2J\u001b[0;0H");
+                    process.exit()
+                    return true
+                default: return false
+            }
+        })
     }
 
 }
