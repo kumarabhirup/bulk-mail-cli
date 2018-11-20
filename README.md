@@ -139,7 +139,7 @@ If the CSV file has emails fed in some other coulumn name (such as `user-email`,
 $ bulkmail config --lang
 ```
 
-<!-- **AS PER NOW, THESE FEATURES ARE UNDER DEVELOPMENT. WANNA CONTRIBUTE?** -->
+**FEW MORE THINGS ARE STILL UNDER DEVELOPMENT. WANNA CONTRIBUTE?**
 
 <br /><br />
 
