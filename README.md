@@ -134,7 +134,7 @@ If the CSV file has emails fed in some other coulumn name (such as `user-email`,
 
 <br />
 
-## Available in all languages
+## Available in 10 major languages
 ```
 $ bulkmail config --lang
 ```
