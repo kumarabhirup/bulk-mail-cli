@@ -7,7 +7,7 @@
  */
 
  
-import BulkMailCli_settings from '../settings/settings.util'
+import BulkMailCli_settings from '../settings'
 var { getSetting } = BulkMailCli_settings
 var strings = require('./strings.json')
 

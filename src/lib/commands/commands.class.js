@@ -7,19 +7,28 @@
  */
 
 
-import BulkMailCli_minimist from '../minimist.util'
-import BulkMailCli_i18n from '../i18n/i18n.util'
+import { BulkMailCli_minimist } from '../utilities'
+import BulkMailCli_i18n from '../i18n'
 import BulkMailCli_booleanCommands from './booleanCommands.class'
 import { terminal } from 'terminal-kit'
 
-import help from './tools/help.util'
-import selectLang from './tools/selectLang.util'
-import changeUsername from './tools/changeUsername.util'
-import demo from './tools/demo.util'
-import version from './tools/version.util'
-import BulkMailCli_authSession from './tools/authSession.util'
+import { 
+    help, 
+    selectLang, 
+    changeUsername, 
+    version, 
+    BulkMailCli_authSession, 
+    demo 
+} from './tools'
 
-var { isHelp, isVersion,isConfig, isDemo, hasPressedCtrlC } = BulkMailCli_booleanCommands
+var { 
+    isHelp,
+    isVersion, 
+    isConfig, 
+    isDemo, 
+    hasPressedCtrlC 
+} = BulkMailCli_booleanCommands
+
 var { getText } = BulkMailCli_i18n
 
 

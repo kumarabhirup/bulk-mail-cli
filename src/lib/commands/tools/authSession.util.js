@@ -7,9 +7,9 @@
  */
 
 import { terminal } from 'terminal-kit'
-import BulkMailCli_settings from '../../settings/settings.util'
-import BulkMailCli_i18n from '../../i18n/i18n.util'
-import { checkConnection } from '../../checkConnection.util'
+import BulkMailCli_settings from '../../settings'
+import BulkMailCli_i18n from '../../i18n'
+import { checkConnection } from '../../utilities'
 
 var { setSettings, getSettings } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
@@ -263,4 +263,4 @@ class BulkMailCli_authSession {
 
 }
 
-export default BulkMailCli_authSession
+export { BulkMailCli_authSession }

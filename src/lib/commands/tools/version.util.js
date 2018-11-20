@@ -13,4 +13,4 @@ const version = () => {
     terminal.cyan.bold(`\nbulk-mail-cli ^yv${BulkMailCli.getVersion()}^\n\n`)
 }
 
-export default version
+export { version }

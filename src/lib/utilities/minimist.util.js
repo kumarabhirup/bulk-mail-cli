@@ -10,7 +10,7 @@
 var minimist = require('minimist')
 
 
-import BulkMailCli_commands from './commands/commands.class'
+import BulkMailCli_commands from '../commands/commands.class'
 
 
 class BulkMailCli_minimist {
@@ -56,4 +56,4 @@ class BulkMailCli_minimist {
 
 }
 
-export default BulkMailCli_minimist
+export { BulkMailCli_minimist }

@@ -10,6 +10,6 @@
  **/
 
 
-import BulkMailCli from './utils/main.class'
+import BulkMailCli from './lib/main.class'
 
 new BulkMailCli().create()

@@ -1,6 +1,6 @@
 import { terminal } from 'terminal-kit'
 import { ncp } from 'ncp'
-import BulkMailCli_i18n from '../../i18n/i18n.util'
+import BulkMailCli_i18n from '../../i18n'
 
 var { getText } = BulkMailCli_i18n
 
@@ -29,4 +29,4 @@ var demo = async () => {
 
 }
 
-export default demo
+export { demo }
