@@ -18,7 +18,7 @@
 <br /><br />
 
 # 📦 `bulk-mail-cli`
-### A mini-MailChimp in your terminal!
+### The free MailChimp in your terminal!
 
 <br /><br />
 
@@ -85,10 +85,9 @@ Just like what you see below:
 $ bulkmail mail
 
 Please fill in the needed data...
-service: gmail/outlook/aol/webmail/hotmail/pop3
+service: gmail/yahoo/custom
 email: yourEmail@domain.com
 password: *************
-tls: <will be configured according to what service you choose>
 
 Wow! You are connected 😀
 
@@ -98,17 +97,13 @@ Path to Mail Template: <you can use bash's auto navigating feature>
 There you go!.. Now, it is all my task!
 
 Bulk Mail in progress:
-[=========================>] 100%
+[-------------------------------------------------->] 100%
 
 Mails sent successfully in 9.43 seconds.
 
 Thank you for using bulk-mail-cli 😀
 ```
-It will ask for credentials only for the first time. 
-
-_Credentials are stored locally in your machine. The CLI is no where connected to cloud or servers to track the information entered._
-
-**THIS PROJECT IS MORE THAN SECURE FOR YOU TO WORK WITH.**
+**Credentials are asked only for the first time.**
 
 <br />
 
