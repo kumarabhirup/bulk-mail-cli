@@ -7,8 +7,8 @@
  */
 
 
-import BulkMailCli_minimist from './minimist.util'
-import BulkMailCli_settings from './settings/settings.util'
+import { BulkMailCli_minimist } from './utilities'
+import BulkMailCli_settings from './settings'
 import { hostname, platform, userInfo } from 'os'
 
 

@@ -7,7 +7,7 @@
  */
 
 
-import BulkMailCli_minimist from '../minimist.util'
+import { BulkMailCli_minimist } from '../utilities'
 import { terminal } from 'terminal-kit'
 
 var isArrayInThere = require('array-includes')

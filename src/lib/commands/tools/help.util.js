@@ -1,6 +1,6 @@
 import { terminal } from 'terminal-kit'
-import BulkMailCli_settings from '../../settings/settings.util'
-import BulkMailCli_i18n from '../../i18n/i18n.util'
+import BulkMailCli_settings from '../../settings'
+import BulkMailCli_i18n from '../../i18n'
 
 var { getSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
@@ -44,4 +44,4 @@ terminal.yellow.bold(`${getText("hey_comma")} ${ getSetting("username") }! `).gr
 
 }
 
-export default help
+export { help }
