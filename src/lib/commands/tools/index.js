@@ -1,6 +1,7 @@
 export * from './help.util'
 export * from './version.util'
 export * from './demo.util'
+export * from './mail.util'
 export * from './authSession.util'
 export * from './changeUsername.util'
 export * from './selectLang.util'

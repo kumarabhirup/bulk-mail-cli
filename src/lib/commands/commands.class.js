@@ -18,7 +18,8 @@ import {
     changeUsername, 
     version, 
     BulkMailCli_authSession, 
-    demo 
+    demo,
+    mail
 } from './tools'
 
 var { 
@@ -26,6 +27,7 @@ var {
     isVersion, 
     isConfig, 
     isDemo, 
+    isMail,
     hasPressedCtrlC 
 } = BulkMailCli_booleanCommands
 
@@ -42,6 +44,8 @@ class BulkMailCli_commands {
             this.help()
         } else if(isVersion()){
             this.version()
+        } else if(isMail()){
+            this.mail()
         } else if(isConfig()){
             this.config()
         } else if(isDemo()){
@@ -76,6 +80,19 @@ class BulkMailCli_commands {
      */
     version(){
         version()
+    }
+
+
+    /**
+     * @method @name mail (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @description To do the main task.
+     */
+    mail(){
+        mail()
     }
 
 
