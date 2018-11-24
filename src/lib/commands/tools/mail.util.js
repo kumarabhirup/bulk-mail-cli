@@ -11,6 +11,7 @@ import { readFileSync } from 'fs'
 import BulkMailCli_settings from '../../settings'
 import BulkMailCli_i18n from '../../i18n'
 import { BulkMailCli_authSession } from '../tools'
+import { doesFileExist, BulkMailCli_checkFileType } from '../../utilities'
 
 var { setSettings, getSettings, getSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
@@ -41,7 +42,9 @@ class BulkMailCli_mail {
             await new BulkMailCli_authSession().authSession()
         }
 
-        console.log(`After the authSession.... Is the mailSession!\n`)
+        await this.pathToCsv()
+
+        console.log("\n")
 
         process.exit()
 
@@ -63,6 +66,48 @@ class BulkMailCli_mail {
         if(!getSetting("email")){
             return true
         } return false
+    }
+
+
+    /**
+     * @method @name pathToCsv (Not @static)
+     *
+     * @param none
+     * @returns Promise
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Renders CSV file browser
+     */
+    async pathToCsv(){
+
+        terminal.cyan.bold(`${getText("choose_csv_path")}`)
+
+        return await new Promise((resolve, reject) => {
+            terminal.fileInput
+            (
+                { baseDir: process.cwd() },
+                async ( error , input ) => {
+                    if(error){
+                        terminal.red.bold(` ${error}. ERROR`)
+                        reject()
+                    } else {
+
+                        if(doesFileExist(input) && BulkMailCli_checkFileType.isCsv(input)){
+                            terminal.green.bold(` "${input}" ${getText("input_selected")}`)
+                            resolve()
+                        } else {
+                            terminal.red.bold(`${getText("file_not_found")}`)
+                            await this.pathToCsv()
+                            resolve()
+                        }
+
+                    }
+                }
+            )
+        })
+
     }
 
 }

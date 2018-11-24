@@ -1,6 +1,6 @@
 /**
  * @class @name BulkMailCli_minimist
- * @type util
+ * @type class util
  * @description Play with the arguments passed... :-)
  * 
  * Date of creation: Wed, 31st Oct 2018. 2:34:18 IST
