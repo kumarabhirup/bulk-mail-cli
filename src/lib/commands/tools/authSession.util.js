@@ -29,6 +29,9 @@ class BulkMailCli_authSession {
      * @param none
      * @returns void
      * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
      * @description Used to set auth/service credentials.
      */
     async authSession(){
@@ -52,7 +55,8 @@ class BulkMailCli_authSession {
             .catch(() => {terminal.red.bold(`${getText("wrong_credentials")}`)})
 
         console.log("\n")
-        process.exit()
+
+        // process.exit() : Exit the process after calling this method
 
     }
 

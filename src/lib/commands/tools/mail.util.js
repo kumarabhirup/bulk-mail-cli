@@ -1,51 +1,70 @@
-'use strict';
-const nodemailer = require('nodemailer');
+/**
+ * @class @name BulkMailCli_mail
+ * @type class util
+ * @description Runs a mail session when asked.
+ * 
+ * Date of creation: Sat, 24th Nov 2018. 8:16:31 IST
+ */
 
-var mail = () => {
+import { terminal } from 'terminal-kit'
+import { readFileSync } from 'fs'
+import BulkMailCli_settings from '../../settings'
+import BulkMailCli_i18n from '../../i18n'
+import { BulkMailCli_authSession } from '../tools'
 
-    // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
-    nodemailer.createTestAccount((err, account) => {
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true, // true for 465, false for other ports
-            auth: {
-                user: '...', // account.user, // generated ethereal user
-                pass: '...' // account.pass // generated ethereal password
-            }
-        });
+var { setSettings, getSettings, getSetting } = BulkMailCli_settings
+var { getText } = BulkMailCli_i18n
 
-        // setup email data with unicode symbols
-        let mailOptions = {
-            from: '"Kumar A 👻" <kumarabhirup5@yahho.com>', // sender address
-            to: 'bar@example.com, baz@example.com, kumarabhirup5@gmail.com', // list of receivers
-            subject: 'Hello ✔', // Subject line
-            text: 'Your mail client does not support HTML emails.', // plain text body
-            html: `<!DOCTYPE html><html><head><style>h1{ color: red; } div.w{background:#eaeaea;padding:10px; border: 1px solid black; align-items: center;}</style></head><body><div class="w"><h1>Hey Kumar, how are you?</h1><img src="https://nodemailer.com/nm_logo_200x136.png"/></div></body></html>` // html body
-        };
+var htmlPath = require('BulkMailCli_settings').PROJECT_DIR + '/src/assets/demo/theme.html'
+var htmlFile = readFileSync(htmlPath, "utf8");
 
-        // send mail with defined transport object
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.log(error);
-            }
-            console.log('Message sent: %s', info.messageId);
-            // Preview only available when sending through an Ethereal account
-            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-            // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-            // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-        });
-    });
+class BulkMailCli_mail {
 
-    // html to string
+    constructor(){}
 
-    // var fs = require('fs');
-    // var file = fs.readFileSync(path, "utf8");
-    // console.log(file);
+
+    /**
+     * @method @name mail (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Renders the mailSession
+     */
+    async mail(){
+
+        if(BulkMailCli_mail.isAuthSession()){
+            await new BulkMailCli_authSession().authSession()
+        }
+
+        console.log(`After the authSession.... Is the mailSession!\n`)
+
+        process.exit()
+
+    }
+
+
+    /**
+     * @method @name isAuthSession (@static)
+     *
+     * @param none
+     * @returns boolean
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Are user's auth credentials registered? Yes, or no?
+     */
+    static isAuthSession(){
+        if(!getSetting("email")){
+            return true
+        } return false
+    }
 
 }
 
-export { mail }
+export { BulkMailCli_mail }

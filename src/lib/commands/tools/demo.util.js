@@ -4,7 +4,7 @@ import BulkMailCli_i18n from '../../i18n'
 
 var { getText } = BulkMailCli_i18n
 
-const SOURCE_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/src/assets/Bulkmail_demo'
+const SOURCE_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/src/assets/demo'
 const DESTINATION_PATH = process.cwd()
 
 /**

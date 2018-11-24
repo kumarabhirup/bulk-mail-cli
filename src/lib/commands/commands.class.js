@@ -19,7 +19,7 @@ import {
     version, 
     BulkMailCli_authSession, 
     demo,
-    mail
+    BulkMailCli_mail
 } from './tools'
 
 var { 
@@ -92,7 +92,7 @@ class BulkMailCli_commands {
      * @description To do the main task.
      */
     mail(){
-        mail()
+        new BulkMailCli_mail().mail()
     }
 
 
@@ -104,13 +104,14 @@ class BulkMailCli_commands {
      * 
      * @description Used to change user configs in the CLI.
      */
-    config(){
+    async config(){
         if(BulkMailCli_minimist.getArgs()["lang"]){
             selectLang()
         } else if(BulkMailCli_minimist.getArgs()["username"]){
             changeUsername()
         } else if(BulkMailCli_minimist.getArgs()["auth"]){
-            new BulkMailCli_authSession().authSession()
+            await new BulkMailCli_authSession().authSession()
+            process.exit()
         } else {
             terminal.red.bold(`${getText("wrong_bulkmail_config_command")}`) 
         }

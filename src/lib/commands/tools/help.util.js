@@ -25,18 +25,14 @@ terminal.yellow.bold(`${getText("hey_comma")} ${ getSetting("username") }! `).gr
 .yellow.bold(`${getText("commands_and_options")}`)
 .cyan.bold(`
     config
+        --auth
         --lang
         --username
-        --email
-        --password
-        --tls
-        --service
     
     mail
-        --csv
-        --template
+        <no options>
     
-    ^r -v, --version, --deleteBulkMail ^
+    ^r -v, --version ^
 
 `)
 

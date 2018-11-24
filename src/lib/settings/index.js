@@ -57,7 +57,7 @@ class BulkMailCli_settings {
         if(settings[setting] != null) {
             return settings[setting]
         } else {
-            console.log("Provided setting <" + setting + "> cannot be found.")
+            // console.log("Provided setting <" + setting + "> cannot be found.")
             return false
         }
     }
