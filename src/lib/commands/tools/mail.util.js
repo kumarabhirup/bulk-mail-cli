@@ -16,13 +16,15 @@ import { doesFileExist, BulkMailCli_checkFileType } from '../../utilities'
 var { setSettings, getSettings, getSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
 
-var htmlPath = require('BulkMailCli_settings').PROJECT_DIR + '/src/assets/demo/theme.html'
-var htmlFile = readFileSync(htmlPath, "utf8");
+var csvToJson = require('csvtojson')
 
 
 class BulkMailCli_mail {
 
-    constructor(){}
+    constructor(){
+        this.csvJson = ''
+        this.htmlFile = ''
+    }
 
 
     /**
@@ -100,8 +102,13 @@ class BulkMailCli_mail {
                     } else {
 
                         if(doesFileExist(input) && BulkMailCli_checkFileType.isCsv(input)){
+
+                            var csvPath = input
+                            this.csvJson = await csvToJson().fromFile(csvPath)
+
                             terminal.green.bold(` "${input}" ${getText("input_selected")}`)
                             resolve()
+
                         } else {
                             terminal.red.bold(`${getText("file_not_found_csv")}`)
                             await this.pathToCsv()
@@ -142,8 +149,13 @@ class BulkMailCli_mail {
                     } else {
 
                         if(doesFileExist(input) && BulkMailCli_checkFileType.isHtml(input)){
+
+                            var htmlPath = input
+                            this.htmlFile = readFileSync(htmlPath, "utf8")
+
                             terminal.green.bold(` "${input}" ${getText("input_selected")}`)
                             resolve()
+
                         } else {
                             terminal.red.bold(`${getText("file_not_found_html")}`)
                             await this.pathToHtml()
