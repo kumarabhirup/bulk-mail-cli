@@ -119,10 +119,20 @@
             "cn": "selected. 😀",
             "in": "selected. 😀"
         },
-        "file_not_found": {
+        "file_not_found_csv": {
             "en": " Please choose a .csv file. TRY AGAIN! 😒",
             "cn": " Please choose a .csv file. TRY AGAIN! 😒",
             "in": " Please choose a .csv file. TRY AGAIN! 😒"
+        },
+        "file_not_found_html": {
+            "en": " Please choose a .html file. TRY AGAIN! 😒",
+            "cn": " Please choose a .html file. TRY AGAIN! 😒",
+            "in": " Please choose a .html file. TRY AGAIN! 😒"
+        },
+        "cannot_mail_wrong_credentials": {
+            "en": "Cannot mail without right service credentials. 👻\n\n",
+            "cn": "Cannot mail without right service credentials. 👻\n\n",
+            "in": "Cannot mail without right service credentials. 👻\n\n"
         },
 
 

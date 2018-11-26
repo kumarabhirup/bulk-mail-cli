@@ -38,11 +38,16 @@ class BulkMailCli_mail {
      */
     async mail(){
 
-        if(BulkMailCli_mail.isAuthSession()){
+        if(!BulkMailCli_mail.isAuthSession()){
             await new BulkMailCli_authSession().authSession()
+            if(!BulkMailCli_mail.isAuthSession()){
+                terminal.red.bold(`${getText("cannot_mail_wrong_credentials")}`)
+                process.exit()
+            }
         }
 
         await this.pathToCsv()
+        await this.pathToHtml()
 
         console.log("\n")
 
@@ -63,7 +68,7 @@ class BulkMailCli_mail {
      * @description Are user's auth credentials registered? Yes, or no?
      */
     static isAuthSession(){
-        if(!getSetting("email")){
+        if(getSetting("email")){
             return true
         } return false
     }
@@ -98,8 +103,50 @@ class BulkMailCli_mail {
                             terminal.green.bold(` "${input}" ${getText("input_selected")}`)
                             resolve()
                         } else {
-                            terminal.red.bold(`${getText("file_not_found")}`)
+                            terminal.red.bold(`${getText("file_not_found_csv")}`)
                             await this.pathToCsv()
+                            resolve()
+                        }
+
+                    }
+                }
+            )
+        })
+
+    }
+
+
+    /**
+     * @method @name pathToHtml (Not @static)
+     *
+     * @param none
+     * @returns Promise
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Renders Html file browser
+     */
+    async pathToHtml(){
+
+        terminal.cyan.bold(`${getText("choose_html_path")}`)
+
+        return await new Promise((resolve, reject) => {
+            terminal.fileInput
+            (
+                { baseDir: process.cwd() },
+                async ( error , input ) => {
+                    if(error){
+                        terminal.red.bold(` ${error}. ERROR`)
+                        reject()
+                    } else {
+
+                        if(doesFileExist(input) && BulkMailCli_checkFileType.isHtml(input)){
+                            terminal.green.bold(` "${input}" ${getText("input_selected")}`)
+                            resolve()
+                        } else {
+                            terminal.red.bold(`${getText("file_not_found_html")}`)
+                            await this.pathToHtml()
                             resolve()
                         }
 
