@@ -24,6 +24,8 @@ class BulkMailCli_mail {
     constructor(){
         this.csvJson = ''
         this.htmlFile = ''
+        this.fromName = ''
+        this.subject = ''
     }
 
 
@@ -50,6 +52,8 @@ class BulkMailCli_mail {
 
         await this.pathToCsv()
         await this.pathToHtml()
+        await this.enterFromName()
+        await this.enterSubject()
 
         console.log("\n")
 
@@ -167,6 +171,42 @@ class BulkMailCli_mail {
             )
         })
 
+    }
+
+
+    /**
+     * @method @name enterFromName (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Does the work of rendering a From name input field.
+     */
+    async enterFromName(){
+        terminal.cyan.bold(`${getText("please_enter_from")}`)
+        var input = await terminal.inputField().promise
+        this.fromName = input
+    }
+
+
+    /**
+     * @method @name enterSubject (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Does the work of rendering a subject input field.
+     */
+    async enterSubject(){
+        terminal.cyan.bold(`${getText("please_enter_subject")}`)
+        var input = await terminal.inputField().promise
+        this.subject = input
     }
 
 }

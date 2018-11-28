@@ -134,6 +134,16 @@
             "cn": "Cannot mail without right service credentials. 👻\n\n",
             "in": "Cannot mail without right service credentials. 👻\n\n"
         },
+        "please_enter_from": {
+            "en": "\n\nMail from: ",
+            "cn": "\n\nMail from: ",
+            "in": "\n\nMail from: "
+        },
+        "please_enter_subject": {
+            "en": "\nSubject: ",
+            "cn": "\nSubject: ",
+            "in": "\nSubject: "
+        },
 
 
         "one_liner_description": {
