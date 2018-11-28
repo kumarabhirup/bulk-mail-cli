@@ -74,7 +74,9 @@ $ bulkmail demo
 <br />
 
 ## Shoot the mails after you feed data
-Done tweaking with Templates and CSV file? It is time to send the mails!
+**If you are to send mails using Gmail,** just turn on the `less secure apps` option [here](https://myaccount.google.com/lesssecureapps).
+
+Done tweaking with Templates and CSV file? Done doing those configurations? It is time to send the mails!
 ```
 $ bulkmail mail
 ```
