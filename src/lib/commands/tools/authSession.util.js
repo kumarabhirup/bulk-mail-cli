@@ -10,13 +10,14 @@ import { terminal } from 'terminal-kit'
 import BulkMailCli_settings from '../../settings'
 import BulkMailCli_i18n from '../../i18n'
 import { checkConnection } from '../../utilities'
+import { rejects } from 'assert'
 
 var { setSettings, getSettings } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
 
-var settingsArray = []
+var credentialsArray = []
 var settingsObject = getSettings()
-settingsArray.push(settingsObject)
+credentialsArray.push(settingsObject)
 
 class BulkMailCli_authSession {
 
@@ -48,14 +49,23 @@ class BulkMailCli_authSession {
         terminal.yellow.bold(`${getText("connecting")}`)
 
         return await new Promise(async (resolve, reject) => {
-            await this.isSuccessful(settingsArray[0])
-            .then(async () => {
-                await setSettings(settingsArray[0])
-                terminal.green.bold(`${getText("connected")}`)
-                console.log("\n")
-                resolve()
-            })
-            .catch(() => {terminal.red.bold(`${getText("wrong_credentials")}`); reject()})
+            try {
+                await this.isSuccessful(credentialsArray[0])
+                    .then(async () => {
+                        try {
+                            await setSettings(credentialsArray[0])
+                            terminal.green.bold(`${getText("connected")}`)
+                            console.log("\n")
+                            resolve()
+                        } catch (error) {
+                            console.log(error)
+                        }
+                    }) 
+            } catch (error) {
+                terminal.red.bold(`${getText("wrong_credentials")}`)
+                // terminal.yellow(`Troubleshoot common errors at https://github.com/KumarAbhirup/bulk-mail-cli/`)
+                reject('ERROR')
+            }
         })
 
         // process.exit() : Exit the process after calling this method
@@ -87,7 +97,7 @@ class BulkMailCli_authSession {
         var serviceSelected = new Promise((resolve, reject) => {
             terminal.singleColumnMenu( servicesToSelect , async ( error , response ) => {
                 var serviceName = response.selectedText
-                settingsArray[0].service = serviceName
+                credentialsArray[0].service = serviceName
                 resolve(serviceName)
             })
         })
@@ -110,13 +120,13 @@ class BulkMailCli_authSession {
      */
     async serviceAnalyser(service){
         if(service == "gmail"){
-            settingsArray[0].host = "smtp.gmail.com"
-            settingsArray[0].port = 465
-            settingsArray[0].secureConnection = true
+            credentialsArray[0].host = "smtp.gmail.com"
+            credentialsArray[0].port = 465
+            credentialsArray[0].secureConnection = true
         } else if(service == "yahoo"){
-            settingsArray[0].host = "smtp.mail.yahoo.com"
-            settingsArray[0].port = 465
-            settingsArray[0].secureConnection = true
+            credentialsArray[0].host = "smtp.mail.yahoo.com"
+            credentialsArray[0].port = 465
+            credentialsArray[0].secureConnection = true
         } else if(service == "other/custom"){
             console.log("")
             await this.enterHost()
@@ -140,7 +150,7 @@ class BulkMailCli_authSession {
     async enterHost(){
         terminal.cyan.bold(`${getText("please_enter_host")}`)
         var input = await terminal.inputField().promise
-        settingsArray[0].host = input
+        credentialsArray[0].host = input
     }
 
 
@@ -158,7 +168,7 @@ class BulkMailCli_authSession {
     async enterPort(){
         terminal.cyan.bold(`${getText("please_enter_port")}`)
         var input = await terminal.inputField().promise
-        settingsArray[0].port = input
+        credentialsArray[0].port = input
     }
 
 
@@ -181,11 +191,11 @@ class BulkMailCli_authSession {
             terminal.yesOrNo({yes: ['y'], no: ['n']} , ( error , result ) => {
                 if (result){
                     terminal.green.bold(`${getText("yes_for_sc")}` )
-                    settingsArray[0].secureConnection = true
+                    credentialsArray[0].secureConnection = true
                     resolve()
                 } else {
                     terminal.red.bold(`${getText("no_for_sc")}`)
-                    settingsArray[0].secureConnection = false
+                    credentialsArray[0].secureConnection = false
                     resolve()
                 }
             })
@@ -208,7 +218,7 @@ class BulkMailCli_authSession {
     async enterEmail(){
         terminal.cyan.bold(`${getText("please_enter_email")}`)
         var input = await terminal.inputField().promise
-        settingsArray[0].email = input
+        credentialsArray[0].email = input
     }
 
 
@@ -226,14 +236,14 @@ class BulkMailCli_authSession {
     async enterPassword(){
         terminal.cyan.bold(`${getText("please_enter_password")}`)
         var input = await terminal.inputField({echoChar: '•'}).promise
-        settingsArray[0].password = input
+        credentialsArray[0].password = input
     }
 
 
     /**
      * @method @name isSuccessful (Not @static)
      *
-     * @param settings - (object)
+     * @param credentials - (object)
      * @returns Promise (boolean resolve)
      * 
      * @async Please use this method only in async functions.
@@ -241,15 +251,15 @@ class BulkMailCli_authSession {
      * 
      * @description Checks if the service credentials are valid.
      */
-    async isSuccessful(settings){
+    async isSuccessful(credentials){
 
         var smtpOptions = {
-            host: settings.host,
-            port: settings.port,
-            secureConnection: settings.secureConnection,
+            host: credentials.host,
+            port: credentials.port,
+            secureConnection: credentials.secureConnection,
             auth: {
-                user: settings.email,
-                pass: settings.password
+                user: credentials.email,
+                pass: credentials.password
             }
         }
         
