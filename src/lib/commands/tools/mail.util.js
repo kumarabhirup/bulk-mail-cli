@@ -28,6 +28,21 @@ class BulkMailCli_mail {
         this.subject = ''
     }
 
+    
+    /**
+     * @method @name isAuthSession (Not @static)
+     *
+     * @param none
+     * @returns boolean
+     * 
+     * @description Are user's auth credentials registered? Yes, or no?
+     */
+    isAuthSession(){
+        if(getSetting("email")){
+            return true
+        } return false
+    }
+    
 
     /**
      * @method @name mail (Not @static)
@@ -42,12 +57,12 @@ class BulkMailCli_mail {
      */
     async mail(){
 
-        if(!BulkMailCli_mail.isAuthSession()){
+        if(!this.isAuthSession()){
             await new BulkMailCli_authSession().authSession()
-            if(!BulkMailCli_mail.isAuthSession()){
+            .catch(() => {
                 terminal.red.bold(`${getText("cannot_mail_wrong_credentials")}`)
                 process.exit()
-            }
+            })
         }
 
         await this.pathToCsv()
@@ -62,22 +77,6 @@ class BulkMailCli_mail {
     }
 
 
-    /**
-     * @method @name isAuthSession (@static)
-     *
-     * @param none
-     * @returns boolean
-     * 
-     * @async Please use this method only in async functions.
-     *        DO NOT FORGET TO PUT AN `await` before calling this function.
-     * 
-     * @description Are user's auth credentials registered? Yes, or no?
-     */
-    static isAuthSession(){
-        if(getSetting("email")){
-            return true
-        } return false
-    }
 
 
     /**

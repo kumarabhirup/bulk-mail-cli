@@ -130,9 +130,9 @@
             "in": " Please choose a .html file. TRY AGAIN! 😒"
         },
         "cannot_mail_wrong_credentials": {
-            "en": "Cannot mail without right service credentials. 👻\n\n",
-            "cn": "Cannot mail without right service credentials. 👻\n\n",
-            "in": "Cannot mail without right service credentials. 👻\n\n"
+            "en": "\nCannot mail without right service credentials. 👻\n\n",
+            "cn": "\nCannot mail without right service credentials. 👻\n\n",
+            "in": "\nCannot mail without right service credentials. 👻\n\n"
         },
         "please_enter_from": {
             "en": "\n\nMail from: ",

@@ -27,7 +27,7 @@ class BulkMailCli_authSession {
      * @method @name authSession (Not @static)
      *
      * @param none
-     * @returns void
+     * @returns Promise
      * 
      * @async Please use this method only in async functions.
      *        DO NOT FORGET TO PUT AN `await` before calling this function.
@@ -47,14 +47,16 @@ class BulkMailCli_authSession {
 
         terminal.yellow.bold(`${getText("connecting")}`)
 
-        await this.isSuccessful(settingsArray[0])
+        return await new Promise(async (resolve, reject) => {
+            await this.isSuccessful(settingsArray[0])
             .then(async () => {
                 await setSettings(settingsArray[0])
                 terminal.green.bold(`${getText("connected")}`)
+                console.log("\n")
+                resolve()
             })
-            .catch(() => {terminal.red.bold(`${getText("wrong_credentials")}`)})
-
-        console.log("\n")
+            .catch(() => {terminal.red.bold(`${getText("wrong_credentials")}`); reject()})
+        })
 
         // process.exit() : Exit the process after calling this method
 
