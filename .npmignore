@@ -1,5 +1,7 @@
 # Extras
 junkies*
+.github*
+.gitignore*
 
 # FOR NPM PACKAGE
 src/*
