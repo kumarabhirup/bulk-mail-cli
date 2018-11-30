@@ -1,6 +1,10 @@
 # Extras
 junkies*
 
+# FOR NPM PACKAGE
+src*
+!src/dist
+
 # node_modules
 node_modules/*
 !node_modules/BulkMailCli_*/
