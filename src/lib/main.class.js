@@ -9,7 +9,10 @@
 
 import { BulkMailCli_minimist } from './utilities'
 import BulkMailCli_settings from './settings'
-import { hostname, platform, userInfo } from 'os'
+import { hostname, platform, userInfo, release } from 'os'
+import { terminal } from 'terminal-kit'
+
+var osName = require('os-name')
 
 
 /**
@@ -38,8 +41,12 @@ class BulkMailCli {
      * @description Initializes at every BulkMailCli command
      */
     async create(){
-        await this.setSettings()
-        bulkmail()
+        if(platform() == 'darwin' || platform() == 'linux'){
+            await this.setSettings()
+            bulkmail()
+        } else {
+            terminal.red.bold(`\nSorry, ^ybulk-mail-cli v${ BulkMailCli.getVersion() }^ fails to support ^c${ osName(platform(), release()) }^c ☹️\n\n`)
+        }
     }
 
 
@@ -56,6 +63,7 @@ class BulkMailCli {
             await setSetting("username", userInfo().username)
             await setSetting("hostname", hostname())
             await setSetting("platform", platform())
+            await setSetting("release", release())
             await setSetting("lang", "en")
         }
     }

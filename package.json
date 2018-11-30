@@ -19,6 +19,7 @@
     "minimist": "^1.2.0",
     "ncp": "^2.0.0",
     "nodemailer": "^4.7.0",
+    "os-name": "^3.0.0",
     "simplesmtp": "^0.3.35",
     "terminal-kit": "^1.26.4"
   },
