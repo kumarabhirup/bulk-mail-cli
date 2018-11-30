@@ -2,6 +2,7 @@
 junkies*
 .github*
 .gitignore*
+.babelrc*
 
 # FOR NPM PACKAGE
 src/*
