@@ -67,8 +67,8 @@ class BulkMailCli_mailer {
 
             try {
                 this.createTransporter().sendMail(this.mailOptions(), (error, info) => {
-                    if(error) resolve(error)
-                    else resolve(info)
+                    if(error) resolve(false)
+                    else resolve(true)
                 })
             } catch (error) {
                 reject(error)

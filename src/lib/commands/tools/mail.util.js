@@ -11,7 +11,7 @@ import { readFileSync } from 'fs'
 import BulkMailCli_settings from '../../settings'
 import BulkMailCli_i18n from '../../i18n'
 import { BulkMailCli_authSession } from '../tools'
-import { doesFileExist, BulkMailCli_checkFileType } from '../../utilities'
+import { doesFileExist, BulkMailCli_checkFileType, BulkMailCli_mailer } from '../../utilities'
 
 var { setSettings, getSettings, getSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
@@ -24,7 +24,7 @@ class BulkMailCli_mail {
     constructor(){
         this.csvJson = ''
         this.htmlFile = ''
-        this.fromName = ''
+        this.fromText = ''
         this.subject = ''
     }
 
@@ -60,18 +60,23 @@ class BulkMailCli_mail {
         if(!this.isAuthSession()){
             await new BulkMailCli_authSession().authSession()
             .then((isSuccessful) => {
-                if (!isSuccessful)
+                if (!isSuccessful){
                     terminal.red.bold(`${getText("cannot_mail_wrong_credentials")}`)
                     process.exit()
+                }
             })
+            console.log("\n")
         }
 
         await this.pathToCsv()
         await this.pathToHtml()
         await this.enterFromName()
         await this.enterSubject()
+        await this.mailMassacre()
 
         console.log("\n")
+
+        terminal.green.bold(`Hurray! We mass mailed everyone... 💨\n\n`)
 
         process.exit()
 
@@ -99,7 +104,9 @@ class BulkMailCli_mail {
             terminal.fileInput
             (
                 { baseDir: process.cwd() },
-                async ( error , input ) => {
+
+                async (error, input) => {
+
                     if(error){
                         terminal.red.bold(` ${error}. ERROR`)
                         reject()
@@ -120,6 +127,7 @@ class BulkMailCli_mail {
                         }
 
                     }
+
                 }
             )
         })
@@ -146,7 +154,9 @@ class BulkMailCli_mail {
             terminal.fileInput
             (
                 { baseDir: process.cwd() },
+
                 async ( error , input ) => {
+
                     if(error){
                         terminal.red.bold(` ${error}. ERROR`)
                         reject()
@@ -167,6 +177,7 @@ class BulkMailCli_mail {
                         }
 
                     }
+
                 }
             )
         })
@@ -188,7 +199,7 @@ class BulkMailCli_mail {
     async enterFromName(){
         terminal.cyan.bold(`${getText("please_enter_from")}`)
         var input = await terminal.inputField().promise
-        this.fromName = input
+        this.fromText = input
     }
 
 
@@ -207,6 +218,51 @@ class BulkMailCli_mail {
         terminal.cyan.bold(`${getText("please_enter_subject")}`)
         var input = await terminal.inputField().promise
         this.subject = input
+    }
+
+
+    /**
+     * @method @name mailMassacre (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description SHOOT THE CRAP OUT OF DATA!!!
+     */
+    async mailMassacre(){
+        
+        terminal.yellow.bold(`\n\nMass mailer started 👻`)
+
+        for (var key in this.csvJson) {
+
+            var smtpOptions = {
+                host: getSetting('host'),
+                port: getSetting('port'),
+                secureConnection: getSetting('secureConnection'),
+                auth: {
+                    user: getSetting('email'),
+                    pass: getSetting('password')
+                }
+            }
+
+            var mailer = new BulkMailCli_mailer(this.csvJson[key].email, this.htmlFile, smtpOptions, this.fromText, this.subject)
+            await mailer.sendMail()
+                .then((isSuccessful) => {
+                    if (isSuccessful){
+                        terminal.green(`\nMail successfully sent to ${this.csvJson[key].email}`)
+                    } else {
+                        terminal.red(`\nPlease check your internet connection and try again!`)
+                    }
+                })
+                .catch(error => {
+                    console.log(error + '\n')
+                })
+
+        }
+
     }
 
 }
