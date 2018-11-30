@@ -5,7 +5,7 @@
 <img width="650" src="https://lh3.googleusercontent.com/VsKPqXDv-xwuXa0Lk9yJkyjf3ors01XQRWzb0ga1FcQ30Cxwbwn9iUWPP6jtLxJtOmF75OlCShKI0Jk2cxg4opyr3tk3M4P0DFXXmhVy2kw9NvwWIxtTPSMQnvGK2t3Ij0F1UNBgDy0BY0Xn0egLqcshwdMHN7dSiB_RNt2qSB_d1v3rlU6GwxRfEZ1Kb5E3z_vIgXP43MI3TaeIkRc30Dn3mY9-TcaCuQIxVzdUj2ThCZ--Rxad4-rGG9gGWLv4JqQ3HeKPKFswrWgMrDTywFU9IW7Qn_scus3S8W3unCHH3PkuW7LgeUe14YaYzfrxDfhz-6jOp2ik3z4d-maNsIHz2rxqNBNZ2gqpg_nRXgEt19sUQjeEQbip7V5ZazRPD6ufc5TqzUKIHO9xmIVF1WGY_V2u7f98ufxRVl4PLxi-As7JF5kWC5PIHP0GLByHY58rgfEuoNyrPdmy6pe9kuQ-WTJzlGauIFxWuY5wZercjh3TJ-C1cX_VIorR9qb5-TC0c0zKFSmNZbUf8nh0WoR0LBuleSxEimtLgvCedziIuwIhiR4K9XDzL3zjB38Q03AiS1cTti2zafSABT4qpJhaKDAwSVFlRnAltS0Pn4FTQTD7aD7MT5FtgNz7E3IahWMZCgWNDv71KXc3R0Q2Ki3Awy8AUHltPwMBiscjU-3x2vHgMQVIsnymm0suFqFn-AUAu_PfYoh9y_8VIX8ZpfKYuFSD3yiwqC8Y=w1280-h305-no" alt="bulk-mail-cli by Kumar Abhirup">
 
 [![Type](https://img.shields.io/badge/type-CLI-yellow.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
-[![stage](https://img.shields.io/badge/stage-development-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/bulk-mail-cli/tree/development)
+[![stage](https://img.shields.io/badge/stage-3rd%20Phase%20%F0%9F%94%A5-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/bulk-mail-cli/tree/development)
 [![npm](https://img.shields.io/badge/npm-bulk--mail--cli-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli) 
 [![yarn](https://img.shields.io/badge/yarn-bulk--mail--cli-368EBB.svg?style=flat-square)](http://yarnpkg.com/en/package/bulk-mail-cli) 
 [![Version](https://img.shields.io/badge/version-v0.0.4-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
@@ -89,7 +89,7 @@ $ bulkmail mail
 Please fill in the needed data...
 service: gmail/yahoo/custom
 email: yourEmail@domain.com
-password: *************
+password: •••••••••••••••••
 
 Wow! You are connected 😀
 
@@ -97,6 +97,7 @@ Path to CSV: <you can use bash's auto navigating feature>
 Path to Mail Template: <you can use bash's auto navigating feature>
 
 From name: John Doe
+Subject: Subject of the mail
 
 There you go!.. Now, it is all my task!
 
