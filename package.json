@@ -1,6 +1,6 @@
 {
   "name": "bulk-mail-cli",
-  "version": "0.0.51",
+  "version": "0.0.52",
   "description": "Send bulk non-spammy emails right from your terminal!",
   "main": "src/dist/src/bulkmailer.js",
   "author": "Kumar Abhirup",

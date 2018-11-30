@@ -25,7 +25,7 @@ require("@babel/polyfill")
  * @summary BulkMailCli_settings was required for solving issue #4. [Solved]
  * @see https://github.com/KumarAbhirup/bulk-mail-cli/issues/4
  */
-const SETTINGS_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/src/lib/settings/settings.json'
+const SETTINGS_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/src/dist/src/lib/settings/settings.json'
 
 
 class BulkMailCli_settings {
