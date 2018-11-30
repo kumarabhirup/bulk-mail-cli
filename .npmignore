@@ -2,8 +2,8 @@
 junkies*
 
 # FOR NPM PACKAGE
-src*
-!src/dist
+src/*
+!src/dist/
 
 # node_modules
 node_modules/*
