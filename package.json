@@ -1,12 +1,13 @@
 {
   "name": "bulk-mail-cli",
-  "version": "0.0.6",
-  "description": "Send bulk non-spammy emails right from your terminal!",
+  "version": "0.0.60",
+  "description": "The free MailChimp for your Terminal!",
   "main": "src/dist/src/bulkmailer.js",
   "author": "Kumar Abhirup",
   "scripts": {
     "start": "npm run build && node ./src/dist/src/bulkmailer.js",
     "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
+    "publish": "npm run build && npm publish",
     "test": "echo No tests written."
   },
   "repository": {

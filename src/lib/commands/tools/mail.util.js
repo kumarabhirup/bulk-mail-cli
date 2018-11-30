@@ -59,9 +59,10 @@ class BulkMailCli_mail {
 
         if(!this.isAuthSession()){
             await new BulkMailCli_authSession().authSession()
-            .catch(() => {
-                terminal.red.bold(`${getText("cannot_mail_wrong_credentials")}`)
-                process.exit()
+            .then((isSuccessful) => {
+                if (!isSuccessful)
+                    terminal.red.bold(`${getText("cannot_mail_wrong_credentials")}`)
+                    process.exit()
             })
         }
 

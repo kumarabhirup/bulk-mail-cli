@@ -10,7 +10,6 @@ import { terminal } from 'terminal-kit'
 import BulkMailCli_settings from '../../settings'
 import BulkMailCli_i18n from '../../i18n'
 import { checkConnection } from '../../utilities'
-import { rejects } from 'assert'
 
 var { setSettings, getSettings } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
@@ -49,23 +48,20 @@ class BulkMailCli_authSession {
         terminal.yellow.bold(`${getText("connecting")}`)
 
         return await new Promise(async (resolve, reject) => {
-            try {
-                await this.isSuccessful(credentialsArray[0])
-                    .then(async () => {
-                        try {
-                            await setSettings(credentialsArray[0])
-                            terminal.green.bold(`${getText("connected")}`)
-                            console.log("\n")
-                            resolve()
-                        } catch (error) {
-                            console.log(error)
-                        }
-                    }) 
-            } catch (error) {
-                terminal.red.bold(`${getText("wrong_credentials")}`)
-                // terminal.yellow(`Troubleshoot common errors at https://github.com/KumarAbhirup/bulk-mail-cli/`)
-                reject('ERROR')
-            }
+            await this.isSuccessful(credentialsArray[0])
+                .then(async () => {
+                    try {
+                        await setSettings(credentialsArray[0])
+                        terminal.green.bold(`${getText("connected")}`)
+                        resolve(true)
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }).catch(() => {
+                    terminal.red.bold(`${getText("wrong_credentials")}`)
+                    // terminal.yellow(`Troubleshoot common errors at https://github.com/KumarAbhirup/bulk-mail-cli/`)
+                    resolve(false)
+                })
         })
 
         // process.exit() : Exit the process after calling this method

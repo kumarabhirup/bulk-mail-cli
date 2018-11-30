@@ -111,6 +111,7 @@ class BulkMailCli_commands {
             changeUsername()
         } else if(BulkMailCli_minimist.getArgs()["auth"]){
             await new BulkMailCli_authSession().authSession()
+            console.log("\n")
             process.exit()
         } else {
             terminal.red.bold(`${getText("wrong_bulkmail_config_command")}`) 
