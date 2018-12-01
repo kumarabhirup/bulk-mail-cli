@@ -18,7 +18,8 @@ import {
     changeUsername, 
     version, 
     BulkMailCli_authSession, 
-    demo 
+    demo,
+    BulkMailCli_mail
 } from './tools'
 
 var { 
@@ -26,6 +27,7 @@ var {
     isVersion, 
     isConfig, 
     isDemo, 
+    isMail,
     hasPressedCtrlC 
 } = BulkMailCli_booleanCommands
 
@@ -42,6 +44,8 @@ class BulkMailCli_commands {
             this.help()
         } else if(isVersion()){
             this.version()
+        } else if(isMail()){
+            this.mail()
         } else if(isConfig()){
             this.config()
         } else if(isDemo()){
@@ -80,6 +84,19 @@ class BulkMailCli_commands {
 
 
     /**
+     * @method @name mail (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @description To do the main task.
+     */
+    mail(){
+        new BulkMailCli_mail().mail()
+    }
+
+
+    /**
      * @method @name config (Not @static)
      *
      * @param none
@@ -87,13 +104,15 @@ class BulkMailCli_commands {
      * 
      * @description Used to change user configs in the CLI.
      */
-    config(){
+    async config(){
         if(BulkMailCli_minimist.getArgs()["lang"]){
             selectLang()
         } else if(BulkMailCli_minimist.getArgs()["username"]){
             changeUsername()
         } else if(BulkMailCli_minimist.getArgs()["auth"]){
-            new BulkMailCli_authSession().authSession()
+            await new BulkMailCli_authSession().authSession()
+            console.log("\n")
+            process.exit()
         } else {
             terminal.red.bold(`${getText("wrong_bulkmail_config_command")}`) 
         }

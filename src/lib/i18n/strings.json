@@ -104,6 +104,48 @@
         },
 
 
+        "choose_csv_path": {
+            "en": "\nCSV file path: ",
+            "cn": "\nCSV file path: ",
+            "in": "\nCSV file path: "
+        },
+        "choose_html_path": {
+            "en": "\nHTML theme file path: ",
+            "cn": "\nHTML theme file path: ",
+            "in": "\nHTML theme file path: "
+        },
+        "input_selected": {
+            "en": "selected. 😀",
+            "cn": "selected. 😀",
+            "in": "selected. 😀"
+        },
+        "file_not_found_csv": {
+            "en": " Please choose a .csv file. TRY AGAIN! 😒",
+            "cn": " Please choose a .csv file. TRY AGAIN! 😒",
+            "in": " Please choose a .csv file. TRY AGAIN! 😒"
+        },
+        "file_not_found_html": {
+            "en": " Please choose a .html file. TRY AGAIN! 😒",
+            "cn": " Please choose a .html file. TRY AGAIN! 😒",
+            "in": " Please choose a .html file. TRY AGAIN! 😒"
+        },
+        "cannot_mail_wrong_credentials": {
+            "en": "\nCannot mail without right service credentials. 👻\n\n",
+            "cn": "\nCannot mail without right service credentials. 👻\n\n",
+            "in": "\nCannot mail without right service credentials. 👻\n\n"
+        },
+        "please_enter_from": {
+            "en": "\n\nMail from: ",
+            "cn": "\n\nMail from: ",
+            "in": "\n\nMail from: "
+        },
+        "please_enter_subject": {
+            "en": "\nSubject: ",
+            "cn": "\nSubject: ",
+            "in": "\nSubject: "
+        },
+
+
         "one_liner_description": {
             "en": "Send bulk non-spammy emails right from your terminal! 🤘\n",
             "cn": "直接从您的终端发送批量非垃圾邮件! 🤘\n",

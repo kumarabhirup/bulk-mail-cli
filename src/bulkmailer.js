@@ -7,7 +7,7 @@
  * @file bulkmailer.js
  * This file is the entrypoint of this program.
  * 
- **/
+ */
 
 
 import BulkMailCli from './lib/main.class'

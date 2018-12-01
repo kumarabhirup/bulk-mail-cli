@@ -98,6 +98,21 @@ class BulkMailCli_booleanCommands {
         })
     }
 
+
+    /**
+     * @method @name isMail (@static)
+     *
+     * @param none
+     * @returns boolean
+     * 
+     * @description Has user typed `bulkmail mail` command? Yes, or no?
+     */
+    static isMail(){
+        if(!BulkMailCli_minimist.isArgsEmpty() && isArrayInThere(BulkMailCli_minimist.getArgs()["_"], "mail")){
+            return true
+        } return false
+    }
+
 }
 
 export default BulkMailCli_booleanCommands

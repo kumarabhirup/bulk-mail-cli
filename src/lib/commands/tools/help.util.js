@@ -23,20 +23,19 @@ terminal.yellow.bold(`${getText("hey_comma")} ${ getSetting("username") }! `).gr
 .yellow.bold(`${getText("usage")}`).cyan.bold(`bulkmail <command> [options]\n\n`)
 
 .yellow.bold(`${getText("commands_and_options")}`)
-.cyan.bold(`
+.cyan(`
     config
-        --lang
-        --username
-        --email
-        --password
-        --tls
-        --service
+        --auth ^y: To change the service credentials.
+        ^c--lang ^y: To change the language preference.
+        ^c--username ^y: To change your default username.
+
+    ^cdemo ^y: To download the demo email templates and .csv file.
+        ^c<no options>^
     
-    mail
-        --csv
-        --template
+    ^cmail ^y: To mass mail the data you fed!!
+        ^c<no options>^
     
-    ^r -v, --version, --deleteBulkMail ^
+    ^y -v, --version ^
 
 `)
 

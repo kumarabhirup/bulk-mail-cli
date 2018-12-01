@@ -1,5 +1,12 @@
 # Extras
 junkies*
+.github*
+.gitignore*
+.babelrc*
+
+# FOR NPM PACKAGE
+src/*
+!src/dist/
 
 # node_modules
 node_modules/*
