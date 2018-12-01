@@ -1,6 +1,6 @@
 {
   "name": "bulk-mail-cli",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Send automated, dynamic and beautifully designed HTML emails to your mailing list. Right from your terminal!",
   "main": "src/dist/src/bulkmailer.js",
   "author": "Kumar Abhirup",
