@@ -1,7 +1,7 @@
 {
   "name": "bulk-mail-cli",
-  "version": "0.0.80",
-  "description": "The free MailChimp for your Terminal!",
+  "version": "0.0.95",
+  "description": "Send automatic, dynamic and beautifully designed HTML emails to your mailing list. Right from your terminal!",
   "main": "src/dist/src/bulkmailer.js",
   "author": "Kumar Abhirup",
   "scripts": {
