@@ -7,7 +7,7 @@
 [![Type](https://img.shields.io/badge/type-CLI-yellow.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![stage](https://img.shields.io/badge/stage-MVP%20%F0%9F%94%A5-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/bulk-mail-cli/tree/development)
 [![npm](https://img.shields.io/badge/npm-bulk--mail--cli-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
-[![Version](https://img.shields.io/badge/version-v0.0.95-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
+[![Version](https://img.shields.io/badge/version-v0.1-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![Prefers](https://img.shields.io/badge/prefers-Global%20Installation-blue.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup/) 
 <!-- [![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/bulk-mail-cli.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/bulk-mail-cli)  -->
@@ -17,18 +17,18 @@
 <br /><br />
 
 # 📦 `bulk-mail-cli`
-### Send automatic, dynamic and beautifully designed HTML emails to your mailing list. Right from your terminal!
+### Send automated, dynamic and beautifully designed HTML emails to your mailing list. Right from your terminal!
 
 <br /><br />
 
 # 🦋 Introduction
-The [YouTube video](https://youtu.be) given below should succesfully enlighten you about what exactly is being developed here.
+Following [YouTube video](https://youtu.be) is a tutorial of using `bulk-mail-cli` like a PRO!
 
 **_VIDEO IS STILL BEING EDITED..._**
 
 <br /><br />
 
-# 👌 What the hell does it do?...
+# 👌 Use it in just 3 steps!...
 
 <div align="center">
 
@@ -38,17 +38,11 @@ The [YouTube video](https://youtu.be) given below should succesfully enlighten y
 
 <br />
 
-> Well, there's so much more being planned under the hood. Will update new developments sooner. **You may see a GUI version of bulk-mail-cli in the future!** 
-
-<div align="right">
-
-***- Kumar Abhirup***
-
-</div>
+> **Developer's note:** This project is yet an MVP (Minimum Viable Product). Right now, it does not support dynamic content in emails. Doesn't work on Windows machines. Working to make it cross-platoform. **CHILL, and WAIT!**
 
 <br /><br />
 
-# 💃 Some examples of what's upcoming...
+# 💃 Documentation
 
 ## Install `bulk-mail-cli`
 
@@ -64,46 +58,60 @@ Just run `bulkmail` in your terminal to see what commands and flags you can use 
 
 <br />
 
-## Generate demo Mail Template and CSV file
-To generate demo files on your Desktop!
+## Generate demo Mail Templates and a CSV file
+To generate demo files, paste the following command.
 ```
 $ bulkmail demo
 ```
 
 <br />
 
-## Shoot the mails after you feed data
+## Writing data in CSV
+If you use **WordPress**, you may just import the CSV file of users by using [this plugin](https://wordpress.org/plugins/export-users-to-csv/).
+- When you use that plugin, just change the `user-email` column name of the CSV file to just `email` so that to ensure no errors.
+
+If you are feeding data from any other source or by manual means, **please for the GOD's SAKE ensure that you list emails only under the `email` column.**
+
+If the CSV file has emails fed in some other coulumn name (such as `user-email`,    `allEmails`, etc)... `bulk-mail-cli` would simply throw an error to **not work at all.**
+
+<br />
+
+## Making custom designed HTML Mail Templates
+- For the most use cases, the `bulkmail demo` served HTML templates will do the work. But if they don't satisfy your needs, you may check for more designs online!
+- When using a `bulkmail demo` served HTML template, ensure that you edit and tailor the email template file according to your needs.
+
+<br />
+
+## Shoot the mails after you curate data
 **If you are to send mails using Gmail,** just turn on the `less secure apps` option [here](https://myaccount.google.com/lesssecureapps)...
 
 Done tweaking with Templates and CSV file? Done doing those configurations? It is time to send the mails!
 ```
 $ bulkmail mail
 ```
-Wait, `bulkmail mail` is not all. The CLI will then ask you for **Service Credentials** that you need to fill in to complete the process. It will also ask for the path of the Template and CSV file.
+Wait, `bulkmail mail` is not all. The CLI will then ask you for **Service Credentials** that you need to fill in order to complete the process. It will also ask for the path of the HTML email template and the CSV file.
 
-Just like what you see below:
+Somewhat similar to what you see below:
 ```
 $ bulkmail mail
 
-Please fill in the needed data...
+Service credentials...
 service: gmail/yahoo/custom
-email: yourEmail@domain.com
+email: johndoe@example.com
 password: •••••••••••••••••
 
-Wow! You are connected 😀
+Connection successful! 😀
 
 Path to CSV: <you can use bash's auto navigating feature>
 Path to Mail Template: <you can use bash's auto navigating feature>
 
-From name: John Doe
-Subject: Subject of the mail
+From text: John Doe <johndoe@example.com>
+Subject: Subject of the mail!
 
-There you go!.. Now, it is all my task!
-
-Bulk Mail in progress:
+Mass Mailer started 👻
 [-------------------------------------------------->] 100%
 
-Mails sent successfully in 9.43 seconds.
+Mails sent to everyone successfully in 9.43 seconds.
 
 Thank you for using bulk-mail-cli 😀
 ```
@@ -119,29 +127,12 @@ $ bulkmail config --auth
 
 <br />
 
-## Writing data in CSV
-If you use **WordPress**, you may just import the CSV file of users by using [this plugin](https://wordpress.org/plugins/export-users-to-csv/).
-- When you use that plugin, just change the `user-email` column name of the CSV file to just `email` so that to ensure no errors.
+## Upcoming
+- Dynamicism in Mail Templates. Display dynamic names and messages listed in CSV file.
+- Internationalization. Will soon be available in 4-5 major languages.
+- UX and Performance improvement.
 
-If you feeding data from any other source or by manual means, **please for the GOD's SAKE ensure that you list emails only under the `email` column.**
-
-If the CSV file has emails fed in some other coulumn name (such as `user-email`,    `allEmails`, etc)... `bulk-mail-cli` would simply throw an error to **not work at all.**
-
-<br />
-
-## Making custom designed Mail Templates
-- Any dynamic value which is listed in the CSV file should only be denoted by `{{  <column name> }}`.
-- **_For example,_**, if you have an `fname` column in the respective CSV file, **just write `{{ fname }}` in the HTML Mail Template** to print the first name of the respective recipient.
-- You may style your Mail Template using HTML and CSS. Please be sure to use inline styles or a `<styles>...</styles>` HTML block (Whatever you are convenient with 😉)
-
-<br />
-
-## Available in 10 major languages
-```
-$ bulkmail config --lang
-```
-
-**FEW MORE THINGS ARE STILL UNDER DEVELOPMENT. WANNA CONTRIBUTE?**
+**LET US DEVELOP THIS PROJECT TOGETHER. WANNA CONTRIBUTE?**
 
 <br /><br />
 
