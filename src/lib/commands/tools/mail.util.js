@@ -106,7 +106,7 @@ class BulkMailCli_mail {
                 async (error, input) => {
 
                     if(error){
-                        terminal.red.bold(` ${error}. ERROR`)
+                        terminal.red.bold(`\n${error}`)
                         reject()
                     } else {
 
@@ -166,7 +166,7 @@ class BulkMailCli_mail {
                 async ( error , input ) => {
 
                     if(error){
-                        terminal.red.bold(` ${error}. ERROR`)
+                        terminal.red.bold(`\n${error}`)
                         reject()
                     } else {
 
@@ -242,7 +242,7 @@ class BulkMailCli_mail {
      */
     async mailMassacre(){
         
-        terminal.yellow.bold(`\n\nMass mailer started 👻`)
+        terminal.yellow.bold(`${getText("mailer_started")}`)
 
         for (var key in this.csvJson) {
 
@@ -261,9 +261,9 @@ class BulkMailCli_mail {
                 .then((isSuccessful) => {
                     if (isSuccessful){
                         this.isSuccess = true
-                        terminal.green(`\nMail successfully sent to ${this.csvJson[key].email}`)
+                        terminal.green(`${getText("mail_sent_to")} ${this.csvJson[key].email}`)
                     } else {
-                        terminal.red(`\nPlease check your internet connection and try again!`)
+                        terminal.red(`${getText("check_internet_connection")}`)
                     }
                 })
                 .catch(error => {
@@ -275,9 +275,9 @@ class BulkMailCli_mail {
         console.log("\n")
 
         if(this.isSuccess == true){
-            terminal.green.bold(`Hurray! We mass mailed everyone... 💨\n\n`)
+            terminal.green.bold(`${getText("mail_done_successfully")}`)
         } else {
-            terminal.red.bold(`Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n`)
+            terminal.red.bold(`${getText("mail_done_failed")}`)
         }
 
     }

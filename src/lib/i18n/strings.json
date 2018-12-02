@@ -62,6 +62,11 @@
             "cn": "\nPlease choose your service...",
             "in": "\nPlease choose your service..."
         },
+        "less_secure_apps": {
+            "en": "\nTurn on the 'Less Secure Apps' option at ^whttps://myaccount.google.com/lesssecureapps^ ^yto successfuly login via bulk-mail-cli.^",
+            "cn": "\nTurn on the 'Less Secure Apps' option at ^whttps://myaccount.google.com/lesssecureapps^ ^yto successfuly login via bulk-mail-cli.^",
+            "in": "\nTurn on the 'Less Secure Apps' option at ^whttps://myaccount.google.com/lesssecureapps^ ^yto successfuly login via bulk-mail-cli.^"
+        },
         "please_enter_port": {
             "en": "\nPort: ^y465^ / ^y587^ ",
             "cn": "\nPort: ^y465^ / ^y587^ ",
@@ -154,7 +159,31 @@
             "cn": "\nSubject: ",
             "in": "\nSubject: "
         },
-
+        "mailer_started": {
+            "en": "\n\nMass mailer started 👻",
+            "cn": "\n\nMass mailer started 👻",
+            "in": "\n\nMass mailer started 👻"
+        },
+        "mail_sent_to": {
+            "en": "\nMail successfully sent to",
+            "cn": "\nMail successfully sent to",
+            "in": "\nMail successfully sent to"
+        },
+        "check_internet_connection": {
+            "en": "\nPlease check your internet connection and try again!",
+            "cn": "\nPlease check your internet connection and try again!",
+            "in": "\nPlease check your internet connection and try again!"
+        },
+        "mail_done_successfully": {
+            "en": "Hurray! We mass mailed everyone... 💨\n\n",
+            "cn": "Hurray! We mass mailed everyone... 💨\n\n",
+            "in": "Hurray! We mass mailed everyone... 💨\n\n"
+        },
+        "mail_done_failed": {
+            "en": "Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n",
+            "cn": "Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n",
+            "in": "Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n"
+        },
 
         "one_liner_description": {
             "en": "Send bulk non-spammy emails right from your terminal! 🤘\n",
