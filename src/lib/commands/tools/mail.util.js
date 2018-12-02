@@ -13,7 +13,7 @@ import BulkMailCli_i18n from '../../i18n'
 import { BulkMailCli_authSession } from '../tools'
 import { doesFileExist, BulkMailCli_checkFileType, BulkMailCli_mailer } from '../../utilities'
 
-var { setSettings, getSettings, getSetting } = BulkMailCli_settings
+var { getSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
 
 var csvToJson = require('csvtojson')
@@ -66,8 +66,9 @@ class BulkMailCli_mail {
                     process.exit()
                 }
             })
-            console.log("\n")
         }
+
+        terminal.yellow.bold(`${getText("fill_wisely")}`)
 
         await this.pathToCsv()
         await this.pathToHtml()
@@ -114,8 +115,18 @@ class BulkMailCli_mail {
                             var csvPath = input
                             this.csvJson = await csvToJson().fromFile(csvPath)
 
-                            terminal.green.bold(` "${input}" ${getText("input_selected")}`)
-                            resolve()
+                            /**
+                             * @summary '!("email" in this.csvJson[0])' solution grabbed from the link below.
+                             * @see https://www.wikitechy.com/tutorials/javascript/checking-if-a-key-exists-in-a-javascript-object
+                             */
+                            if(this.csvJson.length == 0 || !("email" in this.csvJson[0])){
+                                terminal.red.bold(`${getText("column_missing")}`)
+                                await this.pathToCsv()
+                                resolve()
+                            } else {
+                                terminal.green.bold(` "${input}" ${getText("input_selected")}`)
+                                resolve()
+                            }
 
                         } else {
                             terminal.red.bold(`${getText("file_not_found_csv")}`)

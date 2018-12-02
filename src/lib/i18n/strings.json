@@ -129,10 +129,20 @@
             "cn": " Please choose a .html file. TRY AGAIN! 😒",
             "in": " Please choose a .html file. TRY AGAIN! 😒"
         },
+        "column_missing": {
+            "en": " The .csv file has no column named 'email'. 🤮",
+            "cn": " The .csv file has no column named 'email'. 🤮",
+            "in": " The .csv file has no column named 'email'. 🤮"
+        },
         "cannot_mail_wrong_credentials": {
             "en": "\nCannot mail without right service credentials. 👻\n\n",
             "cn": "\nCannot mail without right service credentials. 👻\n\n",
             "in": "\nCannot mail without right service credentials. 👻\n\n"
+        },
+        "fill_wisely": {
+            "en": "\nPlease fill the below fields wisely... \nAnd also be ready with a good internet connection! \n^wLet the process not stop in the middle! 👨🏻‍💻^\n",
+            "cn": "\nPlease fill the below fields wisely... \nAnd also be ready with a good internet connection! \n^wLet the process not stop in the middle! 👨🏻‍💻^\n",
+            "in": "\nPlease fill the below fields wisely... \nAnd also be ready with a good internet connection! \n^wLet the process not stop in the middle! 👨🏻‍💻^\n"
         },
         "please_enter_from": {
             "en": "\n\nMail from: ",
