@@ -13,7 +13,7 @@ import BulkMailCli_i18n from '../../i18n'
 import { BulkMailCli_authSession } from '../tools'
 import { doesFileExist, BulkMailCli_checkFileType, BulkMailCli_mailer } from '../../utilities'
 
-var { setSettings, getSettings, getSetting } = BulkMailCli_settings
+var { getSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
 
 var csvToJson = require('csvtojson')
@@ -26,6 +26,7 @@ class BulkMailCli_mail {
         this.htmlFile = ''
         this.fromText = ''
         this.subject = ''
+        this.isSuccess = false
     }
 
     
@@ -65,18 +66,15 @@ class BulkMailCli_mail {
                     process.exit()
                 }
             })
-            console.log("\n")
         }
+
+        terminal.yellow.bold(`${getText("fill_wisely")}`)
 
         await this.pathToCsv()
         await this.pathToHtml()
         await this.enterFromName()
         await this.enterSubject()
         await this.mailMassacre()
-
-        console.log("\n")
-
-        terminal.green.bold(`Hurray! We mass mailed everyone... 💨\n\n`)
 
         process.exit()
 
@@ -108,7 +106,7 @@ class BulkMailCli_mail {
                 async (error, input) => {
 
                     if(error){
-                        terminal.red.bold(` ${error}. ERROR`)
+                        terminal.red.bold(`\n${error}`)
                         reject()
                     } else {
 
@@ -117,8 +115,18 @@ class BulkMailCli_mail {
                             var csvPath = input
                             this.csvJson = await csvToJson().fromFile(csvPath)
 
-                            terminal.green.bold(` "${input}" ${getText("input_selected")}`)
-                            resolve()
+                            /**
+                             * @summary '!("email" in this.csvJson[0])' solution grabbed from the link below.
+                             * @see https://www.wikitechy.com/tutorials/javascript/checking-if-a-key-exists-in-a-javascript-object
+                             */
+                            if(this.csvJson.length == 0 || !("email" in this.csvJson[0])){
+                                terminal.red.bold(`${getText("column_missing")}`)
+                                await this.pathToCsv()
+                                resolve()
+                            } else {
+                                terminal.green.bold(` "${input}" ${getText("input_selected")}`)
+                                resolve()
+                            }
 
                         } else {
                             terminal.red.bold(`${getText("file_not_found_csv")}`)
@@ -158,7 +166,7 @@ class BulkMailCli_mail {
                 async ( error , input ) => {
 
                     if(error){
-                        terminal.red.bold(` ${error}. ERROR`)
+                        terminal.red.bold(`\n${error}`)
                         reject()
                     } else {
 
@@ -234,7 +242,7 @@ class BulkMailCli_mail {
      */
     async mailMassacre(){
         
-        terminal.yellow.bold(`\n\nMass mailer started 👻`)
+        terminal.yellow.bold(`${getText("mailer_started")}`)
 
         for (var key in this.csvJson) {
 
@@ -252,15 +260,24 @@ class BulkMailCli_mail {
             await mailer.sendMail()
                 .then((isSuccessful) => {
                     if (isSuccessful){
-                        terminal.green(`\nMail successfully sent to ${this.csvJson[key].email}`)
+                        this.isSuccess = true
+                        terminal.green(`${getText("mail_sent_to")} ${this.csvJson[key].email}`)
                     } else {
-                        terminal.red(`\nPlease check your internet connection and try again!`)
+                        terminal.red(`${getText("check_internet_connection")}`)
                     }
                 })
                 .catch(error => {
                     console.log(error + '\n')
                 })
 
+        }
+
+        console.log("\n")
+
+        if(this.isSuccess == true){
+            terminal.green.bold(`${getText("mail_done_successfully")}`)
+        } else {
+            terminal.red.bold(`${getText("mail_done_failed")}`)
         }
 
     }

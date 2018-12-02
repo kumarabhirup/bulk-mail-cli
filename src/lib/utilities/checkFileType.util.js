@@ -6,8 +6,8 @@
  * Date of creation: Sun, 25th Nov 2018. 2:08:18 IST
  */
 
-
 import { extname } from 'path'
+
 
 class BulkMailCli_checkFileType {
 

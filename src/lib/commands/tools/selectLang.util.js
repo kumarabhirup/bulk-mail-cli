@@ -20,7 +20,7 @@ var selectLang = () => {
     var languagesToSelect = [
         `en: English`,
         `cn: Chinese`,
-        `in: Hindi`
+        // `in: Hindi`
     ]
     
     terminal.singleColumnMenu( languagesToSelect , async ( error , response ) => {

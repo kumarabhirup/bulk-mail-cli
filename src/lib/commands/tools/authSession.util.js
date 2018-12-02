@@ -59,7 +59,6 @@ class BulkMailCli_authSession {
                     }
                 }).catch(() => {
                     terminal.red.bold(`${getText("wrong_credentials")}`)
-                    // terminal.yellow(`Troubleshoot common errors at https://github.com/KumarAbhirup/bulk-mail-cli/`)
                     resolve(false)
                 })
         })
@@ -116,6 +115,7 @@ class BulkMailCli_authSession {
      */
     async serviceAnalyser(service){
         if(service == "gmail"){
+            terminal.yellow.bold(`${getText("less_secure_apps")}`)
             credentialsArray[0].host = "smtp.gmail.com"
             credentialsArray[0].port = 465
             credentialsArray[0].secureConnection = true

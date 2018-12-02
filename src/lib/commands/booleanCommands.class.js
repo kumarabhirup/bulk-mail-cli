@@ -10,7 +10,7 @@
 import { BulkMailCli_minimist } from '../utilities'
 import { terminal } from 'terminal-kit'
 
-var isArrayInThere = require('array-includes')
+var hasArrayIncluded = require('array-includes')
 
 
 class BulkMailCli_booleanCommands {
@@ -57,7 +57,7 @@ class BulkMailCli_booleanCommands {
      * @description Has user ran `bulkmail config` command? Yes, or no?
      */
     static isConfig(){
-        if(!BulkMailCli_minimist.isArgsEmpty() && isArrayInThere(BulkMailCli_minimist.getArgs()["_"], "config")){
+        if(!BulkMailCli_minimist.isArgsEmpty() && hasArrayIncluded(BulkMailCli_minimist.getArgs()["_"], "config")){
             return true
         } return false
     }
@@ -72,7 +72,7 @@ class BulkMailCli_booleanCommands {
      * @description Has user ran `bulkmail demo` command? Yes, or no?
      */
     static isDemo(){
-        if(!BulkMailCli_minimist.isArgsEmpty() && isArrayInThere(BulkMailCli_minimist.getArgs()["_"], "demo")){
+        if(!BulkMailCli_minimist.isArgsEmpty() && hasArrayIncluded(BulkMailCli_minimist.getArgs()["_"], "demo")){
             return true
         } return false
     }
@@ -108,7 +108,7 @@ class BulkMailCli_booleanCommands {
      * @description Has user typed `bulkmail mail` command? Yes, or no?
      */
     static isMail(){
-        if(!BulkMailCli_minimist.isArgsEmpty() && isArrayInThere(BulkMailCli_minimist.getArgs()["_"], "mail")){
+        if(!BulkMailCli_minimist.isArgsEmpty() && hasArrayIncluded(BulkMailCli_minimist.getArgs()["_"], "mail")){
             return true
         } return false
     }
