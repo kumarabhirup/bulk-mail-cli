@@ -26,6 +26,7 @@ class BulkMailCli_mail {
         this.htmlFile = ''
         this.fromText = ''
         this.subject = ''
+        this.isSuccess = false
     }
 
     
@@ -73,10 +74,6 @@ class BulkMailCli_mail {
         await this.enterFromName()
         await this.enterSubject()
         await this.mailMassacre()
-
-        console.log("\n")
-
-        terminal.green.bold(`Hurray! We mass mailed everyone... 💨\n\n`)
 
         process.exit()
 
@@ -252,6 +249,7 @@ class BulkMailCli_mail {
             await mailer.sendMail()
                 .then((isSuccessful) => {
                     if (isSuccessful){
+                        this.isSuccess = true
                         terminal.green(`\nMail successfully sent to ${this.csvJson[key].email}`)
                     } else {
                         terminal.red(`\nPlease check your internet connection and try again!`)
@@ -261,6 +259,14 @@ class BulkMailCli_mail {
                     console.log(error + '\n')
                 })
 
+        }
+
+        console.log("\n")
+
+        if(this.isSuccess == true){
+            terminal.green.bold(`Hurray! We mass mailed everyone... 💨\n\n`)
+        } else {
+            terminal.red.bold(`Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n`)
         }
 
     }
