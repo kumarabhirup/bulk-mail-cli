@@ -67,7 +67,7 @@ $ bulkmail demo
 <br />
 
 ## Writing data in CSV
-If you use **WordPress**, you may just import the CSV file of users by using [this plugin](https://wordpress.org/plugins/export-users-to-csv/).
+If you use **WordPress**, you may just import the CSV file of users by using [this plugin](https://wordpress.org/plugins/users-customers-import-export-for-wp-woocommerce/).
 - When you use that plugin, just change the `user-email` column name of the CSV file to just `email` so that to ensure no errors.
 
 If you are feeding data from any other source or by manual means, **please for the GOD's SAKE ensure that you list emails only under the `email` column.**
