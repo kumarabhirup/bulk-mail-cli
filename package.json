@@ -14,6 +14,8 @@
     "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "array-includes": "^3.0.3",
     "csvtojson": "^2.0.8",
     "minimist": "^1.2.0",
@@ -25,8 +27,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "rimraf": "^2.6.2"
