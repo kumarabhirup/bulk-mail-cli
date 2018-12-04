@@ -7,7 +7,7 @@
 [![Type](https://img.shields.io/badge/type-CLI-yellow.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![stage](https://img.shields.io/badge/stage-Testing%20%F0%9F%94%A5-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/bulk-mail-cli/tree/development)
 [![npm](https://img.shields.io/badge/npm-bulk--mail--cli-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
-[![Version](https://img.shields.io/badge/version-v0.2.0-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
+[![Version](https://img.shields.io/badge/version-v0.2.1-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![Prefers](https://img.shields.io/badge/prefers-Global%20Installation-blue.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup/) 
 <!-- [![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/bulk-mail-cli.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/bulk-mail-cli)  -->
