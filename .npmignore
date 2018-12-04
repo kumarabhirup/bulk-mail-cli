@@ -10,4 +10,4 @@ src/*
 
 # node_modules
 node_modules/*
-!node_modules/BulkMailCli_*/
+!node_modules/bulkmailcli_*/
