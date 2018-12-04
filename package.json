@@ -1,6 +1,6 @@
 {
   "name": "bulk-mail-cli",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Send automated, dynamic and beautifully designed HTML emails to your mailing list. Right from your terminal!",
   "main": "src/dist/src/bulkmailer.js",
   "author": "Kumar Abhirup",
@@ -14,6 +14,7 @@
     "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
   },
   "dependencies": {
+    "@babel/core": "^7.1.2",
     "@babel/polyfill": "^7.0.0",
     "@babel/register": "^7.0.0",
     "array-includes": "^3.0.3",
@@ -26,7 +27,6 @@
     "terminal-kit": "^1.26.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "rimraf": "^2.6.2"
