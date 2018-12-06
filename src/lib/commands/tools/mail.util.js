@@ -249,12 +249,14 @@ class BulkMailCli_mail {
             var smtpOptions = {
                 host: getSetting('host'),
                 port: getSetting('port'),
-                secureConnection: getSetting('secureConnection'),
+                secure: getSetting('secureConnection'),
                 auth: {
                     user: getSetting('email'),
                     pass: getSetting('password')
-                }
+                },
+                tls: {rejectUnauthorized: false}
             }
+
 
             var mailer = new BulkMailCli_mailer(this.csvJson[key].email, this.htmlFile, smtpOptions, this.fromText, this.subject)
             await mailer.sendMail()

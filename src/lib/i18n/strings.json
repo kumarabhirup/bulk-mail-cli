@@ -175,9 +175,9 @@
             "in": "\nPlease check your internet connection and try again!"
         },
         "mail_done_successfully": {
-            "en": "Hurray! We mass mailed everyone... 💨\n\n",
-            "cn": "Hurray! We mass mailed everyone... 💨\n\n",
-            "in": "Hurray! We mass mailed everyone... 💨\n\n"
+            "en": "Mass mailing process completed... 💨\n\n",
+            "cn": "Mass mailing process completed... 💨\n\n",
+            "in": "Mass mailing process completed... 💨\n\n"
         },
         "mail_done_failed": {
             "en": "Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n",
