@@ -180,9 +180,9 @@
             "in": "Mass mailing process completed... 💨\n\n"
         },
         "mail_done_failed": {
-            "en": "Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n",
-            "cn": "Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n",
-            "in": "Things went wrong. Please read the ^_bulk-mail-cli documentation^r to know more.\n\n"
+            "en": "Things went wrong. Please read the bulk-mail-cli documentation to know more.\n\n",
+            "cn": "Things went wrong. Please read the bulk-mail-cli documentation to know more.\n\n",
+            "in": "Things went wrong. Please read the bulk-mail-cli documentation to know more.\n\n"
         },
 
         "one_liner_description": {

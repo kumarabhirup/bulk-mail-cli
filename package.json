@@ -7,7 +7,8 @@
   "scripts": {
     "start": "npm run build && node ./src/dist/src/bulkmailer.js",
     "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
-    "test": "echo No tests written."
+    "test": "echo No tests written.",
+    "deploy": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
