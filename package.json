@@ -26,16 +26,14 @@
     "nodemailer": "^4.7.0",
     "os-name": "^3.0.0",
     "simplesmtp": "^0.3.35",
-    "terminal-kit": "^1.26.4"
+    "terminal-kit": "^1.26.4",
+    "bulkmailcli_settings": "^0.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "rimraf": "^2.6.2"
   },
-  "bundledDependencies": [
-    "bulkmailcli_settings"
-  ],
   "bin": {
     "bulkmail": "./src/dist/src/bin/global.js"
   },
