@@ -17,6 +17,7 @@ var { getSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
 
 var csvToJson = require('csvtojson')
+var isOnline = require('is-online')
 
 
 class BulkMailCli_mail {
@@ -246,46 +247,51 @@ class BulkMailCli_mail {
         
         terminal.yellow.bold(`${getText("mailer_started")}`)
 
-        for (var key in this.csvJson) {
+        var smtpOptions = {
+            host: getSetting('host'),
+            port: getSetting('port'),
+            secure: getSetting('secureConnection'),
+            auth: {
+                user: getSetting('email'),
+                pass: getSetting('password')
+            },
+            tls: {rejectUnauthorized: false}
+        }
 
-            var smtpOptions = {
-                host: getSetting('host'),
-                port: getSetting('port'),
-                secure: getSetting('secureConnection'),
-                auth: {
-                    user: getSetting('email'),
-                    pass: getSetting('password')
-                },
-                tls: {rejectUnauthorized: false}
-            }
-
-
-            var mailer = new BulkMailCli_mailer(this.csvJson[key].email, this.htmlFile, smtpOptions, this.fromText, this.subject)
-            await mailer.sendMail()
+        await Promise.all(this.csvJson.map(async ({email}) => {
+            if(await isOnline()){
+                var mailer = new BulkMailCli_mailer(email, this.htmlFile, smtpOptions, this.fromText, this.subject)
+                await mailer.sendMail()
                 .then((isSuccessful) => {
+
                     if (isSuccessful){
                         this.isSuccess = true
-                        this.mailSentTo.push(this.csvJson[key].email)
-                        terminal.green(`${getText("mail_sent_to")} ${this.csvJson[key].email}`)
+                        this.mailSentTo.push(email)
+                        terminal.green(`${getText("mail_sent_to")} ${email}`)
                     } else {
-                        terminal.red(`${getText("check_internet_connection")}`)
+                        return
+                        // terminal.red(`${getText("check_internet_connection")}`)
                     }
+
                 })
                 .catch(error => {
                     this.isSuccess = false
-                    console.log(error + '\n')
+                    this.mailError = error
                     return
-                })
-
-        }
-
-        console.log("\n")
-
-        if(this.isSuccess == true){
-            terminal.green.bold(`${getText("mail_done_successfully")}`)
-        } else {
-            terminal.red.bold(`Mail sent to ${this.mailSentTo.length > 0 ? this.mailSentTo.length : `no`} recipient${this.mailSentTo.length < 2 && `s`} out of ${this.csvJson.length} people listed in the CSV file.`)
-        }
+                }) 
+            } else {
+                this.isSuccess = false
+                this.mailError = `💩 You lost your internet connection!`
+                return
+            }
+        })).then(() => {
+            console.log("\n")
+            if(this.mailSentTo.length === this.csvJson.length){
+                terminal.green.bold(`${getText("mail_done_successfully")}`)
+            } else {
+                terminal.yellow.bold(`${this.mailError === undefined ? `` : this.mailError + '\n'}${this.mailSentTo.length > 0 ? `` : `^r`}Mail sent to ${this.mailSentTo.length > 0 ? this.mailSentTo.length : `no`} recipient${this.mailSentTo.length < 2 ? `` : `s`} out of ${this.csvJson.length} people listed in the CSV file.`)
+            }
+        })
 
     }
 

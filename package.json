@@ -19,15 +19,16 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/register": "^7.0.0",
     "array-includes": "^3.0.3",
+    "bulkmailcli_settings": "^0.0.1",
     "csvtojson": "^2.0.8",
     "dns": "^0.2.2",
+    "is-online": "^8.0.0",
     "minimist": "^1.2.0",
     "ncp": "^2.0.0",
     "nodemailer": "^4.7.0",
     "os-name": "^3.0.0",
     "simplesmtp": "^0.3.35",
-    "terminal-kit": "^1.26.4",
-    "bulkmailcli_settings": "^0.0.1"
+    "terminal-kit": "^1.26.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

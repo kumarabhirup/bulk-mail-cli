@@ -90,7 +90,7 @@ class BulkMailCli_booleanCommands {
         terminal.on( 'key' , function( key , matches , data ) { 
             switch ( key ){
                 case 'CTRL_C': 
-                    process.stdout.write("\u001b[2J\u001b[0;0H");
+                    // process.stdout.write("\u001b[2J\u001b[0;0H");
                     process.exit()
                     return true
                 default: return false
