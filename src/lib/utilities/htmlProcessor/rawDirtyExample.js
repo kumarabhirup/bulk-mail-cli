@@ -28,8 +28,8 @@ function htmlProcessor(html, data) {
 }
 
 var string = htmlProcessor(htmlFile, {
-  title: 'Kumar Abhirup',
-  description: 'This is me.'
+  title: 'TITLE',
+  description: 'DESCRIPTION'
 })
 
 console.log(string)

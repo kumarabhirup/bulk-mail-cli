@@ -11,7 +11,7 @@ import { readFileSync } from 'fs'
 import BulkMailCli_settings from '../../settings'
 import BulkMailCli_i18n from '../../i18n'
 import { BulkMailCli_authSession } from '../tools'
-import { doesFileExist, BulkMailCli_checkFileType, BulkMailCli_mailer } from '../../utilities'
+import { doesFileExist, BulkMailCli_checkFileType, BulkMailCli_mailer, htmlProcessor } from '../../utilities'
 
 var { getSetting } = BulkMailCli_settings
 var { getText } = BulkMailCli_i18n
@@ -260,7 +260,7 @@ class BulkMailCli_mail {
 
         await Promise.all(this.csvJson.map(async (user) => {
             if(await isOnline()){
-                var mailer = new BulkMailCli_mailer(user.email, this.htmlFile, smtpOptions, this.fromText, this.subject)
+                var mailer = new BulkMailCli_mailer(user.email, htmlProcessor(this.htmlFile, user), smtpOptions, this.fromText, this.subject)
                 await mailer.sendMail()
                 .then((isSuccessful) => {
 
