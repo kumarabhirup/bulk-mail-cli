@@ -258,16 +258,16 @@ class BulkMailCli_mail {
             tls: {rejectUnauthorized: false}
         }
 
-        await Promise.all(this.csvJson.map(async ({email}) => {
+        await Promise.all(this.csvJson.map(async (user) => {
             if(await isOnline()){
-                var mailer = new BulkMailCli_mailer(email, this.htmlFile, smtpOptions, this.fromText, this.subject)
+                var mailer = new BulkMailCli_mailer(user.email, this.htmlFile, smtpOptions, this.fromText, this.subject)
                 await mailer.sendMail()
                 .then((isSuccessful) => {
 
                     if (isSuccessful){
                         this.isSuccess = true
-                        this.mailSentTo.push(email)
-                        terminal.green(`${getText("mail_sent_to")} ${email}`)
+                        this.mailSentTo.push(user.email)
+                        terminal.green(`${getText("mail_sent_to")} ${user.email}`)
                     } else {
                         return
                         // terminal.red(`${getText("check_internet_connection")}`)

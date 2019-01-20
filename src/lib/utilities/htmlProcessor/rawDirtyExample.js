@@ -1,22 +1,35 @@
-const fs = require('fs').readFileSync
-const htmlFile = fs("/Users/iqubex/Desktop/bulk-mail-cli\ Demo/themes/Stationery/theme.html" , "utf8").toString()
+const replace = require('replace-string')
 
-function editHtml(htmlFile){
-  var fullStrings = [] // ({#509235824f dznv 0#})
-  var array = [] // {#509235824f dznv 0#}
-  var finalArray = [] // 509235824f dznv 0
-  var txt = "I expect five hundred dollars ({#509235824f dznv 0#}). and new brackets ({#$600#})(300)";
-  // var regExp = /\(([^)]+)\)/g;
-  var regExp = /\(({#[^)]+#})\)/g;
-  var matches = txt.match(regExp);
-  for (var i = 0; i < matches.length; i++) {
-      var str = matches[i];
-      array.push(str.substring(1, str.length - 1))
-      // console.log(array)
+const htmlFile = require('fs').readFileSync("/Users/iqubex/Desktop/bulk-mail-cli\ Demo/themes/Stationery/theme.html" , "utf8")
+
+const REGEX = /\(\{#(.*?)#\}\)/g
+var toReplace = []
+var swapOutWith = []
+
+function htmlProcessor(html, data) {
+
+  var finalOutput = html
+
+  var regexArray = html.match(REGEX)
+  if(regexArray != null){
+    for (var i = 0; i < regexArray.length; i++) {
+        var string = regexArray[i]
+        swapOutWith.push(string.substring(3, string.length - 3))
+        toReplace.push(`({#${string.substring(3, string.length - 3)}#})`)
+    }
   }
-  finalArray.push(array[0].slice(2, array[0].length - 2))
-  fullStrings.push(`(${array[0]})`)
-  console.log(finalArray);
+
+  for(var i = 0; i < toReplace.length; i++){
+      finalOutput = replace(finalOutput, toReplace[i], data[swapOutWith[i]])
+  }
+
+  return finalOutput
+
 }
 
-editHtml(htmlFile)
+var string = htmlProcessor(htmlFile, {
+  title: 'Kumar Abhirup',
+  description: 'This is me.'
+})
+
+console.log(string)
