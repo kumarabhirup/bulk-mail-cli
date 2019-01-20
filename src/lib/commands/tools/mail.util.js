@@ -260,7 +260,7 @@ class BulkMailCli_mail {
 
         await Promise.all(this.csvJson.map(async (user) => {
             if(await isOnline()){
-                var mailer = new BulkMailCli_mailer(user.email, htmlProcessor(this.htmlFile, user), smtpOptions, this.fromText, this.subject)
+                var mailer = new BulkMailCli_mailer(user.email, htmlProcessor(this.htmlFile, user), smtpOptions, this.fromText, htmlProcessor(this.subject, user))
                 await mailer.sendMail()
                 .then((isSuccessful) => {
 
