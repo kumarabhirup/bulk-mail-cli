@@ -38,7 +38,7 @@ Following [YouTube video](https://youtu.be) is a tutorial of using `bulk-mail-cl
 
 <br />
 
-> **Developer's note:** This project is yet an MVP (Minimum Viable Product). Right now, it does not support dynamic content in emails. Doesn't work on Windows machines. Working to make it cross-platoform. **CHILL, and WAIT!**
+> **Note:** This project is yet an MVP (Minimum Viable Product). Right now, it doesn't work on Windows machines. Working to make it cross-platform. **SORRY TO KEEP YOU WAITING!**
 
 <br /><br />
 
@@ -67,6 +67,8 @@ $ bulkmail demo
 <br />
 
 ## Writing data in CSV
+
+### List emails the right way!
 If you use **WordPress**, you may just import the CSV file of users by using [this plugin](https://wordpress.org/plugins/users-customers-import-export-for-wp-woocommerce/).
 - When you use that plugin, just change the `user-email` column name of the CSV file to just `email` so that to ensure no errors.
 
@@ -74,11 +76,29 @@ If you are feeding data from any other source or by manual means, **please for t
 
 If the CSV file has emails fed in some other coulumn name (such as `user-email`,    `allEmails`, etc)... `bulk-mail-cli` would simply throw an error to **not work at all.**
 
+### Dynamic data 🎉
+**This feature was introduced in v1.0.0**
+
+You may add any other column featuring custom data. Namely `fname`, `lname`, `address`, etc... to use in the Subject and Body of your campaign mail.
+
 <br />
 
-## Making custom designed HTML Mail Templates
-- For the most use cases, the `bulkmail demo` served HTML templates will do the work. But if they don't satisfy your needs, you may check for more designs online!
+## Making custom dynamic HTML Mail Templates
+
+### Grab the sample templates
+- For most use cases, the `bulkmail demo` served HTML templates will do the work. But if they don't satisfy your needs, you may check for more designs online!
 - When using a `bulkmail demo` served HTML template, ensure that you edit and tailor the email template file according to your needs.
+
+### Display custom CSV data (Dynamic) 🎉
+- Wanna display the `fname` field of the user you listed in CSV file? Just add `({#fname#})` anywhere you want in the HTML template!
+- You may add any fieldname that exists in the CSV file, or else the dynamic text won't render.
+
+### Correct use of Dynamic Text
+❌ &nbsp; &nbsp; **`({# customfield#})`**<br />
+❌ &nbsp; &nbsp; **`({#customfield #})`**<br />
+❌ &nbsp; &nbsp; **`({# customfield #})`**<br />
+❌ &nbsp; &nbsp; **`({customfield})`**<br />
+✅ &nbsp; &nbsp; **`({#customfield#})`**<br />
 
 <br />
 
@@ -106,7 +126,7 @@ Path to CSV: <you can use bash's auto navigating feature>
 Path to Mail Template: <you can use bash's auto navigating feature>
 
 From text: John Doe <johndoe@example.com>
-Subject: Subject of the mail!
+Subject: Hi ({#fname#})! Here's your mail.
 
 Mass Mailer started 👻
 [-------------------------------------------------->] 100%
@@ -128,7 +148,6 @@ $ bulkmail config --auth
 <br />
 
 ## Upcoming
-- Dynamicism in Mail Templates. Display dynamic names and messages listed in CSV file.
 - Internationalization. Will soon be available in 4-5 major languages.
 - UX and Performance improvement.
 
