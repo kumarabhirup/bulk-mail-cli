@@ -231,6 +231,42 @@ class BulkMailCli_mail {
 
 
     /**
+     * @method @name mailInterval (Not @static)
+     *
+     * @param none
+     * @returns void
+     * 
+     * @async Please use this method only in async functions.
+     *        DO NOT FORGET TO PUT AN `await` before calling this function.
+     * 
+     * @description Does the work of asking users INTERVAL TIME.
+     */
+    async mailInterval(){
+
+        terminal.cyan.bold(`Choose time interval for shooting mails 🔫`)
+
+        var intervalsToSelect = [
+            `Just shoot 'em!`,
+            `Mail every 2 seconds`,
+            `Mail every 5 seconds`,
+            `Mail every 15 seconds`,
+            `Mail every 30 seconds`
+        ]
+
+        var intervalSelected = new Promise((resolve, reject) => {
+            terminal.singleColumnMenu( intervalsToSelect , async ( error , response ) => {
+                var interval = response.selectedIndex
+                this.interval = interval
+                resolve(interval)
+            })
+        })
+
+        return intervalSelected
+
+    }
+
+
+    /**
      * @method @name mailMassacre (Not @static)
      *
      * @param none

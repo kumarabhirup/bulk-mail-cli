@@ -4,6 +4,17 @@ const REGEX = /\(\{#(.*?)#\}\)/g
 var toReplace = []
 var swapOutWith = []
 
+
+/**
+ * @function @name htmlProcessor
+ *
+ * @param {string} html
+ * @param {object} data
+ * 
+ * @returns boolean
+ * 
+ * @description DYNAMICISM 🍿
+ */
 export const htmlProcessor = (html, data) => {
 
   var finalOutput = html
