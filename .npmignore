@@ -3,6 +3,7 @@ junkies*
 .github*
 .gitignore*
 .babelrc*
+.sideview
 
 # FOR NPM PACKAGE
 src/*
