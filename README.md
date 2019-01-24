@@ -148,6 +148,7 @@ $ bulkmail config --auth
 <br />
 
 ## Upcoming
+- Time Interval after every mail.
 - Internationalization. Will soon be available in 4-5 major languages.
 - UX and Performance improvement.
 
