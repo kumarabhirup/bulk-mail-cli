@@ -4,6 +4,7 @@ junkies*
 .gitignore*
 .babelrc*
 .sideview
+.vscode
 
 # FOR NPM PACKAGE
 src/*
