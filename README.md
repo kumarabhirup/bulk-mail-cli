@@ -7,7 +7,7 @@
 [![Type](https://img.shields.io/badge/type-CLI-yellow.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![stage](https://img.shields.io/badge/stage-Testing%20%F0%9F%94%A5-000000.svg?style=flat-square)](https://github.com/KumarAbhirup/bulk-mail-cli/tree/development)
 [![npm](https://img.shields.io/badge/npm-bulk--mail--cli-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
-[![Version](https://img.shields.io/badge/version-v0.9.0-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
+[![Version](https://img.shields.io/badge/version-v0.9.1-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![Prefers](https://img.shields.io/badge/prefers-Global%20Installation-blue.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup/) 
 <!-- [![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/bulk-mail-cli.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/bulk-mail-cli)  -->
@@ -77,7 +77,7 @@ If you are feeding data from any other source or by manual means, **please for t
 If the CSV file has emails fed in some other coulumn name (such as `user-email`,    `allEmails`, etc)... `bulk-mail-cli` would simply throw an error to **not work at all.**
 
 ### Dynamic data 🎉
-**This feature was introduced in v1.0.0**
+**This feature was introduced in v0.9.0**
 
 You may add any other column featuring custom data. Namely `fname`, `lname`, `address`, etc... to use in the Subject and Body of your campaign mail.
 
