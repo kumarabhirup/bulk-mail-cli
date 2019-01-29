@@ -1,0 +1,59 @@
+{
+  "name": "bulk-mail-cli",
+  "version": "1.0.0",
+  "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
+  "main": "src/dist/src/bulkmailer.js",
+  "author": "Kumar Abhirup",
+  "scripts": {
+    "start": "npm run build && node ./src/dist/src/bulkmailer.js",
+    "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
+    "test": "echo No tests written.",
+    "deploy": "npm run build && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
+  },
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "array-includes": "^3.0.3",
+    "bulkmailcli_settings": "^0.0.1",
+    "csvtojson": "^2.0.8",
+    "dns": "^0.2.2",
+    "is-online": "^8.0.0",
+    "minimist": "^1.2.0",
+    "ncp": "^2.0.0",
+    "nodemailer": "^4.7.0",
+    "os-name": "^3.0.0",
+    "replace-string": "^2.0.0",
+    "simplesmtp": "^0.3.35",
+    "terminal-kit": "^1.26.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "rimraf": "^2.6.2"
+  },
+  "bin": {
+    "bulkmail": "./src/dist/src/bin/global.js"
+  },
+  "preferGlobal": true,
+  "keywords": [
+    "mail",
+    "bulk",
+    "javascript",
+    "nodemailer",
+    "emailjs",
+    "cli",
+    "email",
+    "node",
+    "mailer"
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/KumarAbhirup/bulk-mail-cli/issues"
+  },
+  "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme"
+}

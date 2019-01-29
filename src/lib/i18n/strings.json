@@ -1,0 +1,291 @@
+{
+    "texts": {
+        "please_select_lang": {
+            "en": "\nPlease select the language that you speak in... 📢\n",
+            "cn": "\n请选择您说的语言... 📢\n",
+            "in": "\nकृपया उस भाषा का चयन करें जिसमें आप बोलते हैं ... 📢\n"
+        },
+
+        "English": {
+            "en": "English",
+            "cn": "英语",
+            "in": "अंग्रेज़ी"
+        },
+        "Chinese": {
+            "en": "Chinese",
+            "cn": "中文",
+            "in": "चीनी"
+        },
+        "Hindi": {
+            "en": "Hindi",
+            "cn": "印地语",
+            "in": "हिंदी"
+        },
+
+
+        "please_enter_username": {
+            "en": "👉  Please enter your new username: ",
+            "cn": "👉  请输入您的新用户名：",
+            "in": "👉  कृपया अपना नया नाम दर्ज करें: "
+        },
+
+
+        "generating_demo": {
+            "en": "\nGenerating Demo files, stay tuned...\n",
+            "cn": "\nGenerating Demo files, stay tuned...\n",
+            "in": "\nGenerating Demo files, stay tuned...\n"
+        },
+        "look_at_desktop": {
+            "en": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n",
+            "cn": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n",
+            "in": "\nFiles generated successfully. Run the ^y ls ^g command to cross check... ^ 😉\n\n"
+        },
+
+        
+        "fill_service_credentials": {
+            "en": "\nPlease fill the authenfication credentials... 🙏\n",
+            "cn": "\nPlease fill the authenfication credentials... 🙏\n",
+            "in": "\nPlease fill the authenfication credentials... 🙏\n"
+        },
+        "please_enter_email": {
+            "en": "\nEmail: ",
+            "cn": "\nEmail: ",
+            "in": "\nEmail: "
+        },
+        "please_enter_password": {
+            "en": "\nPassword: ",
+            "cn": "\nPassword: ",
+            "in": "\nPassword: "
+        },
+        "please_choose_service": {
+            "en": "\nPlease choose your service...",
+            "cn": "\nPlease choose your service...",
+            "in": "\nPlease choose your service..."
+        },
+        "less_secure_apps": {
+            "en": "\nTurn on the 'Less Secure Apps' option at ^whttps://myaccount.google.com/lesssecureapps^ ^yto successfuly login via bulk-mail-cli.^",
+            "cn": "\nTurn on the 'Less Secure Apps' option at ^whttps://myaccount.google.com/lesssecureapps^ ^yto successfuly login via bulk-mail-cli.^",
+            "in": "\nTurn on the 'Less Secure Apps' option at ^whttps://myaccount.google.com/lesssecureapps^ ^yto successfuly login via bulk-mail-cli.^"
+        },
+        "please_enter_port": {
+            "en": "\nPort: ^y465^ / ^y587^ ",
+            "cn": "\nPort: ^y465^ / ^y587^ ",
+            "in": "\nPort: ^y465^ / ^y587^ "
+        },
+        "please_enter_host": {
+            "en": "Host server: ",
+            "cn": "Host server: ",
+            "in": "Host server: "
+        },
+        "secure_connection_question": {
+            "en": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] ",
+            "cn": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] ",
+            "in": "\nSecure Connection? [ ^gpress Y for yes^ | ^rN for no^ ] "
+        },
+        "yes_for_sc": {
+            "en": " Yes, use TLS",
+            "cn": " Yes, use TLS",
+            "in": " Yes, use TLS"
+        },
+        "no_for_sc": {
+            "en": " No, do not use TLS",
+            "cn": " No, do not use TLS",
+            "in": " No, do not use TLS"
+        },
+        "connecting": {
+            "en": "\n\nConnecting, please wait... 🤚\n",
+            "cn": "\n\nConnecting, please wait... 🤚\n",
+            "in": "\n\nConnecting, please wait... 🤚\n"
+        },
+        "connected": {
+            "en": "\nConnection made successfully. 😀",
+            "cn": "\nConnection made successfully. 😀",
+            "in": "\nConnection made successfully. 😀"
+        },
+        "wrong_credentials": {
+            "en": "\nInvalid credentials. 🤦‍",
+            "cn": "\nInvalid credentials. 🤦‍",
+            "in": "\nInvalid credentials. 🤦‍"
+        },
+
+
+        "choose_csv_path": {
+            "en": "\nCSV file path: ",
+            "cn": "\nCSV file path: ",
+            "in": "\nCSV file path: "
+        },
+        "choose_html_path": {
+            "en": "\nHTML theme file path: ",
+            "cn": "\nHTML theme file path: ",
+            "in": "\nHTML theme file path: "
+        },
+        "input_selected": {
+            "en": "selected. 😀",
+            "cn": "selected. 😀",
+            "in": "selected. 😀"
+        },
+        "file_not_found_csv": {
+            "en": " Please choose a .csv file. TRY AGAIN! 😒",
+            "cn": " Please choose a .csv file. TRY AGAIN! 😒",
+            "in": " Please choose a .csv file. TRY AGAIN! 😒"
+        },
+        "file_not_found_html": {
+            "en": " Please choose a .html file. TRY AGAIN! 😒",
+            "cn": " Please choose a .html file. TRY AGAIN! 😒",
+            "in": " Please choose a .html file. TRY AGAIN! 😒"
+        },
+        "column_missing": {
+            "en": " The .csv file has no column named 'email' or is empty! 🤮",
+            "cn": " The .csv file has no column named 'email' or is empty! 🤮",
+            "in": " The .csv file has no column named 'email' or is empty! 🤮"
+        },
+        "cannot_mail_wrong_credentials": {
+            "en": "\nCannot mail without right service credentials. 👻\n\n",
+            "cn": "\nCannot mail without right service credentials. 👻\n\n",
+            "in": "\nCannot mail without right service credentials. 👻\n\n"
+        },
+        "fill_wisely": {
+            "en": "\n\nPlease fill the below fields wisely... \nAnd also be ready with a good internet connection! \n^wLet the process not stop in the middle! 👨🏻‍💻^\n",
+            "cn": "\n\nPlease fill the below fields wisely... \nAnd also be ready with a good internet connection! \n^wLet the process not stop in the middle! 👨🏻‍💻^\n",
+            "in": "\n\nPlease fill the below fields wisely... \nAnd also be ready with a good internet connection! \n^wLet the process not stop in the middle! 👨🏻‍💻^\n"
+        },
+        "please_enter_from": {
+            "en": "\n\nMail from: ",
+            "cn": "\n\nMail from: ",
+            "in": "\n\nMail from: "
+        },
+        "please_enter_subject": {
+            "en": "\nSubject: ",
+            "cn": "\nSubject: ",
+            "in": "\nSubject: "
+        },
+        "mailer_started": {
+            "en": "\n\nMass mailer started 👻",
+            "cn": "\n\nMass mailer started 👻",
+            "in": "\n\nMass mailer started 👻"
+        },
+        "mail_sent_to": {
+            "en": "\nMail successfully sent to",
+            "cn": "\nMail successfully sent to",
+            "in": "\nMail successfully sent to"
+        },
+        "check_internet_connection": {
+            "en": "\nPlease check your internet connection and try again!",
+            "cn": "\nPlease check your internet connection and try again!",
+            "in": "\nPlease check your internet connection and try again!"
+        },
+        "mail_done_successfully": {
+            "en": "Mass mailing process completed... 💨\n\n",
+            "cn": "Mass mailing process completed... 💨\n\n",
+            "in": "Mass mailing process completed... 💨\n\n"
+        },
+        "mail_done_failed": {
+            "en": "Things went wrong. Please read the bulk-mail-cli documentation to know more.\n\n",
+            "cn": "Things went wrong. Please read the bulk-mail-cli documentation to know more.\n\n",
+            "in": "Things went wrong. Please read the bulk-mail-cli documentation to know more.\n\n"
+        },
+        "mail_lost_connection": {
+            "en": "💩 You lost your internet connection!",
+            "cn": "💩 You lost your internet connection!",
+            "in": "💩 You lost your internet connection!"
+        },
+
+        "one_liner_description": {
+            "en": "Send bulk non-spammy emails right from your terminal! 🤘\n",
+            "cn": "直接从您的终端发送批量非垃圾邮件! 🤘\n",
+            "in": "अपने टर्मिनल से थोक गैर-स्पैम ईमेल भेजें! 🤘\n"
+        },
+        "underestimating": {
+            "en": "UnderEstimating? 😡  ",
+            "cn": "低估？ 😡  ",
+            "in": "UnderEstimating? 😡  "
+        },
+        "read_doc":{
+            "en": "Read the documentation to learn what it can do!\n^_https://github.com/KumarAbhirup/bulk-mail-cli^ 🍺🍺\n\n",
+            "cn": "Read the documentation to learn what it can do!\n^_https://github.com/KumarAbhirup/bulk-mail-cli^ 🍺🍺\n\n",
+            "in": "Read the documentation to learn what it can do!\n^_https://github.com/KumarAbhirup/bulk-mail-cli^ 🍺🍺\n\n"
+        },
+        "hey_comma": {
+            "en": "\nHey,",
+            "cn": "\n嘿,",
+            "in": "\nनमस्ते,"
+        },
+        "bmc_here": {
+            "en": "bulk-mail-cli here. 😄\n",
+            "cn": "bulk-mail-cli 在这儿. 😄\n",
+            "in": "bulk-mail-cli है यहाँ! 😄\n"
+        },
+        "usage": {
+            "en": "Usage: ",
+            "cn": "用法: ",
+            "in": "उपयोग: "
+        },
+        "commands_and_options": {
+            "en": "Commands & Options: ",
+            "cn": "命令和选项：",
+            "in": "कम्मान्डस और ऑप्शंस: "
+        },
+        "happy_bulkmailing": {
+            "en": "Happy BULKMAILING!\n\n",
+            "cn": "Happy BULKMAILING!\n\n",
+            "in": "Happy BULKMAILING!\n\n"
+        },
+
+
+        "wrong_bulkmail_config_command": {
+            "en": "\nThat's a wrong ^w \"bulkmail config\" ^r command! ^ 😩\n\n",
+            "cn": "\nThat's a wrong ^w \"bulkmail config\" ^r command! ^ 😩\n\n",
+            "in": "\nThat's a wrong ^w \"bulkmail config\" ^r command! ^ 😩\n\n"
+        },
+        "wtf_was_that": {
+            "en": "\nWTF was that? Did you mean something different? 😕\n\n",
+            "cn": "\nWTF was that? Did you mean something different? 😕\n\n",
+            "in": "\nWTF was that? Did you mean something different? 😕\n\n"
+        },
+        "failed": {
+            "en": "\nSomething went incredibly wrong! Come back later and run the same command.  😿  😢  😭\n\n",
+            "cn": "\nSomething went incredibly wrong! Come back later and run the same command.  😿  😢  😭\n\n",
+            "in": "\nSomething went incredibly wrong! Come back later and run the same command.  😿  😢  😭\n\n"
+        }
+    },
+    "jointTexts": {
+        "you_are_now_a_lang_person": {
+            "1": {
+                "en": "\nThanks. You are now an",
+                "cn": "\n谢谢。你现在",
+                "in": "\nधन्यवाद, अब आप एक"
+            },
+            "2": {
+                "en": "person!.. 🤠\n\n",
+                "cn": "人是!.. 🤠\n\n",
+                "in": "व्यक्ति हैं!.. 🤠\n\n"
+            }
+        },
+
+
+        "your_current_username": {
+            "1": {
+                "en": "\nYour current username is",
+                "cn": "\n您当前的用户名",
+                "in": "\nआपका वर्तमान उपयोगकर्ता नाम"
+            },
+            "2": {
+                "en": ".\n\n",
+                "cn": " 是。\n\n",
+                "in": " है|\n\n"
+            }
+        },
+        "your_new_username": {
+            "1": {
+                "en": "\n\nYour new username is",
+                "cn": "\n\n您的新用户名",
+                "in": "\n\nआपका नया उपयोगकर्ता नाम"
+            },
+            "2": {
+                "en": "... 😀\n\n",
+                "cn": " 是。 😀\n\n",
+                "in": " है| 😀\n\n"
+            }
+        }
+    }
+}
