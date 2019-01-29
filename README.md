@@ -29,7 +29,7 @@ Ever felt a quick need to shoot a fabulous mail to your subscribers? Without any
 # 🦋 Introduction
 Following [YouTube video](https://youtu.be/QePfMnliSqc) is a tutorial of using `bulk-mail-cli` like a PRO!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QePfMnliSqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Introduction to bulk-mail-cli](https://i.ibb.co/HghKJsr/Screenshot-2019-01-29-at-8-35-28-PM.jpg)](http://www.youtube.com/watch?v=QePfMnliSqc "Introduction to bulk-mail-cli")
 
 <br /><br />
 
