@@ -184,6 +184,11 @@
             "cn": "Things went wrong. Please read the bulk-mail-cli documentation to know more.\n\n",
             "in": "Things went wrong. Please read the bulk-mail-cli documentation to know more.\n\n"
         },
+        "mail_lost_connection": {
+            "en": "💩 You lost your internet connection!",
+            "cn": "💩 You lost your internet connection!",
+            "in": "💩 You lost your internet connection!"
+        },
 
         "one_liner_description": {
             "en": "Send bulk non-spammy emails right from your terminal! 🤘\n",

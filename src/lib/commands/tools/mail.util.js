@@ -317,7 +317,7 @@ class BulkMailCli_mail {
                 }) 
             } else {
                 this.isSuccess = false
-                this.mailError = `💩 You lost your internet connection!`
+                this.mailError = getText("mail_lost_connection")
                 return
             }
         })).then(() => {
@@ -325,7 +325,7 @@ class BulkMailCli_mail {
             if(this.mailSentTo.length === this.csvJson.length){
                 terminal.green.bold(`${getText("mail_done_successfully")}`)
             } else {
-                terminal.yellow.bold(`${this.mailError === undefined ? `` : this.mailError + '\n'}${this.mailSentTo.length > 0 ? `` : `^r`}Mail sent to ${this.mailSentTo.length > 0 ? this.mailSentTo.length : `no`} recipient${this.mailSentTo.length < 2 ? `` : `s`} out of ${this.csvJson.length} people listed in the CSV file.`)
+                terminal.yellow.bold(`${this.mailError === undefined ? `` : this.mailError + '\n'}${this.mailSentTo.length > 0 ? `` : `^r`}Mail sent to ${this.mailSentTo.length > 0 ? this.mailSentTo.length : `no`} recipient${this.mailSentTo.length < 2 ? `` : `s`} out of ${this.csvJson.length} people listed in the CSV file.\n\n`)
             }
         })
 
