@@ -89,7 +89,7 @@ class BulkMailCli {
      * @description Returns the version number of bulk-mail-cli.
      */
     static getVersion(){
-        const SOURCE_PATH = require('BulkMailCli_settings').PROJECT_DIR + '/package.json'
+        const SOURCE_PATH = require('bulkmailcli_settings').PROJECT_DIR + '/package.json'
         var packageJson = require(SOURCE_PATH)
         return packageJson.version
     }
