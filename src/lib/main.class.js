@@ -41,7 +41,7 @@ class BulkMailCli {
      * @description Initializes at every BulkMailCli command
      */
     async create(){
-        if(platform() == 'darwin' || platform() == 'linux'){
+        if(platform() == 'darwin' || platform() == 'linux' || platform() == 'win32'){
             await this.setSettings()
             bulkmail()
         } else {

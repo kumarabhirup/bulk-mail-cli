@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .sideview
+.DS_store
 
 # Extras
 dist*

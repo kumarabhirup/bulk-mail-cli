@@ -1,6 +1,6 @@
 {
   "name": "bulk-mail-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
   "main": "src/dist/src/bulkmailer.js",
   "author": "Kumar Abhirup",
