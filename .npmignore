@@ -1,15 +1,1 @@
-# Extras
-junkies*
-.github*
-.gitignore*
-.babelrc*
-.sideview
-.vscode
-
-# FOR NPM PACKAGE
-src/*
-!src/dist/
-
-# node_modules
-node_modules/*
-!node_modules/bulkmailcli_*/
+src

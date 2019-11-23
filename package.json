@@ -1,59 +1,52 @@
 {
-  "name": "bulk-mail-cli",
-  "version": "1.0.2",
-  "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
-  "main": "src/dist/src/bulkmailer.js",
-  "author": "Kumar Abhirup",
+  "name": "typescript-boilerplate",
+  "version": "0.0.1",
+  "description": "TypeScript Boilerplate code setup, with ESLint and Prettier, at your doorsteps.",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "npm run build && node ./src/dist/src/bulkmailer.js",
-    "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
-    "test": "echo No tests written.",
-    "deploy": "npm run build && npm publish"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "start": "npm run build && node dist/index.js",
+    "dev": "npm run build && nodemon dist/index.js",
+    "lint": "eslint src/*.ts",
+    "lint:fix": "eslint src/*.ts --fix",
+    "test": "echo \"No tests specified\"",
+    "ship": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
+    "url": "git+https://github.com/KumarAbhirup/koji-leaderboard-api.git"
   },
-  "dependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "array-includes": "^3.0.3",
-    "bulkmailcli_settings": "^0.0.1",
-    "csvtojson": "^2.0.8",
-    "dns": "^0.2.2",
-    "is-online": "^8.0.0",
-    "minimist": "^1.2.0",
-    "ncp": "^2.0.0",
-    "nodemailer": "^4.7.0",
-    "os-name": "^3.0.0",
-    "replace-string": "^2.0.0",
-    "simplesmtp": "^0.3.35",
-    "terminal-kit": "^1.26.4"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "rimraf": "^2.6.2"
-  },
-  "bin": {
-    "bulkmail": "./src/dist/src/bin/global.js"
-  },
-  "preferGlobal": true,
   "keywords": [
-    "mail",
-    "bulk",
-    "javascript",
-    "nodemailer",
-    "emailjs",
-    "cli",
-    "email",
-    "node",
-    "mailer"
+    "koji",
+    "koji-database",
+    "npm",
+    "package"
   ],
-  "license": "GPL-3.0",
+  "author": "Kumar Abhirup <kumarabhirup5@gmail.com> (http://kumar.now.sh)",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KumarAbhirup/bulk-mail-cli/issues"
+    "url": "https://github.com/KumarAbhirup/koji-leaderboard-api/issues"
   },
-  "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme"
+  "homepage": "https://github.com/KumarAbhirup/koji-leaderboard-api#readme",
+  "devDependencies": {
+    "@types/node": "^12.7.3",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-wesbos": "0.0.19",
+    "eslint-plugin-html": "^5.0.5",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.2",
+    "typings": "^2.1.1"
+  }
 }
