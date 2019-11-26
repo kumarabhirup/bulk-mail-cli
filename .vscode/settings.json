@@ -1,7 +1,6 @@
 {
   "eslint.enable": true,
   "editor.formatOnSave": true,
-
   // turn VSCode internal formatter off for JS and JSX, ESLint will do it.
   "[javascript]": {
     "editor.formatOnSave": false
@@ -12,13 +11,17 @@
   "[javascriptreact]": {
     "editor.formatOnSave": false
   },
-
   "eslint.autoFixOnSave": true,
-  "eslint.validate": ["javascript", {
-    "language": "typescript",
-    "autoFix": true
-  }],
-
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ],
   // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
-  "prettier.disableLanguages": ["javascript", "typescript"]
+  "prettier.disableLanguages": [
+    "javascript",
+    "typescript"
+  ]
 }

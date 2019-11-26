@@ -1,1 +1,18 @@
+# Extras
+junkies*
+.github*
+.gitignore*
+.babelrc*
+.sideview
+.vscode
+.DS_Store
+.eslintrc
+.prettierrc
+tsconfig.json
+
+# FOR NPM PACKAGE
 src
+
+# node_modules
+node_modules/*
+!node_modules/bulkmailcli_*/
