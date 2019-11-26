@@ -7,14 +7,14 @@ cache: yarn
 
 install: yarn
 before_script:
-  - npm run build
+  - yarn build
 
 script:
-  - npm run test
-  - npm run lint
+  - yarn test
+  - yarn lint
 
 after_success:
-  - npm pack
+  - yarn pack
 
 deploy:
   - provider: releases
