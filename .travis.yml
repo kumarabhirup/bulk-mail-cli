@@ -3,19 +3,17 @@ node_js:
   - "8"
   - "9"
 
-cache: yarn
-
-install: yarn
+install: npm i
 before_script:
-  - yarn
-  - yarn build
+  - npm i
+  - npm run build
 
 script:
-  - yarn test
-  - yarn lint
+  - npm run test
+  - npm run lint
 
 after_success:
-  - yarn pack
+  - npm pack
 
 deploy:
   - provider: releases
