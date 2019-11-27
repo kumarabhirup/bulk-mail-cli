@@ -2,14 +2,21 @@
   "parser": "@typescript-eslint/parser",
   "extends": [
     "wesbos",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
   "rules": {
-    "semi": [2, "never"]
+    "semi": [
+      2,
+      "never"
+    ]
   },
   "parserOptions": {
     "ecmaVersion": 2018,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "env": {
     "es6": true,
@@ -21,10 +28,15 @@
     "@typescript-eslint/eslint-plugin"
   ],
   "settings": {
-    "html/html-extensions": [".html"],
+    "html/html-extensions": [
+      ".html"
+    ],
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".ts"]
+        "extensions": [
+          ".js",
+          ".ts"
+        ]
       }
     }
   }

@@ -7,7 +7,8 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "start": "npm run build && node dist/index.js",
-    "dev": "concurrently --kill-others \"npm run build:watch\" \"nodemon dist/index.js\"",
+    "dev:only": "nodemon dist/index.js",
+    "dev": "concurrently --kill-others \"npm run build:watch\" \"npm run dev:only\"",
     "lint": "eslint src/*.ts",
     "lint:fix": "eslint src/*.ts --fix",
     "test": "echo \"No tests specified\"",
@@ -15,20 +16,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KumarAbhirup/koji-leaderboard-api.git"
+    "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
   },
   "keywords": [
-    "koji",
-    "koji-database",
+    "mail",
+    "bulk",
+    "javascript",
+    "nodemailer",
+    "emailjs",
+    "cli",
+    "email",
+    "node",
+    "mailer",
     "npm",
     "package"
   ],
   "author": "Kumar Abhirup <kumarabhirup5@gmail.com> (http://kumar.now.sh)",
+  "bin": {
+    "bulkmail": "./dist/src/bin/global.js"
+  },
+  "preferGlobal": true,
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KumarAbhirup/koji-leaderboard-api/issues"
+    "url": "https://github.com/KumarAbhirup/bulk-mail-cli/issues"
   },
-  "homepage": "https://github.com/KumarAbhirup/koji-leaderboard-api#readme",
+  "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme",
   "devDependencies": {
     "@types/node": "^12.7.3",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
