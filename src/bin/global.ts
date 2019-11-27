@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-import '..'
+import startApp from '../cli/start'
+
+startApp()

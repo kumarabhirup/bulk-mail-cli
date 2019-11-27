@@ -2,13 +2,14 @@
   "name": "bulk-mail-cli",
   "version": "1.0.3",
   "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "start": "npm run build && node dist/index.js",
-    "dev:only": "nodemon dist/index.js",
-    "dev": "concurrently --kill-others \"npm run build:watch\" \"npm run dev:only\"",
+    "start": "node dist/src/index.js",
+    "start:cli": "node dist/src/bin/global.js",
+    "dev:cli": "nodemon dist/src/bin/global.js",
+    "dev": "concurrently --kill-others \"npm run build:watch\" \"npm run dev:cli\"",
     "lint": "eslint src/*.ts",
     "lint:fix": "eslint src/*.ts --fix",
     "test": "echo \"No tests specified\"",
@@ -61,5 +62,12 @@
     "prettier": "^1.18.2",
     "typescript": "^3.6.2",
     "typings": "^2.1.1"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "commander": "^4.0.1",
+    "figlet": "^1.2.4",
+    "path": "^0.12.7"
   }
 }

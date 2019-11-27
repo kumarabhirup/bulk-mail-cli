@@ -10,7 +10,8 @@
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "removeComments": true,
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "resolveJsonModule": true
   },
   "exclude": [
     "node_modules",
