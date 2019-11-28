@@ -5,6 +5,7 @@ import * as program from 'commander'
 
 import { description, version } from '../../package.json'
 import listenCtrlC from './utils/listenCtrlC'
+import demo from './commands/demo'
 
 export default function startApp(): void {
   program
@@ -17,10 +18,15 @@ export default function startApp(): void {
   clear()
 
   console.log(
-    chalk.red(figlet.textSync('bulk-mail-cli', { horizontalLayout: 'full' }))
+    chalk.yellow.bold(
+      figlet.textSync('bmc-v2', {
+        horizontalLayout: 'full',
+        font: 'Swan',
+      })
+    )
   )
 
-  if (program.demo) console.log('So, you need a demo file.')
+  if (program.demo) demo()
   if (program.file) console.log('You attached a file.')
 
   listenCtrlC()
