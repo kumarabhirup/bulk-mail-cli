@@ -11,7 +11,8 @@
     "importHelpers": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "downlevelIteration": true
   },
   "include": [
     "src/**/*"

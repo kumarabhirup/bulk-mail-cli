@@ -5,7 +5,8 @@ import * as program from 'commander'
 
 import { description, version } from '../../package.json'
 import listenCtrlC from './utils/listenCtrlC'
-import demo from './commands/demo'
+import demoCommand from './commands/demo'
+import fileCommand from './commands/file'
 
 export default function startApp(): void {
   program
@@ -26,8 +27,8 @@ export default function startApp(): void {
     )
   )
 
-  if (program.demo) demo()
-  if (program.file) console.log('You attached a file.')
+  if (program.demo) demoCommand()
+  if (program.file) fileCommand(program.file)
 
   listenCtrlC()
 

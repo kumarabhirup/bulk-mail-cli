@@ -69,6 +69,8 @@
     "commander": "^4.0.1",
     "figlet": "^1.2.4",
     "ncp": "^2.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "simplesmtp": "^0.3.35",
+    "strip-json-comments": "^3.0.1"
   }
 }
