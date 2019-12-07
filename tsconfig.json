@@ -10,8 +10,13 @@
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "removeComments": true,
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "downlevelIteration": true
   },
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",

@@ -13,6 +13,7 @@ yarn.lock
 
 # FOR NPM PACKAGE
 src
+!src/cli/assets
 
 # node_modules
 node_modules/*
