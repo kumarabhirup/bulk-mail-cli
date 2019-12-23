@@ -6,10 +6,12 @@ import * as stripJsonComments from 'strip-json-comments'
 import * as fs from 'fs'
 import * as chalk from 'chalk'
 
+import BmcConfigurationFile from '../../../typings/configurationFileInterface'
+
 import doesFileExist from '../../utils/doesFileExist'
 import isFileType from '../../utils/isFileType'
 import checkJsonConfiguration from './checkJsonConfiguration'
-import BmcConfigurationFile from '../../../typings/configurationFileInterface'
+import massMail from './massMail'
 
 let fileToJson: BmcConfigurationFile
 
@@ -31,9 +33,12 @@ export default async function fileCommand(filePath: string): Promise<void> {
 
   if (doesFileExist(filePathToConsider)) {
     try {
-      fileToJson = JSON.parse(
-        stripJsonComments(fs.readFileSync(filePathToConsider).toString())
-      )
+      fileToJson = {
+        ...JSON.parse(
+          stripJsonComments(fs.readFileSync(filePathToConsider).toString())
+        ),
+        jsonConfPath: filePathToConsider,
+      }
     } catch (error) {
       console.log(`${chalk.red.bold(`The given file does not exist:`)}`)
       process.exit()
@@ -48,10 +53,15 @@ export default async function fileCommand(filePath: string): Promise<void> {
     )
   }
 
-  // If it passes the File and Auth Check, do the mailing stuff!
-  if (isJsonConfigurationPassed) {
-    console.log(`${chalk.green.bold(`Whoa! Correct credentials provided.`)}`)
+  // If it fails the File and Auth Check, exit!
+  if (!isJsonConfigurationPassed) {
+    process.exit()
   }
+
+  // Do the mailing stuff
+  console.log(`${chalk.green.bold(`Starting the Mailing Process >>>`)}\n`)
+
+  await massMail(fileToJson)
 
   process.exit()
 }

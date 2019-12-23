@@ -15,3 +15,4 @@ yarn-error.log*
 /.changelog
 .npm/
 .env
+bulk-mail-cli Demo

@@ -14,16 +14,16 @@ export interface BmcMailSettings {
   from: string;
   to: string;
   theme: string;
-  attachments: Array<string>;
+  attachments?: Array<string>;
 }
 
 export interface BmcConfigurations {
   mailInterval: number;
+  verbose?: boolean;
 }
 
 export interface BmcNonUserData {
   sentTo: Array<string>;
-  leftToSend: Array<string>;
 }
 
 export default interface BmcConfigurationFile {
@@ -31,4 +31,5 @@ export default interface BmcConfigurationFile {
   mail: BmcMailSettings;
   configuration: BmcConfigurations;
   nonUserData: BmcNonUserData;
+  jsonConfPath: string;
 }

@@ -11,17 +11,9 @@
   "[javascriptreact]": {
     "editor.formatOnSave": false
   },
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    {
-      "language": "typescript",
-      "autoFix": true
-    }
-  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
   // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
-  "prettier.disableLanguages": [
-    "javascript",
-    "typescript"
-  ]
+  "prettier.disableLanguages": ["javascript", "typescript"]
 }
