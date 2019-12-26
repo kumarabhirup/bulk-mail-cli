@@ -6,11 +6,7 @@ import Mail from 'nodemailer/lib/mailer'
 
 import BmcConfigurationFile from '../../../typings/configurationFileInterface'
 import createTransport from '../../utils/createTransport'
-
-export interface CsvData {
-  // eslint-disable-next-line prettier/prettier
-  email: string;
-}
+import stringProcessor from '../../utils/stringProcessor'
 
 export default async function massMail(
   configData: BmcConfigurationFile
@@ -26,10 +22,13 @@ export default async function massMail(
 
   const csvData = await csvToJson().fromFile(csvPath)
 
+  // String Processor
+  const processString = (string): string => stringProcessor(string, csvData)
+
   // Mail Options
   const mailOptions = {
     from: configData.mail.from,
-    subject: configData.mail.subject,
+    subject: processString(configData.mail.subject),
     html: configData.mail.theme,
   }
 
@@ -43,6 +42,7 @@ export default async function massMail(
 
   for (const row of csvData) {
     try {
+      // Send mails to those not yet sent
       if (!sentTo.includes(row.email)) {
         await transporter.sendMail({ ...mailOptions, to: row.email })
 
