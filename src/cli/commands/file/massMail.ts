@@ -15,15 +15,15 @@ export default async function massMail(
   const transporter: Mail = createTransport(configData)
 
   // Find folder path of configuration file
-  const splitCsvPath: Array<string> = configData.jsonConfPath.split('/') // `/Users/kumarabhirup/someFolder/bulkmail.json` -> `,Users,kumarabhirup,someFolder,bulkmail.json`
-  splitCsvPath.pop() // To remove fileName.extension from the splitCsvPath
+  const configurationDirPath: Array<string> = configData.jsonConfPath.split('/') // `/Users/kumarabhirup/someFolder/bulkmail.json` -> `,Users,kumarabhirup,someFolder,bulkmail.json`
+  configurationDirPath.pop() // To remove fileName.extension from the splitCsvPath
 
   // Read the CSV File
-  const csvPath = `${splitCsvPath.join('/')}/${configData.mail.to}`
+  const csvPath = `${configurationDirPath.join('/')}/${configData.mail.to}`
   const csvData = await csvToJson().fromFile(csvPath)
 
   // Read the HTML file
-  const htmlPath = `${splitCsvPath.join('/')}/${configData.mail.theme}`
+  const htmlPath = `${configurationDirPath.join('/')}/${configData.mail.theme}`
   const htmlData = await fs.readFileSync(htmlPath, 'utf8')
 
   // Mail Options
@@ -51,6 +51,17 @@ export default async function massMail(
           subject: processString(configData.mail.subject),
           html: processString(htmlData),
           to: row.email,
+
+          // Use string processors on the filename of the attachment.
+          attachments: configData.mail.attachments.map(attachment => ({
+            ...attachment,
+            filename: processString(attachment.filename),
+            path: attachment.path.startsWith('http')
+              ? processString(attachment.path)
+              : processString(
+                  `${configurationDirPath.join('/')}/${attachment.path}`
+                ),
+          })),
         })
 
         sentTo.push(row.email)

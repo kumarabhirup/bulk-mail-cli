@@ -13,7 +13,12 @@ export interface BmcMailSettings {
   from: string;
   to: string;
   theme: string;
-  attachments?: Array<string>;
+  attachments?: Array<BmcAttachment>;
+}
+
+export interface BmcAttachment {
+  filename: string;
+  path: string;
 }
 
 export interface BmcConfigurations {
