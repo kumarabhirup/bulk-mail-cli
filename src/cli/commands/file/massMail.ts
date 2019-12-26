@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-expressions */
+
+import * as fs from 'fs'
 import * as chalk from 'chalk'
 import * as csvToJson from 'csvtojson'
-import * as fs from 'fs'
 import Mail from 'nodemailer/lib/mailer'
 
 import BmcConfigurationFile from '../../../typings/configurationFileInterface'
@@ -51,7 +52,6 @@ export default async function massMail(
           subject: processString(configData.mail.subject),
           html: processString(htmlData),
           to: row.email,
-
           // Use string processors on the filename of the attachment.
           attachments: configData.mail.attachments.map(attachment => ({
             ...attachment,

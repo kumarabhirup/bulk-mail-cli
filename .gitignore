@@ -15,4 +15,5 @@ yarn-error.log*
 /.changelog
 .npm/
 .env
+yarn.lock
 bulk-mail-cli Demo
