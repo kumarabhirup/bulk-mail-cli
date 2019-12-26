@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 
 export interface BmcCredentials {
-  service: 'gmail' | 'custom';
   email: string;
   password: string;
   host: string;

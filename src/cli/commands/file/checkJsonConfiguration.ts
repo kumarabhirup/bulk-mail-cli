@@ -8,35 +8,23 @@ export default async function checkJsonConfiguration(
 ): Promise<boolean> {
   const errors = []
 
-  const possibleServices = ['gmail', 'custom']
-  if (!possibleServices.includes(jsonConfiguration.credentials.service)) {
-    errors.push(
-      chalk.red.bold(
-        `Please provide a 'service' credential out of these: 'gmail' and 'custom'.`
-      )
-    )
-  }
-
   try {
     const tryConnecting = await isConnectionPossible(
       jsonConfiguration.credentials
     )
   } catch (error) {
     errors.push(
-      `${chalk.red.bold(
-        `Attempts to connect your ${jsonConfiguration.credentials.service} account has failed.`
-      )}
+      `${chalk.red.bold(`Attempts to connect your email account has failed.`)}
       ${chalk.yellowBright.bold(`\nTroubleshooting tips 💡`)}
       ${chalk.yellow(
         `\nTo get the correct sample configuration file, run 'bulkmail demo' command.`
       )}
       ${chalk.yellow(`\nMake sure that your internet connection is alright.`)}
-      ${jsonConfiguration.credentials.service === 'gmail' &&
-        chalk.yellow(
-          `\nAlso make sure you turn on 'Less Secure Apps' option here: ${chalk.cyan(
-            `https://bit.ly/33Z4yLS`
-          )}`
+      ${chalk.yellow(
+        `\nIf using Gmail, turn on 'Less Secure Apps' option here: ${chalk.cyan(
+          `https://bit.ly/33Z4yLS`
         )}`
+      )}`
     )
   }
 
