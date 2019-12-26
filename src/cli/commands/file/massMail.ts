@@ -14,13 +14,17 @@ export default async function massMail(
   // Create a NodeMailer transporter
   const transporter: Mail = createTransport(configData)
 
-  // Read the CSV File
+  // Find folder path of configuration file
   const splitCsvPath: Array<string> = configData.jsonConfPath.split('/') // `/Users/kumarabhirup/someFolder/bulkmail.json` -> `,Users,kumarabhirup,someFolder,bulkmail.json`
   splitCsvPath.pop() // To remove fileName.extension from the splitCsvPath
 
+  // Read the CSV File
   const csvPath = `${splitCsvPath.join('/')}/${configData.mail.to}`
-
   const csvData = await csvToJson().fromFile(csvPath)
+
+  // Read the HTML file
+  const htmlPath = `${splitCsvPath.join('/')}/${configData.mail.theme}`
+  const htmlData = await fs.readFileSync(htmlPath, 'utf8')
 
   // Mail Options
   const mailOptions = {
@@ -45,7 +49,7 @@ export default async function massMail(
         await transporter.sendMail({
           ...mailOptions,
           subject: processString(configData.mail.subject),
-          html: processString(configData.mail.theme),
+          html: processString(htmlData),
           to: row.email,
         })
 
