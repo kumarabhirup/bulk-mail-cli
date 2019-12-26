@@ -35,7 +35,7 @@ export default async function massMail(
   // Send Mails
   let isError = false
 
-  const { sentTo } = configData.nonUserData
+  let sentTo = configData?.nonUserData?.sentTo
 
   const configDataToWriteFile = Object.assign({}, configData)
   delete configDataToWriteFile.jsonConfPath
@@ -46,7 +46,7 @@ export default async function massMail(
 
     try {
       // Send mails to those not yet sent
-      if (!sentTo.includes(row.email)) {
+      if (!sentTo?.includes(row.email)) {
         await transporter.sendMail({
           ...mailOptions,
           subject: processString(configData.mail.subject),
@@ -63,6 +63,8 @@ export default async function massMail(
                 ),
           })),
         })
+
+        if (!sentTo) sentTo = []
 
         sentTo.push(row.email)
 
