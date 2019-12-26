@@ -24,8 +24,8 @@ export default function stringProcessor(html: string, data): string {
   if (regexArray !== null) {
     for (let i = 0; i < regexArray.length; i++) {
       const string = regexArray[i]
-      swapOutWith.push(string.substring(3, string.length - 3))
-      toReplace.push(`{{${string.substring(3, string.length - 3)}}}`)
+      swapOutWith.push(string.substring(2, string.length - 2))
+      toReplace.push(`{{${string.substring(2, string.length - 2)}}}`)
     }
   }
 

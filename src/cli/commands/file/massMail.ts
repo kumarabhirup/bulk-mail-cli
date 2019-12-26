@@ -22,14 +22,9 @@ export default async function massMail(
 
   const csvData = await csvToJson().fromFile(csvPath)
 
-  // String Processor
-  const processString = (string): string => stringProcessor(string, csvData)
-
   // Mail Options
   const mailOptions = {
     from: configData.mail.from,
-    subject: processString(configData.mail.subject),
-    html: configData.mail.theme,
   }
 
   // Send Mails
@@ -41,10 +36,18 @@ export default async function massMail(
   delete configDataToWriteFile.jsonConfPath
 
   for (const row of csvData) {
+    // String Processor
+    const processString = (string): string => stringProcessor(string, row)
+
     try {
       // Send mails to those not yet sent
       if (!sentTo.includes(row.email)) {
-        await transporter.sendMail({ ...mailOptions, to: row.email })
+        await transporter.sendMail({
+          ...mailOptions,
+          subject: processString(configData.mail.subject),
+          html: processString(configData.mail.theme),
+          to: row.email,
+        })
 
         sentTo.push(row.email)
 
