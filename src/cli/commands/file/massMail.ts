@@ -49,19 +49,22 @@ export default async function massMail(
       if (!sentTo?.includes(row.email)) {
         await transporter.sendMail({
           ...mailOptions,
-          subject: processString(configData.mail.subject),
+          subject: processString(configData?.mail?.subject),
           html: processString(htmlData),
           to: row.email,
+
           // Use string processors on the filename of the attachment.
-          attachments: configData.mail.attachments.map(attachment => ({
-            ...attachment,
-            filename: processString(attachment.filename),
-            path: attachment.path.startsWith('http')
-              ? processString(attachment.path)
-              : processString(
-                  `${configurationDirPath.join('/')}/${attachment.path}`
-                ),
-          })),
+          attachments: configData.mail.attachments
+            ? configData?.mail?.attachments.map(attachment => ({
+                ...attachment,
+                filename: processString(attachment.filename),
+                path: attachment?.path.startsWith('http')
+                  ? processString(attachment.path)
+                  : processString(
+                      `${configurationDirPath.join('/')}/${attachment?.path}`
+                    ),
+              }))
+            : [],
         })
 
         if (!sentTo) sentTo = []
@@ -96,7 +99,9 @@ export default async function massMail(
 
   if (isError) {
     console.log(
-      `${chalk.red.bold(`\nProcess Exited. Some grave error occured.`)}
+      `${chalk.red.bold(
+        `\nProcess Exited. Some grave error occured. Check your configuration file.`
+      )}
       ${chalk.cyan(
         `\nDo not worry, your campaign will be resumed from where you stopped.`
       )}
