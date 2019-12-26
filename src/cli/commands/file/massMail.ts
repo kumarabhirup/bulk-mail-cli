@@ -5,7 +5,6 @@ import * as fs from 'fs'
 import Mail from 'nodemailer/lib/mailer'
 
 import BmcConfigurationFile from '../../../typings/configurationFileInterface'
-
 import createTransport from '../../utils/createTransport'
 
 export interface CsvData {
@@ -44,26 +43,31 @@ export default async function massMail(
 
   for (const row of csvData) {
     try {
-      await transporter.sendMail({ ...mailOptions, to: row.email })
+      if (!sentTo.includes(row.email)) {
+        await transporter.sendMail({ ...mailOptions, to: row.email })
 
-      !sentTo.includes(row.email) && sentTo.push(row.email)
+        sentTo.push(row.email)
 
-      await fs.writeFileSync(
-        configData.jsonConfPath,
-        JSON.stringify(
-          {
-            ...configDataToWriteFile,
-            nonUserData: {
-              sentTo,
+        await fs.writeFileSync(
+          configData.jsonConfPath,
+          JSON.stringify(
+            {
+              ...configDataToWriteFile,
+              nonUserData: {
+                sentTo,
+              },
             },
-          },
-          null,
-          2
+            null,
+            2
+          )
         )
-      )
 
-      configData.configuration.verbose &&
-        console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
+        configData.configuration.verbose &&
+          console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
+      } else {
+        configData.configuration.verbose &&
+          console.log(`${chalk.cyan(`Mail was already sent to ${row.email}.`)}`)
+      }
     } catch (error) {
       isError = true
       break

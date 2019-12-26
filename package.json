@@ -64,6 +64,7 @@
     "typings": "^2.1.1"
   },
   "dependencies": {
+    "@types/csvtojson": "^1.1.5",
     "@types/nodemailer": "^6.4.0",
     "chalk": "^3.0.0",
     "clear": "^0.1.0",
