@@ -55,90 +55,109 @@ export default async function massMail(
 
   let sentTo = configData?.nonUserData?.sentTo
 
+  const csvDataWithoutSentTo = [...csvData].filter(row => {
+    if (sentTo) return !sentTo.includes(row.email)
+    return true
+  })
+
   const configDataToWriteFile = Object.assign({}, configData)
   delete configDataToWriteFile.jsonConfPath
 
   let dataIndex = 0
 
-  const task: cron.ScheduledTask = cron
-    .schedule(
-      configData?.configuration?.mailInterval || '*/10 * * * * *',
-      async () => {
-        const row = csvData[dataIndex]
+  if (csvDataWithoutSentTo.length > 0) {
+    const task: cron.ScheduledTask = cron
+      .schedule(
+        configData?.configuration?.mailInterval || '*/10 * * * * *',
+        async () => {
+          const row = csvDataWithoutSentTo[dataIndex]
 
-        // String Processor
-        const processString = (string): string => stringProcessor(string, row)
+          // String Processor
+          const processString = (string): string => stringProcessor(string, row)
 
-        try {
-          // Send mails to those not yet sent
-          if (!sentTo?.includes(row.email)) {
-            await transporter.sendMail({
-              ...mailOptions,
-              subject: processString(configData?.mail?.subject),
-              html: processString(htmlData),
-              to: row.email,
+          try {
+            // Send mails to those not yet sent
+            if (!sentTo?.includes(row.email)) {
+              await transporter.sendMail({
+                ...mailOptions,
+                subject: processString(configData?.mail?.subject),
+                html: processString(htmlData),
+                to: row.email,
 
-              // Use string processors on the filename of the attachment.
-              attachments: configData.mail.attachments
-                ? configData?.mail?.attachments.map(attachment => ({
-                    ...attachment,
-                    filename: processString(attachment.filename),
-                    path: attachment?.path.startsWith('http')
-                      ? processString(attachment.path)
-                      : processString(
-                          `${configurationDirPath.join('/')}/${
-                            attachment?.path
-                          }`
-                        ),
-                  }))
-                : [],
-            })
+                // Use string processors on the filename of the attachment.
+                attachments: configData.mail.attachments
+                  ? configData?.mail?.attachments.map(attachment => ({
+                      ...attachment,
+                      filename: processString(attachment.filename),
+                      path: attachment?.path.startsWith('http')
+                        ? processString(attachment.path)
+                        : processString(
+                            `${configurationDirPath.join('/')}/${
+                              attachment?.path
+                            }`
+                          ),
+                    }))
+                  : [],
+              })
 
-            if (!sentTo) sentTo = []
+              if (!sentTo) sentTo = []
 
-            sentTo.push(row.email)
+              sentTo.push(row.email)
 
-            await fs.writeFileSync(
-              configData.jsonConfPath,
-              JSON.stringify(
-                {
-                  ...configDataToWriteFile,
-                  nonUserData: {
-                    sentTo,
+              await fs.writeFileSync(
+                configData.jsonConfPath,
+                JSON.stringify(
+                  {
+                    ...configDataToWriteFile,
+                    nonUserData: {
+                      sentTo,
+                    },
                   },
-                },
-                null,
-                2
+                  null,
+                  2
+                )
               )
-            )
 
-            configData.configuration.verbose &&
-              console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
-          } else {
-            configData.configuration.verbose &&
-              console.log(
-                `${chalk.cyan(`Mail was already sent to ${row.email}.`)}`
-              )
+              configData.configuration.verbose &&
+                console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
+            } else {
+              configData.configuration.verbose &&
+                console.log(
+                  `${chalk.cyan(`Mail was already sent to ${row.email}.`)}`
+                )
+            }
+          } catch (error) {
+            isError = true
+
+            logResult()
+
+            task.destroy()
           }
-        } catch (error) {
-          isError = true
 
-          logResult()
+          dataIndex++
 
-          task.destroy()
+          if (dataIndex > csvDataWithoutSentTo.length - 1) {
+            logResult()
+
+            task.destroy()
+          }
+        },
+        {
+          scheduled: true,
         }
+      )
+      .start()
+  } else {
+    if (csvData.length > 0 && sentTo.length > 0) {
+      console.log(
+        `${chalk.cyan(
+          `Email campaign is already complete. Please check your updated configuration file.`
+        )}`
+      )
+    } else {
+      console.log(`${chalk.cyan(`The provided CSV file is probably empty.`)}`)
+    }
 
-        dataIndex++
-
-        if (dataIndex > csvData.length - 1) {
-          logResult()
-
-          task.destroy()
-        }
-      },
-      {
-        scheduled: true,
-      }
-    )
-    .start()
+    logResult()
+  }
 }
