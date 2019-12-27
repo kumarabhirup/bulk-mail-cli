@@ -44,8 +44,9 @@
   "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme",
   "devDependencies": {
     "@types/csvtojson": "^1.1.5",
-    "@types/nodemailer": "^6.4.0",
     "@types/node": "^12.7.3",
+    "@types/node-cron": "^2.0.2",
+    "@types/nodemailer": "^6.4.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "babel-eslint": "^9.0.0",
@@ -72,6 +73,7 @@
     "csvtojson": "^2.0.10",
     "figlet": "^1.2.4",
     "ncp": "^2.0.0",
+    "node-cron": "^2.0.3",
     "nodemailer": "^6.4.2",
     "path": "^0.12.7",
     "replace-string": "^3.0.0",

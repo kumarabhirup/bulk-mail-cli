@@ -22,7 +22,7 @@ export interface BmcAttachment {
 }
 
 export interface BmcConfigurations {
-  mailInterval: number;
+  mailInterval?: string;
   verbose?: boolean;
 }
 

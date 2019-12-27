@@ -63,5 +63,5 @@ export default async function fileCommand(filePath: string): Promise<void> {
 
   await massMail(fileToJson)
 
-  process.exit()
+  // process.exit()
 }

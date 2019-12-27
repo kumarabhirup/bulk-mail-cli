@@ -1,7 +1,9 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-unused-expressions */
 
 import * as fs from 'fs'
 import * as chalk from 'chalk'
+import * as cron from 'node-cron'
 import * as csvToJson from 'csvtojson'
 import Mail from 'nodemailer/lib/mailer'
 
@@ -35,78 +37,108 @@ export default async function massMail(
   // Send Mails
   let isError = false
 
-  let sentTo = configData?.nonUserData?.sentTo
-
-  const configDataToWriteFile = Object.assign({}, configData)
-  delete configDataToWriteFile.jsonConfPath
-
-  for (const row of csvData) {
-    // String Processor
-    const processString = (string): string => stringProcessor(string, row)
-
-    try {
-      // Send mails to those not yet sent
-      if (!sentTo?.includes(row.email)) {
-        await transporter.sendMail({
-          ...mailOptions,
-          subject: processString(configData?.mail?.subject),
-          html: processString(htmlData),
-          to: row.email,
-
-          // Use string processors on the filename of the attachment.
-          attachments: configData.mail.attachments
-            ? configData?.mail?.attachments.map(attachment => ({
-                ...attachment,
-                filename: processString(attachment.filename),
-                path: attachment?.path.startsWith('http')
-                  ? processString(attachment.path)
-                  : processString(
-                      `${configurationDirPath.join('/')}/${attachment?.path}`
-                    ),
-              }))
-            : [],
-        })
-
-        if (!sentTo) sentTo = []
-
-        sentTo.push(row.email)
-
-        await fs.writeFileSync(
-          configData.jsonConfPath,
-          JSON.stringify(
-            {
-              ...configDataToWriteFile,
-              nonUserData: {
-                sentTo,
-              },
-            },
-            null,
-            2
-          )
-        )
-
-        configData.configuration.verbose &&
-          console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
-      } else {
-        configData.configuration.verbose &&
-          console.log(`${chalk.cyan(`Mail was already sent to ${row.email}.`)}`)
-      }
-    } catch (error) {
-      isError = true
-      break
-    }
-  }
-
-  if (isError) {
-    console.log(
-      `${chalk.red.bold(
-        `\nProcess Exited. Some grave error occured. Check your configuration file.`
-      )}
+  // Function that will run after the task is done.
+  const logResult = (): void => {
+    if (isError) {
+      console.log(
+        `${chalk.red.bold(
+          `\nProcess Exited. Some grave error occured. Check your configuration file.`
+        )}
       ${chalk.cyan(
         `\nDo not worry, your campaign will be resumed from where you stopped.`
       )}
       ${chalk.yellow(`\nMake sure that your internet connection is alright.`)}
       `
+      )
+    } else console.log(`${chalk.green.bold(`\nProcess exited.`)}`)
+  }
+
+  let sentTo = configData?.nonUserData?.sentTo
+
+  const configDataToWriteFile = Object.assign({}, configData)
+  delete configDataToWriteFile.jsonConfPath
+
+  let dataIndex = 0
+
+  const task: cron.ScheduledTask = cron
+    .schedule(
+      configData?.configuration?.mailInterval || '*/10 * * * * *',
+      async () => {
+        const row = csvData[dataIndex]
+
+        // String Processor
+        const processString = (string): string => stringProcessor(string, row)
+
+        try {
+          // Send mails to those not yet sent
+          if (!sentTo?.includes(row.email)) {
+            await transporter.sendMail({
+              ...mailOptions,
+              subject: processString(configData?.mail?.subject),
+              html: processString(htmlData),
+              to: row.email,
+
+              // Use string processors on the filename of the attachment.
+              attachments: configData.mail.attachments
+                ? configData?.mail?.attachments.map(attachment => ({
+                    ...attachment,
+                    filename: processString(attachment.filename),
+                    path: attachment?.path.startsWith('http')
+                      ? processString(attachment.path)
+                      : processString(
+                          `${configurationDirPath.join('/')}/${
+                            attachment?.path
+                          }`
+                        ),
+                  }))
+                : [],
+            })
+
+            if (!sentTo) sentTo = []
+
+            sentTo.push(row.email)
+
+            await fs.writeFileSync(
+              configData.jsonConfPath,
+              JSON.stringify(
+                {
+                  ...configDataToWriteFile,
+                  nonUserData: {
+                    sentTo,
+                  },
+                },
+                null,
+                2
+              )
+            )
+
+            configData.configuration.verbose &&
+              console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
+          } else {
+            configData.configuration.verbose &&
+              console.log(
+                `${chalk.cyan(`Mail was already sent to ${row.email}.`)}`
+              )
+          }
+        } catch (error) {
+          isError = true
+
+          logResult()
+
+          task.destroy()
+        }
+
+        dataIndex++
+
+        if (dataIndex > csvData.length - 1) {
+          logResult()
+
+          task.destroy()
+        }
+      },
+      {
+        scheduled: true,
+      }
     )
-  } else console.log(`${chalk.green.bold(`\nHooray! Mails sent.`)}`)
+    .start()
 }
