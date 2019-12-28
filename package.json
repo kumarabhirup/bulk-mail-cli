@@ -70,6 +70,7 @@
     "chalk": "^3.0.0",
     "clear": "^0.1.0",
     "commander": "^4.0.1",
+    "cron-parser": "^2.13.0",
     "csvtojson": "^2.0.10",
     "figlet": "^1.2.4",
     "ncp": "^2.0.0",
