@@ -24,7 +24,19 @@ export default function stringProcessor(html: string, data): string {
   if (regexArray !== null) {
     for (let i = 0; i < regexArray.length; i++) {
       const string = regexArray[i]
-      swapOutWith.push(string.substring(2, string.length - 2))
+
+      if (string.includes('|')) {
+        let newString = string.substring(2, string.length - 2)
+
+        const splitArray = newString.split('|')
+
+        newString = splitArray[Math.floor(Math.random() * splitArray.length)]
+
+        swapOutWith.push(newString)
+      } else {
+        swapOutWith.push(string.substring(2, string.length - 2))
+      }
+
       toReplace.push(`{{${string.substring(2, string.length - 2)}}}`)
     }
   }
