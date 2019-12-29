@@ -5,7 +5,7 @@ import stringProcessor from './stringProcessor'
 export default async function isConnectionPossible(
   credentials: BmcCredentials
 ): Promise<unknown> {
-  const { host, port, secureConnection, email, password } = credentials
+  const { host, port, secureConnection, email, password, proxy } = credentials
 
   const smtpOptions = {
     host: stringProcessor(host, process.env),
@@ -19,6 +19,7 @@ export default async function isConnectionPossible(
       user: stringProcessor(email, process.env),
       pass: stringProcessor(password, process.env),
     },
+    proxy: proxy ? stringProcessor(proxy, process.env) : null,
   }
 
   const isSuccessful = new Promise((resolve, reject) => {

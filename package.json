@@ -79,6 +79,7 @@
     "path": "^0.12.7",
     "replace-string": "^3.0.0",
     "simplesmtp": "^0.3.35",
+    "socks": "^2.3.3",
     "strip-json-comments": "^3.0.1"
   }
 }

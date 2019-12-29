@@ -1,7 +1,7 @@
 import * as nodemailer from 'nodemailer'
 import Mail from 'nodemailer/lib/mailer'
 
-import { parseString } from 'cron-parser'
+import * as socks from 'socks'
 import BmcConfigurationFile from '../../typings/configurationFileInterface'
 
 import stringProcessor from './stringProcessor'
@@ -15,6 +15,7 @@ export default function createTransport(
     secureConnection,
     email,
     password,
+    proxy,
   } = configData.credentials
 
   const smtpOptions = {
@@ -31,9 +32,12 @@ export default function createTransport(
     tls: {
       rejectUnauthorized: false,
     },
+    proxy: proxy ? stringProcessor(proxy, process.env) : null,
   }
 
   const transporter = nodemailer.createTransport(smtpOptions)
+
+  transporter.set('proxy_socks_module', socks)
 
   return transporter
 }

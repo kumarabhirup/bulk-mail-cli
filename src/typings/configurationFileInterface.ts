@@ -6,6 +6,7 @@ export interface BmcCredentials {
   host: string;
   port: number;
   secureConnection: boolean;
+  proxy: string;
 }
 
 export interface BmcMailSettings {
