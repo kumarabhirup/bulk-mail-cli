@@ -9,9 +9,7 @@ export default async function checkJsonConfiguration(
   const errors = []
 
   try {
-    const tryConnecting = await isConnectionPossible(
-      jsonConfiguration.credentials
-    )
+    await isConnectionPossible(jsonConfiguration.credentials)
   } catch (error) {
     errors.push(
       `${chalk.red.bold(`Attempts to connect your email account has failed.`)}

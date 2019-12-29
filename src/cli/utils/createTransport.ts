@@ -3,6 +3,9 @@ import Mail from 'nodemailer/lib/mailer'
 
 import BmcConfigurationFile from '../../typings/configurationFileInterface'
 
+import stringProcessor from './stringProcessor'
+import debug from './debugger'
+
 export default function createTransport(
   configData: BmcConfigurationFile
 ): Mail {
@@ -20,7 +23,7 @@ export default function createTransport(
     secure: secureConnection,
     auth: {
       user: email,
-      pass: password,
+      pass: stringProcessor(password, process.env),
     },
     tls: {
       rejectUnauthorized: false,

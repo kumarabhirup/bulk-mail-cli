@@ -1,5 +1,6 @@
 import { BmcCredentials } from '../../typings/configurationFileInterface'
 import { checkConnection } from './checkConnection'
+import stringProcessor from './stringProcessor'
 
 export default async function isConnectionPossible(
   credentials: BmcCredentials
@@ -10,7 +11,7 @@ export default async function isConnectionPossible(
     secureConnection: credentials.secureConnection,
     auth: {
       user: credentials.email,
-      pass: credentials.password,
+      pass: stringProcessor(credentials.password, process.env),
     },
   }
 
