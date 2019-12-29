@@ -5,13 +5,19 @@ import stringProcessor from './stringProcessor'
 export default async function isConnectionPossible(
   credentials: BmcCredentials
 ): Promise<unknown> {
+  const { host, port, secureConnection, email, password } = credentials
+
   const smtpOptions = {
-    host: credentials.host,
-    port: credentials.port,
-    secureConnection: credentials.secureConnection,
+    host: stringProcessor(host, process.env),
+    port: parseInt(stringProcessor(port.toString(), process.env)),
+
+    secureConnection:
+      // eslint-disable-next-line eqeqeq
+      stringProcessor(secureConnection.toString(), process.env) == 'true',
+
     auth: {
-      user: credentials.email,
-      pass: stringProcessor(credentials.password, process.env),
+      user: stringProcessor(email, process.env),
+      pass: stringProcessor(password, process.env),
     },
   }
 

@@ -1,10 +1,10 @@
 import * as nodemailer from 'nodemailer'
 import Mail from 'nodemailer/lib/mailer'
 
+import { parseString } from 'cron-parser'
 import BmcConfigurationFile from '../../typings/configurationFileInterface'
 
 import stringProcessor from './stringProcessor'
-import debug from './debugger'
 
 export default function createTransport(
   configData: BmcConfigurationFile
@@ -18,11 +18,14 @@ export default function createTransport(
   } = configData.credentials
 
   const smtpOptions = {
-    host,
-    port,
-    secure: secureConnection,
+    host: stringProcessor(host, process.env),
+    port: parseInt(stringProcessor(port.toString(), process.env)),
+
+    // eslint-disable-next-line eqeqeq
+    secure: stringProcessor(secureConnection.toString(), process.env) == 'true',
+
     auth: {
-      user: email,
+      user: stringProcessor(email, process.env),
       pass: stringProcessor(password, process.env),
     },
     tls: {
