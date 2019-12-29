@@ -13,6 +13,7 @@ export default function startApp(): void {
     .version(version)
     .description(description)
     .option('-f, --file <type>', 'To attach a configuration file')
+    .option('-r, --restart', 'To restart the paused campaign')
     .option('demo', 'To get a sample configuration file with themes and CSV')
     .parse(process.argv)
 
@@ -28,7 +29,7 @@ export default function startApp(): void {
   )
 
   if (program.demo) demoCommand()
-  if (program.file) fileCommand(program.file)
+  if (program.file) fileCommand(program.file, program.restart)
 
   listenCtrlC()
 

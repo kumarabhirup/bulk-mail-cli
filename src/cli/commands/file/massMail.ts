@@ -14,7 +14,8 @@ import stringProcessor from '../../utils/stringProcessor'
 import isForLoop from '../../utils/isForLoop'
 
 export default async function massMail(
-  configData: BmcConfigurationFile
+  configData: BmcConfigurationFile,
+  shouldRestart: boolean
 ): Promise<void> {
   // Create a NodeMailer transporter
   const transporter: Mail = createTransport(configData)
@@ -52,10 +53,16 @@ export default async function massMail(
 
   let sentTo = configData?.nonUserData?.sentTo
 
-  const csvDataWithoutSentTo = [...csvData].filter(row => {
-    if (sentTo) return !sentTo.includes(row.email)
-    return true
-  })
+  let csvDataWithoutSentTo
+
+  if (shouldRestart) {
+    csvDataWithoutSentTo = csvData
+  } else {
+    csvDataWithoutSentTo = [...csvData].filter(row => {
+      if (sentTo) return !sentTo.includes(row.email)
+      return true
+    })
+  }
 
   const configDataToWriteFile = Object.assign({}, configData)
   delete configDataToWriteFile.jsonConfPath
@@ -76,52 +83,46 @@ export default async function massMail(
       stringProcessor(string, { ...row, ...process.env })
 
     try {
-      // Send mails to those not yet sent
-      if (!sentTo?.includes(row.email)) {
-        await transporter.sendMail({
-          from: processString(configData?.mail?.from),
-          subject: processString(configData?.mail?.subject),
-          html: processString(htmlData),
-          to: processString(row.email),
+      await transporter.sendMail({
+        from: processString(configData?.mail?.from),
+        subject: processString(configData?.mail?.subject),
+        html: processString(htmlData),
+        to: processString(row.email),
 
-          // Use string processors on the filename of the attachment.
-          attachments: configData.mail.attachments
-            ? configData?.mail?.attachments.map(attachment => ({
-                ...attachment,
-                filename: processString(attachment.filename),
-                path: attachment?.path.startsWith('http')
-                  ? processString(attachment.path)
-                  : processString(
-                      `${configurationDirPath.join('/')}/${attachment?.path}`
-                    ),
-              }))
-            : [],
-        })
+        // Use string processors on the filename of the attachment.
+        attachments: configData.mail.attachments
+          ? configData?.mail?.attachments.map(attachment => ({
+              ...attachment,
+              filename: processString(attachment.filename),
+              path: attachment?.path.startsWith('http')
+                ? processString(attachment.path)
+                : processString(
+                    `${configurationDirPath.join('/')}/${attachment?.path}`
+                  ),
+            }))
+          : [],
+      })
 
-        if (!sentTo) sentTo = []
+      if (!sentTo) sentTo = []
 
-        sentTo.push(row.email)
+      sentTo.push(row.email)
 
-        await fs.writeFileSync(
-          configData.jsonConfPath,
-          JSON.stringify(
-            {
-              ...configDataToWriteFile,
-              nonUserData: {
-                sentTo,
-              },
+      await fs.writeFileSync(
+        configData.jsonConfPath,
+        JSON.stringify(
+          {
+            ...configDataToWriteFile,
+            nonUserData: {
+              sentTo,
             },
-            null,
-            2
-          )
+          },
+          null,
+          2
         )
+      )
 
-        configData?.configuration?.verbose !== false &&
-          console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
-      } else {
-        configData?.configuration?.verbose !== false &&
-          console.log(`${chalk.cyan(`Mail was already sent to ${row.email}.`)}`)
-      }
+      configData?.configuration?.verbose !== false &&
+        console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
     } catch (error) {
       isError = true
 

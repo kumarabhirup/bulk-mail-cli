@@ -17,7 +17,10 @@ let fileToJson: BmcConfigurationFile
 
 let isJsonConfigurationPassed = false
 
-export default async function fileCommand(filePath: string): Promise<void> {
+export default async function fileCommand(
+  filePath: string,
+  shouldRestart = false
+): Promise<void> {
   const filePathToConsider: string =
     [...filePath][0] === '/' ? filePath : `${process.cwd()}/${filePath}`
 
@@ -61,7 +64,7 @@ export default async function fileCommand(filePath: string): Promise<void> {
   // Do the mailing stuff
   console.log(`${chalk.green.bold(`Starting the Mailing Process >>>`)}\n`)
 
-  await massMail(fileToJson)
+  await massMail(fileToJson, shouldRestart)
 
   // process.exit()
 }
