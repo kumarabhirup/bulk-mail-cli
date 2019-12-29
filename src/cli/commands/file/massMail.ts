@@ -116,10 +116,10 @@ export default async function massMail(
           )
         )
 
-        configData.configuration.verbose &&
+        configData?.configuration?.verbose !== false &&
           console.log(`${chalk.yellow(`Mail sent to ${row.email}.`)}`)
       } else {
-        configData.configuration.verbose &&
+        configData?.configuration?.verbose !== false &&
           console.log(`${chalk.cyan(`Mail was already sent to ${row.email}.`)}`)
       }
     } catch (error) {
