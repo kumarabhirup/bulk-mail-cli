@@ -34,7 +34,8 @@
   ],
   "author": "Kumar Abhirup <kumarabhirup5@gmail.com> (http://kumar.now.sh)",
   "bin": {
-    "bulkmail": "./dist/src/bin/global.js"
+    "bulkmail": "./dist/src/bin/global.js",
+    "bulkmaildev": "./dist/src/bin/global.js"
   },
   "preferGlobal": true,
   "license": "MIT",
