@@ -42,7 +42,10 @@ export default function stringProcessor(html: string, data): string {
   }
 
   for (let i = 0; i < toReplace.length; i++) {
-    finalOutput = replace(finalOutput, toReplace[i], data[swapOutWith[i]])
+    const toFinallySwapOutWith = data[swapOutWith[i]]
+      ? data[swapOutWith[i]]
+      : swapOutWith[i]
+    finalOutput = replace(finalOutput, toReplace[i], toFinallySwapOutWith)
   }
 
   return finalOutput
