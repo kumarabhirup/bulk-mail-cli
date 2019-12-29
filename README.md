@@ -23,8 +23,6 @@
 
 Ever felt a quick need to shoot a fabulous mail to your subscribers? Without any inconvenience of creating complex campaigns with MailChimp and MailGun? Just open your terminal, input the CSV and HTML file with dynamic text, and just shoot the mails with **bulk-mail-cli**!
 
----
-
 ## Features
 
 ✅ &nbsp;&nbsp; **Shoot mails using CSV**.
