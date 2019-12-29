@@ -31,11 +31,6 @@ export default async function massMail(
   const htmlPath = `${configurationDirPath.join('/')}/${configData.mail.theme}`
   const htmlData = await fs.readFileSync(htmlPath, 'utf8')
 
-  // Mail Options
-  const mailOptions = {
-    from: configData.mail.from,
-  }
-
   // Send Mails
   let isError = false
 
@@ -77,16 +72,17 @@ export default async function massMail(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any> {
     // String Processor
-    const processString = (string): string => stringProcessor(string, row)
+    const processString = (string): string =>
+      stringProcessor(string, { ...row, ...process.env })
 
     try {
       // Send mails to those not yet sent
       if (!sentTo?.includes(row.email)) {
         await transporter.sendMail({
-          ...mailOptions,
+          from: processString(configData?.mail?.from),
           subject: processString(configData?.mail?.subject),
           html: processString(htmlData),
-          to: row.email,
+          to: processString(row.email),
 
           // Use string processors on the filename of the attachment.
           attachments: configData.mail.attachments
