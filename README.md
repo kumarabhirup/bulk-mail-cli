@@ -75,7 +75,7 @@ $ bulkmail demo
 
 ## Configuration file
 
-```json
+```
 {
   "credentials": {
     "email": "{{EMAIL}}",
@@ -167,7 +167,7 @@ $ PASSWORD=ThisIsAPassword bulkmail --file bulkmail.json
 
 #### Configuration:
 
-```json
+```
 {
   "credentials": {
     ...
