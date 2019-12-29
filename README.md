@@ -115,7 +115,7 @@ $ bulkmail demo
 
 <br />
 
-## Send the Mail
+## Send the Mail 🔰🔰🔰
 
 ```bash
 $ EMAIL="chandlerbing@friends.com" PASSWORD="secret" bulkmail -f bulkmail.json # reference the configuration file here
