@@ -1,6 +1,6 @@
 import * as chalk from 'chalk'
 
-import { bugs, author } from '../../../package.json'
+import { bugs } from '../../../package.json'
 
 export default function helpCommand(): void {
   console.log(`

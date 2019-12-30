@@ -25,25 +25,27 @@ Ever felt a quick need to shoot a fabulous mail to your subscribers? Without any
 
 ## Features
 
-✅ &nbsp;&nbsp; **Shoot mails using CSV**.
+📦 &nbsp;&nbsp; **Shoot mails using CSV**.
 
-✅ &nbsp;&nbsp; Mail **dynamic HTML Templates** using the `{{fname|lname}}` syntax.
+📝 &nbsp;&nbsp; Mail **dynamic HTML Templates** using the `{{fname|lname}}` syntax.
 
-✅ &nbsp;&nbsp; Set the sending **interval time** in Cron Expressions! Eg. `*/10 * * * * *`
+⏰ &nbsp;&nbsp; Set the sending **interval time** in Cron Expressions! Eg. `*/10 * * * * *`
 
-✅ &nbsp;&nbsp; **Unlimited attachments!** Attach any files on your local computer or you may just provide a direct URL in configuration and `bulk-mail-cli` will download and send the attachment under dynamic filenames and pathnames.
+📌 &nbsp;&nbsp; **Unlimited attachments!** Attach any files on your local computer or you may just provide a direct URL in configuration and `bulk-mail-cli` will download and send the attachment under dynamic filenames and pathnames.
 
-✅ &nbsp;&nbsp; **Runs on cloud!** Can be run on AWS EC2 servers and on any Node.js droplet on DigitalOcean.
+⛅️ &nbsp;&nbsp; **Runs on cloud!** Can be run on AWS EC2 servers and on any Node.js droplet on DigitalOcean.
 
-✅ &nbsp;&nbsp; **It saves your campaign progress!** You can pause and resume the Mail Campaign from where you left the last time.
+🔰 &nbsp;&nbsp; **It saves your campaign progress!** You can pause and resume the Mail Campaign from where you left the last time.
 
-✅ &nbsp;&nbsp; **Use .env variables** to not hardcode the emails and passwords in configuration files.
+✨ &nbsp;&nbsp; **Use .env variables** to not hardcode the emails and passwords in configuration files.
 
-✅ &nbsp;&nbsp; **Contentful demo files provided!** You get many beautiful email templates to pick from!
+👨‍🏫 &nbsp;&nbsp; **Contentful demo files provided!** You get many beautiful email templates to pick from!
 
-✅ &nbsp;&nbsp; **WordPress and other CMS' friendly.** Just export the list of your users, change the email containing column name to `email` and you are good to go!
+𝔀 &nbsp;&nbsp; **WordPress and other CMS' friendly.** Just export the list of your users, change the email containing column name to `email` and you are good to go!
 
-✅ &nbsp;&nbsp; **Active on Slack.** Join the [bulk-mail-cli Slack group](http://bit.ly/bulkmailcli) for suggestions, bugs reports, support, and core development.
+💃 &nbsp;&nbsp; **Active on Slack.** Join the [bulk-mail-cli Slack group](http://bit.ly/bulkmailcli) for suggestions, bugs reports, support, and core development.
+
+🧪 &nbsp;&nbsp; **Tested on MacOS and Linux**.
 
 <br /><br />
 
