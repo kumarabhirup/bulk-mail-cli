@@ -5,10 +5,15 @@ junkies*
 .babelrc*
 .sideview
 .vscode
+.DS_Store
+.eslintrc
+.prettierrc
+tsconfig.json
+yarn.lock
 
 # FOR NPM PACKAGE
-src/*
-!src/dist/
+src
+!src/cli/assets
 
 # node_modules
 node_modules/*

@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - "8"
+  - "10"
+  - "11"
+
+cache: yarn
+
+install: yarn
+before_script:
+  - yarn build
+
+script:
+  - yarn test
+  - yarn lint
+
+after_success:
+  - yarn pack
+
+deploy:
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    file_glob: true
+    file: "bulk-mail-cli-*.tgz"
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: npm
+    skip_cleanup: true
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    on:
+      branch: master

@@ -1,45 +1,24 @@
 {
   "name": "bulk-mail-cli",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
-  "main": "src/dist/src/bulkmailer.js",
-  "author": "Kumar Abhirup",
+  "main": "dist/src/index.js",
   "scripts": {
-    "start": "npm run build && node ./src/dist/src/bulkmailer.js",
-    "build": "rimraf src/dist/ && babel ./ --out-dir src/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./src/junkies,./LICENSE,./README.md,./package-lock.json --copy-files",
-    "test": "echo No tests written.",
-    "deploy": "npm run build && npm publish"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "start": "node dist/src/index.js",
+    "start:cli": "node dist/src/bin/global.js",
+    "dev:cli": "nodemon dist/src/bin/global.js",
+    "dev": "concurrently --kill-others \"npm run build:watch\" \"npm run dev:cli\"",
+    "lint": "eslint src/*.ts",
+    "lint:fix": "eslint src/*.ts --fix",
+    "test": "echo \"No tests specified\"",
+    "ship": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
   },
-  "dependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "array-includes": "^3.0.3",
-    "bulkmailcli_settings": "^0.0.1",
-    "csvtojson": "^2.0.8",
-    "dns": "^0.2.2",
-    "is-online": "^8.0.0",
-    "minimist": "^1.2.0",
-    "ncp": "^2.0.0",
-    "nodemailer": "^4.7.0",
-    "os-name": "^3.0.0",
-    "replace-string": "^2.0.0",
-    "simplesmtp": "^0.3.35",
-    "terminal-kit": "^1.26.4"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "rimraf": "^2.6.2"
-  },
-  "bin": {
-    "bulkmail": "./src/dist/src/bin/global.js"
-  },
-  "preferGlobal": true,
   "keywords": [
     "mail",
     "bulk",
@@ -49,11 +28,59 @@
     "cli",
     "email",
     "node",
-    "mailer"
+    "mailer",
+    "npm",
+    "package"
   ],
-  "license": "GPL-3.0",
+  "author": "Kumar Abhirup <kumarabhirup5@gmail.com> (http://kumar.now.sh)",
+  "bin": {
+    "bulkmail": "./dist/src/bin/global.js",
+    "bulkmaildev": "./dist/src/bin/global.js"
+  },
+  "preferGlobal": true,
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/KumarAbhirup/bulk-mail-cli/issues"
   },
-  "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme"
+  "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme",
+  "devDependencies": {
+    "@types/csvtojson": "^1.1.5",
+    "@types/node": "^12.7.3",
+    "@types/node-cron": "^2.0.2",
+    "@types/nodemailer": "^6.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "babel-eslint": "^9.0.0",
+    "concurrently": "^5.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-wesbos": "0.0.19",
+    "eslint-plugin-html": "^5.0.5",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.2",
+    "typings": "^2.1.1"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "commander": "^4.0.1",
+    "cron-parser": "^2.13.0",
+    "csvtojson": "^2.0.10",
+    "figlet": "^1.2.4",
+    "ncp": "^2.0.0",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.2",
+    "path": "^0.12.7",
+    "replace-string": "^3.0.0",
+    "simplesmtp": "^0.3.35",
+    "socks": "^2.3.3",
+    "strip-json-comments": "^3.0.1"
+  }
 }
