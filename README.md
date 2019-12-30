@@ -63,7 +63,7 @@ $ npm i -g bulk-mail-cli
 
 ## Get help
 
-Just run `bulkmail` in your terminal to see what commands and flags you can use to do awesome things.
+Just run `bulkmail support` in your terminal to see what commands and flags you can use to do awesome things.
 
 <br />
 
