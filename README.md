@@ -25,6 +25,8 @@ Ever felt a quick need to shoot a fabulous mail to your subscribers? Without any
 
 ## Features
 
+💃 &nbsp;&nbsp; **Active on Slack.** Join the [bulk-mail-cli Slack group](http://bit.ly/bulkmailcli) for suggestions, bugs reports, support, and core development.
+
 📦 &nbsp;&nbsp; **Shoot mails using CSV**.
 
 📝 &nbsp;&nbsp; Mail **dynamic HTML Templates** using the `{{fname|lname}}` syntax.
@@ -42,8 +44,6 @@ Ever felt a quick need to shoot a fabulous mail to your subscribers? Without any
 👨‍🏫 &nbsp;&nbsp; **Contentful demo files provided!** You get many beautiful email templates to pick from!
 
 𝔀 &nbsp;&nbsp; **WordPress and other CMS' friendly.** Just export the list of your users, change the email containing column name to `email` and you are good to go!
-
-💃 &nbsp;&nbsp; **Active on Slack.** Join the [bulk-mail-cli Slack group](http://bit.ly/bulkmailcli) for suggestions, bugs reports, support, and core development.
 
 🧪 &nbsp;&nbsp; **Tested on MacOS and Linux**.
 
