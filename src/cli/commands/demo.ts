@@ -1,7 +1,9 @@
 import * as ncp from 'ncp'
 import * as chalk from 'chalk'
 
-const SOURCE_PATH = `src/cli/assets/demo`
+const outOfDist = __dirname.replace('/dist/src/cli/commands', '')
+
+const SOURCE_PATH = `${outOfDist}/src/cli/assets/demo`
 
 const DESTINATION_PATH = process.cwd()
 
