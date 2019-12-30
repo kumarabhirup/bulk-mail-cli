@@ -33,6 +33,8 @@ Ever felt a quick need to shoot a fabulous mail to your subscribers? Without any
 
 ✅ &nbsp;&nbsp; **Unlimited attachments!** Attach any files on your local computer or you may just provide a direct URL in configuration and `bulk-mail-cli` will download and send the attachment under dynamic filenames and pathnames.
 
+✅ &nbsp;&nbsp; **Runs on cloud!** Can be run on AWS EC2 servers and on any Node.js droplet on DigitalOcean.
+
 ✅ &nbsp;&nbsp; **It saves your campaign progress!** You can pause and resume the Mail Campaign from where you left the last time.
 
 ✅ &nbsp;&nbsp; **Use .env variables** to not hardcode the emails and passwords in configuration files.
@@ -93,12 +95,8 @@ $ bulkmail demo
       // relative path to the attachment files. Keep this array `empty` if no attachments.
       // SEE THE EXAMPLES BELOW.
       {
-        "filename": "{{fname}}'s CSV.csv", // You may use string patterns in fileName
+        "filename": "{{fname}}'s Demo CSV.csv", // You may use string patterns in fileName
         "path": "leads.csv" // You may use string patterns in path too!
-      },
-      {
-        "filename": "{{lname}}'s-json-file.json",
-        "path": "../.vscode/settings.json"
       },
       {
         "filename": "{{fname}} {{lname}}'s Resume.pdf",
