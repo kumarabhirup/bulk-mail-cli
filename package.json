@@ -1,6 +1,6 @@
 {
   "name": "bulk-mail-cli",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
   "main": "dist/src/index.js",
   "scripts": {
@@ -81,6 +81,7 @@
     "replace-string": "^3.0.0",
     "simplesmtp": "^0.3.35",
     "socks": "^2.3.3",
-    "strip-json-comments": "^3.0.1"
+    "strip-json-comments": "^3.0.1",
+    "tslib": "^1.10.0"
   }
 }
