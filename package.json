@@ -1,6 +1,6 @@
 {
   "name": "bulk-mail-cli",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
   "main": "dist/src/index.js",
   "scripts": {

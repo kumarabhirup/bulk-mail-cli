@@ -13,7 +13,7 @@ import * as simplesmtp from 'simplesmtp'
  *
  * @description Used for checking if the credentials are valid or not.
  */
-export const checkConnection = (options, callback): void => {
+const checkConnection = (options, callback): void => {
   try {
     const connection = simplesmtp.connect(options.port, options.host, options)
 
@@ -32,3 +32,5 @@ export const checkConnection = (options, callback): void => {
     callback('There is an error.')
   }
 }
+
+export default checkConnection

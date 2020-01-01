@@ -1,5 +1,5 @@
 import { BmcCredentials } from '../../typings/configurationFileInterface'
-import { checkConnection } from './checkConnection'
+import checkConnection from './checkConnection'
 import stringProcessor from './stringProcessor'
 
 export default async function isConnectionPossible(

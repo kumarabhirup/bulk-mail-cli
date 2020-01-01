@@ -4,7 +4,8 @@ import BmcConfigurationFile from '../../../typings/configurationFileInterface'
 import isConnectionPossible from '../../utils/isConnectionPossible'
 
 export default async function checkJsonConfiguration(
-  jsonConfiguration: BmcConfigurationFile
+  jsonConfiguration: BmcConfigurationFile,
+  shouldLogError = true
 ): Promise<boolean> {
   const errors = []
 
@@ -30,10 +31,11 @@ export default async function checkJsonConfiguration(
     return true
   }
 
-  // eslint-disable-next-line array-callback-return
-  errors.map((error): void => {
-    console.log(error)
-  })
+  // eslint-disable-next-line no-unused-expressions
+  shouldLogError &&
+    errors.forEach((error): void => {
+      console.log(error)
+    })
 
   return false
 }
