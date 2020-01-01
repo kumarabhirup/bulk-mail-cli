@@ -10,8 +10,11 @@ junkies*
 .prettierrc
 tsconfig.json
 yarn.lock
+*.tgz
+.travis.yml
 
 # FOR NPM PACKAGE
+*.ts
 src
 !src/cli/assets
 
