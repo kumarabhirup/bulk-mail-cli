@@ -3,8 +3,6 @@
 import * as replace from 'replace-string'
 
 const REGEX = /\{\{(.*?)\}\}/g
-const toReplace = []
-const swapOutWith = []
 
 /**
  * @name stringProcessor
@@ -18,6 +16,8 @@ const swapOutWith = []
  */
 export default function stringProcessor(html: string, data): string {
   let finalOutput = html
+  const toReplace = []
+  const swapOutWith = []
 
   const regexArray = html.match(REGEX)
 
