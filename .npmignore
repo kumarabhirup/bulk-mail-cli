@@ -8,13 +8,12 @@ junkies*
 .DS_Store
 .eslintrc
 .prettierrc
-tsconfig.json
 yarn.lock
 *.tgz
 .travis.yml
 
 # FOR NPM PACKAGE
-*.ts
+src/*.ts
 src
 !src/cli/assets
 

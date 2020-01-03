@@ -1,6 +1,6 @@
 {
   "name": "bulk-mail-cli",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
   "main": "dist/src/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KumarAbhirup/bulk-mail-cli.git"
+    "url": "git+https://github.com/adventmail/bulk-mail-cli.git"
   },
   "keywords": [
     "mail",
@@ -40,9 +40,9 @@
   "preferGlobal": true,
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KumarAbhirup/bulk-mail-cli/issues"
+    "url": "https://github.com/adventmail/bulk-mail-cli/issues"
   },
-  "homepage": "https://github.com/KumarAbhirup/bulk-mail-cli#readme",
+  "homepage": "https://github.com/adventmail/bulk-mail-cli#readme",
   "devDependencies": {
     "@types/csvtojson": "^1.1.5",
     "@types/node": "^12.7.3",
