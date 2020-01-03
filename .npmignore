@@ -13,7 +13,7 @@ yarn.lock
 .travis.yml
 
 # FOR NPM PACKAGE
-src/*.ts
+src/**/*.ts
 src
 !src/cli/assets
 
