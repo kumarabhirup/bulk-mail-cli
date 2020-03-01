@@ -6,10 +6,19 @@
 
 [![Type](https://img.shields.io/badge/type-CLI-yellow.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
 [![npm](https://img.shields.io/badge/npm-bulk--mail--cli-CB3837.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
-[![Version](https://img.shields.io/badge/version-v2.0.0-green.svg?style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
-[![](https://travis-ci.com/KumarAbhirup/bulk-mail-cli.svg?branch=master)](https://github.com/KumarAbhirup/bulk-mail-cli)
+[![Version](https://img.shields.io/npm/v/bulk-mail-cli?label=version&style=flat-square)](https://www.npmjs.com/package/bulk-mail-cli)
+[![Tests](https://travis-ci.com/adventmail/bulk-mail-cli.svg?branch=master)](https://github.com/KumarAbhirup/bulk-mail-cli)
 [![Twitter](https://img.shields.io/twitter/follow/kumar_abhirup.svg?style=social&label=@kumar_abhirup)](https://twitter.com/kumar_abhirup/)
 [![GitHub stars](https://img.shields.io/github/stars/KumarAbhirup/bulk-mail-cli.svg?style=social&label=Stars)](https://github.com/KumarAbhirup/bulk-mail-cli)
+
+<br />
+
+[![pkgreview.dev Rating](https://img.shields.io/pkgreview/stars/npm/bulk-mail-cli?label=pkgreview.dev%20Stars&style=for-the-badge)](https://pkgreview.dev/npm/bulk-mail-cli)
+[![pkgreview.dev Rating](https://img.shields.io/pkgreview/rating/npm/bulk-mail-cli?label=pkgreview.dev%20Rating&style=for-the-badge)](https://pkgreview.dev/npm/bulk-mail-cli)
+
+| **Like us a lot?** Help others know why you like us! **Review this package on [pkgreview.dev](https://pkgreview.dev/npm/bulk-mail-cli)** | ➡   | [![Review us on pkgreview.dev](https://i.ibb.co/McjVMfb/pkgreview-dev.jpg)](https://pkgreview.dev/npm/bulk-mail-cli) |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | --- | -------------------------------------------------------------------------------------------------------------------- |
+
 
 </div>
 
@@ -56,7 +65,7 @@ Ever felt a quick need to shoot a fabulous mail to your subscribers? Without any
 Assuming that you have `node` and `npm` installed... Run the following in your terminal.
 
 ```bash
-$ npm i -g bulk-mail-cli
+npm i -g bulk-mail-cli
 ```
 
 <br />
@@ -72,7 +81,7 @@ Just run `bulkmail support` in your terminal to see what commands and flags you 
 To generate demo files, use the following command.
 
 ```bash
-$ bulkmail demo
+bulkmail demo
 ```
 
 <br />
@@ -118,7 +127,7 @@ $ bulkmail demo
 ## Send the Mail 🔰🔰🔰
 
 ```bash
-$ EMAIL="chandlerbing@friends.com" PASSWORD="secret" bulkmail -f bulkmail.json # reference the configuration file here
+EMAIL="chandlerbing@friends.com" PASSWORD="secret" bulkmail -f bulkmail.json # reference the configuration file here
 ```
 
 That will start the mailing process! After every mail it sends, it updates the configuration file with the emails that you sent the message to. So that when you run the same campaign next time, it will resume from where you paused. **To start over, you can append the `--restart` flag to the command.**
@@ -127,7 +136,7 @@ That will start the mailing process! After every mail it sends, it updates the c
 
 ## Writing data in CSV
 
-### List emails the right way!
+### List emails the right way
 
 If you use **WordPress**, you may just import the CSV file of users by using [this plugin](https://wordpress.org/plugins/users-customers-import-export-for-wp-woocommerce/).
 
@@ -162,10 +171,10 @@ You can also define `PASSWORD` environment variable so that you don't directly t
 #### Command
 
 ```bash
-$ PASSWORD=ThisIsAPassword bulkmail --file bulkmail.json
+PASSWORD=ThisIsAPassword bulkmail --file bulkmail.json
 ```
 
-#### Configuration:
+#### Configuration
 
 ```
 {

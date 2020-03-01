@@ -1,6 +1,6 @@
 {
   "name": "bulk-mail-cli",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Do quick, hassle-free email marketing with this small but very powerful tool! 🔥",
   "main": "dist/src/index.js",
   "scripts": {
@@ -45,7 +45,7 @@
   "homepage": "https://github.com/adventmail/bulk-mail-cli#readme",
   "devDependencies": {
     "@types/csvtojson": "^1.1.5",
-    "@types/node": "^12.7.3",
+    "@types/node": "^13.7.7",
     "@types/node-cron": "^2.0.2",
     "@types/nodemailer": "^6.4.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
